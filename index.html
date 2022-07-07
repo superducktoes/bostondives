@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="locations.js" type="module"></script>
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+
+    <div id="map">
+        <script>
+
+            //This function takes in latitude and longitude of two location and returns the distance between them as the crow flies (in km)
+            function calcCrow(lat1, lon1, lat2, lon2) {
+                var R = 6371; // km
+                var dLat = toRad(lat2 - lat1);
+                var dLon = toRad(lon2 - lon1);
+                var lat1 = toRad(lat1);
+                var lat2 = toRad(lat2);
+
+                var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                var d = R * c;
+                return d;
+            }
+
+            // Converts numeric degrees to radians
+            function toRad(Value) {
+                return Value * Math.PI / 180;
+            }
+
+            function onLocationFound(e) {
+
+                // get the user coordinates
+                let userLat = e.latitude
+                let userLong = e.longitude
+
+                // calculate the closest bar
+
+                let closestBar = "None. You seem really far from Boston.";
+                let totalDistance = 160; // roughly 100 miles
+
+                for (var i = 0; i < locations.length; i++) {
+
+                    distance = calcCrow(userLat, userLong, locations[i][1], locations[1][2])
+
+                    if (distance < totalDistance) {
+                        totalDistance = distance;
+                        closestBar = locations[i][0];
+                    }
+                }
+
+                L.marker(e.latlng).addTo(map)
+                    .bindPopup("The closest dive bar is: " + closestBar).openPopup();
+            }
+
+            function onLocationError(e) {
+                alert(e.message);
+            }
+
+            var redIcon = new L.Icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            });
+
+            var map = L.map('map').setView([42.36129, -71.05944], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+
+            map.locate({ setView: true, maxZoom: 12 });
+            map.on('locationfound', onLocationFound)
+            map.on('locationerror', onLocationError);
+
+            //<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>
+
+            var locations = [
+                ["Presidential Pub", 42.25105, -71.00244, "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"],
+                ["Paddy Barry's", 42.24703, -71.00079, "<a href='https://www.google.com/maps/dir//Paddy+Barry's,+1574+Hancock+St,+Quincy,+MA+02169/@42.2470277,-71.0029675,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x89e363355df558d7:0x2ef39d4e1990f2fb!2m2!1d-71.0008002!2d42.2470139!3e0' target='_blank' rel='noopener noreferrer'>Directions</a>"],
+                ["Malachy's Saloon", 42.24821, -71.00439, "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"],
+                ["Maggy's Lounge", 42.24631, -70.97666, "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"],
+                ["Cronin's Publick House", 42.24206, -70.97993, "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"],
+                ["The Irish Pub", 42.27371, -71.02471, "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"],
+                ["Eire Pub", 42.28307, -71.05611, "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"],
+                ["Lower Mills Tavern", 42.27297, -71.06805, "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"],
+                ["Charlie's Kitchen", 42.37239, -71.12148, "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"]
+            ]
+
+            for (var i = 0; i < locations.length; i++) {
+                marker = new L.marker([locations[i][1], locations[i][2]], { icon: redIcon })
+                    .bindPopup(locations[i][0] + "<br><br>" + locations[i][3])
+                    .addTo(map);
+            }
+            map.locate({ setView: true, maxZoom: 16 });
+            map.on('locationfound', onLocationFound)
+        </script>
+
+
+    </div>
+    <div id="info">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contributing">Contributing</a></li>
+            <li style="float:right"><a class="inactive">BostonDives.bar</a></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
