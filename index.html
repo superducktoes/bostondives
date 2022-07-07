@@ -101,7 +101,7 @@
                         var lat =  parseFloat(json[i]["location"].split(",")[0])
                         var long = parseFloat(json[i]["location"].split(",")[1])
                         marker = new L.marker([lat, long], {icon: redIcon})
-                            .bindPopup(locations[i]["name"] + "<br><br>" + locations[i]["mobileLink"])
+                            .bindPopup(json[i]["name"] + "<br><br>" + json[i]["mobileLink"])
                             .addTo(map);
                     }
                 })
