@@ -1,0 +1,8 @@
+var locationsJson = 
+[
+    {"name": "Presidential Pub", 
+    "location": "42.25105, -71.00244", 
+    "link": ""}
+       
+    ]
+    
