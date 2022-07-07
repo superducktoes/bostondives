@@ -1,7 +1,50 @@
 [
-    {"name": "Presidential Pub", 
-    "location": "42.25105, -71.00244", 
-    "link": ""}
-       
-    ]
-    
+    {
+        "name": "Presidential Pub", 
+        "location": "42.25105, -71.00244", 
+        "mobileLink": "'<a href='geo: 42.25105, -71.00244' target='_blank' rel='noopener noreferrer'>Directions</a>'",
+        "desktopLink": "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"
+    },
+    {
+        "name": "Paddy Barry's",
+        "location": "42.24703, -71.00079",
+        "mobileLink": "",
+        "desktopLink": "" 
+    },
+    {
+        "name": "Malachy's Saloon",
+        "location": "42.24821, -71.00439",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Maggy's Lounge",
+        "location": "42.24631, -70.97666",
+        "mobileLink": "",
+        "desktopLink":""
+    },
+    {
+        "name": "Cronin's Publick House",
+        "location": "42.24206, -70.97993",
+        "mobileLink": "",
+        "desktopLink":""
+    },
+    {
+        "name": "The Irish Pub",
+        "location": "42.27371, -71.02471",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Eire Pub",
+        "location": "42.28307, -71.05611",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Lower Mills Tavern",
+        "location": "42.27297, -71.06805",
+        "mobileLink": "",
+        "desktopLink": ""
+    }
+]

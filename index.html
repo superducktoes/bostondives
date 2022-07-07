@@ -38,31 +38,6 @@
                 return Value * Math.PI / 180;
             }
 
-            function onLocationFound(e) {
-
-                // get the user coordinates
-                let userLat = e.latitude
-                let userLong = e.longitude
-
-                // calculate the closest bar
-
-                let closestBar = "None. You seem really far from Boston.";
-                let totalDistance = 160; // roughly 100 miles
-
-                for (var i = 0; i < locations.length; i++) {
-
-                    distance = calcCrow(userLat, userLong, locations[i][1], locations[1][2])
-
-                    if (distance < totalDistance) {
-                        totalDistance = distance;
-                        closestBar = locations[i][0];
-                    }
-                }
-
-                L.marker(e.latlng).addTo(map)
-                    .bindPopup("The closest dive bar is: " + closestBar).openPopup();
-            }
-
             function onLocationError(e) {
                 alert(e.message);
             }
@@ -91,14 +66,45 @@
                 attribution: '© OpenStreetMap'
             }).addTo(map);
 
-            map.locate({ setView: true, maxZoom: 12 });
-            map.on('locationfound', onLocationFound)
-            map.on('locationerror', onLocationError);
-
             //<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>
             fetch("./locations.json")
                 .then(response => response.json())
-                .then(json => console.log(json))
+                .then((json) => {
+
+                    map.locate({ setView: true, maxZoom: 16 });
+                    //map.on('locationfound', onLocationFound)
+                    map.on('locationfound', function(e) {
+                        // get the user coordinates
+                        let userLat = e.latitude
+                        let userLong = e.longitude
+                        console.log(json)
+                        
+                        // calculate the closest bar
+                        let closestBar = "None. You seem really far from Boston.";
+                        let totalDistance = 160; // roughly 100 miles
+                        
+                        for (var i = 0; i < locations.length; i++) {
+                            distance = calcCrow(userLat, userLong, locations[i][1], locations[1][2])
+                            if (distance < totalDistance) {
+                                totalDistance = distance;
+                                closestBar = locations[i][0];
+                            }
+                        }
+                        L.marker(e.latlng).addTo(map)
+                        .bindPopup("The closest dive bar is: " + closestBar).openPopup();
+                    })
+                    
+                    map.on('locationerror', onLocationError);
+
+                    for (var i = 0; i < json.length; i++) {
+                        console.log(json[i]);
+                        var lat =  parseFloat(json[i]["location"].split(",")[0])
+                        var long = parseFloat(json[i]["location"].split(",")[1])
+                        marker = new L.marker([lat, long], {icon: redIcon})
+                            .bindPopup(locations[i]["name"] + "<br><br>" + locations[i]["mobileLink"])
+                            .addTo(map);
+                    }
+                })
 
             var locations = [
                 ["Presidential Pub", 42.25105, -71.00244, "<a href='geo: 42.25105, -71.00244' target='_blank' rel='noopener noreferrer'>Directions</a>"],
@@ -112,13 +118,6 @@
                 ["Charlie's Kitchen", 42.37239, -71.12148, "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"]
             ]
 
-            for (var i = 0; i < locations.length; i++) {
-                marker = new L.marker([locations[i][1], locations[i][2]], { icon: redIcon })
-                    .bindPopup(locations[i][0] + "<br><br>" + locations[i][3])
-                    .addTo(map);
-            }
-            map.locate({ setView: true, maxZoom: 16 });
-            map.on('locationfound', onLocationFound)
         </script>
 
 
