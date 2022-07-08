@@ -2,49 +2,163 @@
     {
         "name": "Presidential Pub", 
         "location": "42.25105, -71.00244", 
+        "type": "bar",
         "mobileLink": "'<a href='geo: 42.25105, -71.00244' target='_blank' rel='noopener noreferrer'>Directions</a>'",
         "desktopLink": "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"
     },
     {
         "name": "Paddy Barry's",
         "location": "42.24703, -71.00079",
+        "type": "bar",
         "mobileLink": "",
         "desktopLink": "" 
     },
     {
         "name": "Malachy's Saloon",
         "location": "42.24821, -71.00439",
+        "type": "bar",
         "mobileLink": "",
         "desktopLink": ""
     },
     {
         "name": "Maggy's Lounge",
         "location": "42.24631, -70.97666",
+        "type": "bar",
         "mobileLink": "",
         "desktopLink":""
     },
     {
         "name": "Cronin's Publick House",
         "location": "42.24206, -70.97993",
+        "type": "bar",
         "mobileLink": "",
         "desktopLink":""
     },
     {
         "name": "The Irish Pub",
         "location": "42.27371, -71.02471",
+        "type": "bar",
         "mobileLink": "",
         "desktopLink": ""
     },
     {
         "name": "Eire Pub",
         "location": "42.28307, -71.05611",
+        "type": "bar",
         "mobileLink": "",
         "desktopLink": ""
     },
     {
         "name": "Lower Mills Tavern",
         "location": "42.27297, -71.06805",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Twelve Ben's Inc",
+        "location": "42.29859, -71.05767",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Midway Cafe",
+        "location": "42.30622, -71.10753",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "The Banshee",
+        "location": "42.31897, -71.05658",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Sports Connection Bar and Grill Inc",
+        "location": "42.33044, -71.05677",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Touchie's Shamrock Pub",
+        "location": "42.33125, -71.0412",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "L Street Tavern",
+        "location": "42.3316, -71.03542",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Murphys Law",
+        "location": "42.33803, -71.03566",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": "" 
+    },
+    {
+        "name": "Shannon Tavern",
+        "location": "42.33654, -71.03732",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Tom English's Cottage",
+        "location": "42.33586, -71.0404",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Clock Tavern",
+        "location": "42.33835, -71.04969",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Croke Park",
+        "location": "42.3393, -71.05124",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Shea's Tavern",
+        "location": "42.34004, -71.05248",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Lucky's Lounge",
+        "location": "42.3502, -71.04844",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Kelleher's Bar & Grille",
+        "location": "42.29394, -71.13623",
+        "type": "bar",
+        "mobileLink": "",
+        "desktopLink": ""
+    },
+    {
+        "name": "Tahiti Restaurant and Cocktail Lounge",
+        "location": "42.24504, -71.17218",
+        "type": "bar",
         "mobileLink": "",
         "desktopLink": ""
     }
+
 ]
