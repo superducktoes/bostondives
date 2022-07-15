@@ -2,163 +2,256 @@
     {
         "name": "Presidential Pub", 
         "location": "42.25105, -71.00244", 
-        "type": "bar",
-        "mobileLink": "'<a href='geo: 42.25105, -71.00244' target='_blank' rel='noopener noreferrer'>Directions</a>'",
-        "desktopLink": "<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>"
+        "type": "bar"
     },
     {
         "name": "Paddy Barry's",
         "location": "42.24703, -71.00079",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": "" 
+        "whatToOrder": "Beer. Food from the pizza glory hole.",
+        "type": "bar"
     },
     {
         "name": "Malachy's Saloon",
         "location": "42.24821, -71.00439",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Maggy's Lounge",
         "location": "42.24631, -70.97666",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink":""
+        "type": "bar"
     },
     {
         "name": "Cronin's Publick House",
         "location": "42.24206, -70.97993",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink":""
+        "type": "bar"
     },
     {
         "name": "The Irish Pub",
         "location": "42.27371, -71.02471",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Eire Pub",
         "location": "42.28307, -71.05611",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Lower Mills Tavern",
         "location": "42.27297, -71.06805",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Twelve Ben's Inc",
         "location": "42.29859, -71.05767",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Midway Cafe",
         "location": "42.30622, -71.10753",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "The Banshee",
         "location": "42.31897, -71.05658",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Sports Connection Bar and Grill Inc",
         "location": "42.33044, -71.05677",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Touchie's Shamrock Pub",
         "location": "42.33125, -71.0412",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "L Street Tavern",
         "location": "42.3316, -71.03542",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Murphys Law",
         "location": "42.33803, -71.03566",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": "" 
+        "type": "bar"
     },
     {
         "name": "Shannon Tavern",
         "location": "42.33654, -71.03732",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Tom English's Cottage",
         "location": "42.33586, -71.0404",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Clock Tavern",
         "location": "42.33835, -71.04969",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Croke Park",
         "location": "42.3393, -71.05124",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Shea's Tavern",
         "location": "42.34004, -71.05248",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Lucky's Lounge",
         "location": "42.3502, -71.04844",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Kelleher's Bar & Grille",
         "location": "42.29394, -71.13623",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
     },
     {
         "name": "Tahiti Restaurant and Cocktail Lounge",
         "location": "42.24504, -71.17218",
-        "type": "bar",
-        "mobileLink": "",
-        "desktopLink": ""
+        "type": "bar"
+    },
+    {
+        "name": "Corner Cafe",
+        "location": "42.36559, -71.056",
+        "type": "bar"
+    },
+    {
+        "name": "Sullivan's Tap",
+        "location": "42.36508, -71.06108",
+        "type": "bar"
+    },
+    {
+        "name": "Durty Nelly's",
+        "location": "42.36173, -71.05658",
+        "type": "bar"
+    },
+    {
+        "name": "Beacon Hill Pub",
+        "location": "42.36045, -71.07072",
+        "whatToOrder": "Hot Dogs. $3 PBR's",
+        "type": "bar"
+    },
+    {
+        "name": "The Sevens Ale House",
+        "location": "42.35833, -71.0704",
+        "type": "bar"
+    },
+    {
+        "name": "An Tain",
+        "location": "42.35829, -71.05307",
+        "type": "bar"
+    },
+    {
+        "name": "Mr. Dooley's Boston",
+        "location": "42.35766, -71.05364",
+        "type": "bar"
+    },
+    {
+        "name": "Silvertons Bar & Grill",
+        "location": "42.35708, -71.06087",
+        "type": "bar"
+    },
+    {
+        "name": "SideBar",
+        "location": "42.35642, -71.06008",
+        "type": "bar"
+    },
+    {
+        "name": "Biddy Early's",
+        "location": "42.3547, -71.05364",
+        "type": "bar"
+    },
+    {
+        "name": "JJ Foley's Bar & Grille",
+        "location": "42.35381, -71.05917",
+        "type": "bar"
+    },
+    {
+        "name": "Corner Pub",
+        "location": "42.35076, -71.05834",
+        "type": "bar"
+    },
+    {
+        "name": "The Tam",
+        "location": "42.35151, -71.06464",
+        "type": "bar"
+    },
+    {
+        "name": "Delux Cafe",
+        "location": "42.34629, -71.0729",
+        "type": "bar"
+    },
+    {
+        "name": "Anchovies",
+        "location": "42.34396, -71.0778",
+        "type": "bar"
+    },
+    {
+        "name": "The Pour House",
+        "location": "42.34835, -71.08426",
+        "type": "bar"
+    },
+    {
+        "name": "Bukowski Taven",
+        "location": "42.34722, -71.08555",
+        "type": "bar"
+    },
+    {
+        "name": "Two Saints",
+        "location": "42.34177, -71.08705",
+        "type": "bar"
+    },
+    {
+        "name": "Tasty Burger",
+        "location": "42.3559, -71.06196",
+        "whatToOrder": "$10 burger and fries with a tallboy",
+        "type": "food"
+    },
+    {
+        "name": "Angelos Pizza",
+        "location": "42.37302, -71.11077",
+        "type": "food"
+    },
+    {
+        "name": "Kelly Square Pub",
+        "location": "42.3762, -71.03568",
+        "type": "bar"
+    },
+    {
+        "name": "Eddie C's",
+        "location": "42.36996, -71.0393",
+        "whatToOrder": "Hot dogs. Single beers, never a pitcher. It's cheaper that way.",
+        "type": "bar"
+    },
+    {
+        "name": "Casey's",
+        "location": "42.38909, -71.08618",
+        "type": "bar"
+    },
+    {
+        "name": "Mount Vernon Restaurant & Pub",
+        "location": "42.38591, -71.07823",
+        "type": "bar"
+    },
+    {
+        "name": "Tavern at the End of the World",
+        "location": "42.38218, -71.07938",
+        "type": "bar"
+    },
+    {
+        "name": "Michael's Bar",
+        "location": "42.38156, -71.08587",
+        "type": "bar"
+    },
+    {
+        "name": "The Pub",
+        "location": "42.39958, -71.11176",
+        "type": "bar"
     }
 
 ]
