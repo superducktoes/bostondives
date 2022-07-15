@@ -128,7 +128,7 @@
 
                             // if mobile add a link to open in google maps
                             if(isMobile) {
-                                popupMessage += `<br><a href='geo: ${lat}, ${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
+                                popupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
                             }
 
                             // if the what to order field is popuplated
