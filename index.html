@@ -7,6 +7,16 @@
 </head>
 
 <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155154942-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-155154942-1');
+</script>
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
         crossorigin="" />
@@ -30,7 +40,9 @@
                     Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
                 var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
                 var d = R * c;
-                return d;
+
+                // return distance in feet. doesn't need to be super precise. this is dive bars we're talking about here
+                return parseInt(d * 2380.8);
             }
 
             // Converts numeric degrees to radians
@@ -73,7 +85,6 @@
                 attribution: '© OpenStreetMap'
             }).addTo(map);
 
-            //<a href='' target='_blank' rel='noopener noreferrer'>Directions</a>
             fetch("./locations.json")
                 .then(response => response.json())
                 .then((json) => {
@@ -86,10 +97,11 @@
                         // get the user coordinates
                         let userLat = e.latitude
                         let userLong = e.longitude
-                        
+                        let closestLat, closestLong, walkingDistance;
+
                         // calculate the closest bar
                         let closestBar = "None. You seem really far from Boston.";
-                        let totalDistance = 160; // roughly 100 miles
+                        let totalDistance = 528000; // roughly 100 miles
                         
                         for(var i = 0; i < json.length; i++) {
                             var lat =  parseFloat(json[i]["location"].split(",")[0])
@@ -97,19 +109,51 @@
 
                             // find the distance between the bar and the current location to determine whats closest
                             distance = calcCrow(userLat, userLong, lat, long)
-                            if (distance < totalDistance) {
+                            if (distance < totalDistance && json[i]["type"] == "bar") {
                                 totalDistance = distance;
                                 closestBar = json[i]["name"]
+                                closestLat = lat;
+                                closestLong = long;
+                                walkingDistance = distance;
                             }
 
                             // plot the marker on the map
-                            marker = new L.marker([lat, long], {icon: redIcon})
-                            .bindPopup(json[i]["name"] + "<br><br>" + json[i]["mobileLink"])
+                            let iconType = redIcon;
+                            if(json[i]["type"] == "food") {
+                                iconType = greenIcon;
+                            }
+
+                            // start creating the popup menu when an icon is clicked on
+                            let popupMessage = json[i]["name"];
+
+                            // if mobile add a link to open in google maps
+                            if(isMobile) {
+                                popupMessage += `<br><a href='geo: ${lat}, ${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
+                            }
+
+                            // if the what to order field is popuplated
+                            if(json[i]["whatToOrder"]){
+                                popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                            }
+
+                            marker = new L.marker([lat, long], {icon: iconType})
+                            .bindPopup(popupMessage)
                             .addTo(map);
                         }
 
                         L.marker(e.latlng).addTo(map)
                         .bindPopup("The closest dive bar is: " + closestBar).openPopup();
+
+                        // get the lats/longs for location and closest bar to plot
+                        var latlngs = [
+                            [closestLat, closestLong],
+                            [userLat, userLong]
+                        ]
+
+                        // draw a line between us and hte closest bar. click on the line to find the distance.
+                        var polyLine = L.polyline(latlngs, {color:"red", opacity:"0.3"})
+                        .bindPopup("Approximately " + parseInt(walkingDistance) + " ft away")
+                        .addTo(map);
                     })
                     
                     map.on('locationerror', onLocationError);
@@ -120,8 +164,9 @@
     </div>
     <div id="info">
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contributing">Contributing</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html#contributing">Contributing</a></li>
+            <li><a href="#zine">Zine</a></li>
             <li style="float:right"><a class="inactive">BostonDives.bar</a></li>
         </ul>
     </div>
