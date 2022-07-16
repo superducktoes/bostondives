@@ -152,7 +152,7 @@
         "type": "bar"
     },
     {
-        "name": "Silvertons Bar & Grill",
+        "name": "Silvertones Bar & Grill",
         "location": "42.35708, -71.06087",
         "type": "bar"
     },
@@ -371,6 +371,11 @@
     {
         "name": "Shay's Pub & Wine Bar",
         "location": "42.37179, -71.12060",
+        "type": "bar"
+    },
+    {
+        "name": "The Red Hat",
+        "location": "42.36098, -71.06303",
         "type": "bar"
     }
 ]
