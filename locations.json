@@ -192,11 +192,6 @@
         "type": "bar"
     },
     {
-        "name": "The Pour House",
-        "location": "42.34835, -71.08426",
-        "type": "bar"
-    },
-    {
         "name": "Bukowski Taven",
         "location": "42.34722, -71.08555",
         "type": "bar"
@@ -351,6 +346,31 @@
     {
         "name": "China Rainbow",
         "location": "42.36469, -71.18069",
+        "type": "bar"
+    },
+    {
+        "name": "The Cantab Lounge",
+        "location": "42.36610, -71.10529",
+        "type": "bar"
+    },
+    {
+        "name": "The Phoenix Landing",
+        "location": "42.36408, -71.10193",
+        "type": "bar"
+    },
+    {
+        "name": "The Middle East",
+        "location": "42.36380, -71.10139",
+        "type": "bar"
+    },
+    {
+        "name": "Whitneys",
+        "location": "42.37274, -71.12016",
+        "type": "bar"
+    },
+    {
+        "name": "Shay's Pub & Wine Bar",
+        "location": "42.37179, -71.12060",
         "type": "bar"
     }
 ]
