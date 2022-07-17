@@ -168,7 +168,8 @@
                                 console.log(ua)
                                 if (isMobile && ua.includes("Android")) {
                                     closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                                } else {
+                                } 
+                                if(isMobile && ua.includes("iPhone")) {
                                     closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                                 }
 
