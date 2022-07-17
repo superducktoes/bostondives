@@ -145,19 +145,18 @@
                                 .bindPopup(popupMessage)
                                 .addTo(map);
                         }
-
-                        L.marker(e.latlng).addTo(map)
-                            .bindPopup("The closest dive bar is: " + closestBar).openPopup();
-
                         L.Routing.control({
                             waypoints: [
                                 L.latLng(userLat, userLong),
                                 L.latLng(closestLat, closestLong)
                             ],
-                            routeWhileDragging: true,
-                            showAlternatives: true,
                             units: "imperial"
                         }).addTo(map);
+
+                        
+                        L.marker(e.latlng).addTo(map)
+                            .bindPopup("The closest dive bar is: " + closestBar).openPopup();
+
 
                     })
 
