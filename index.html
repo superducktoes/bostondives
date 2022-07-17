@@ -55,8 +55,50 @@
                 return Value * Math.PI / 180;
             }
 
+            // this is all kind of ugly but works. i forgot that people block all location requests
             function onLocationError(e) {
                 alert(e.message);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© OpenStreetMap'
+                }).addTo(map);
+
+                fetch("./locations.json")
+                    .then(response => response.json())
+                    .then((json) => {
+
+                        let isMobile = window.mobileCheck()
+                        for (var i = 0; i < json.length; i++) {
+                            var lat = parseFloat(json[i]["location"].split(",")[0])
+                            var long = parseFloat(json[i]["location"].split(",")[1])
+                            // determine what marker to use on the map
+                            let iconType = redIcon;
+                            if (json[i]["type"] == "food") {
+                                iconType = greenIcon;
+                            }
+
+                            // start creating the popup menu when an icon is clicked on
+                            let popupMessage = json[i]["name"];
+
+                            // if mobile add a link to open in google maps
+                            if (isMobile) {
+                                popupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
+                            }
+
+                            // if the what to order field is popuplated
+                            if (json[i]["whatToOrder"]) {
+                                popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                            }
+
+                            // add everything from locations
+                            marker = new L.marker([lat, long], { icon: iconType })
+                                .bindPopup(popupMessage)
+                                .addTo(map);
+                        }
+                    }
+
+                    )
             }
 
             var redIcon = new L.Icon({
