@@ -137,7 +137,6 @@
                 .then((json) => {
 
                     let isMobile = window.mobileCheck()
-                    console.log(isMobile);
 
                     map.locate({ setView: true, maxZoom: 16 });
                     map.on('locationfound', function (e) {
@@ -165,8 +164,12 @@
                                 closestLong = long;
                                 closestPopupMessage = json[i]["name"];
                                 // if mobile add a link to open in google maps
-                                if (isMobile) {
+                                let ua = navigator.userAgent;
+                                console.log(ua)
+                                if (isMobile && ua.includes("Android")) {
                                     closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
+                                } else {
+                                    closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                                 }
 
                                 // if the what to order field is popuplated
