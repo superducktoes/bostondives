@@ -27,8 +27,8 @@
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
         integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
         crossorigin=""></script>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
     <div id="map">
         <script>
@@ -102,7 +102,7 @@
                         // get the user coordinates
                         let userLat = e.latitude
                         let userLong = e.longitude
-                        let closestLat, closestLong, walkingDistance;
+                        let closestLat, closestLong, closestPopupMessage;
 
                         // calculate the closest bar
                         let closestBar = "None. You seem really far from Boston.";
@@ -114,15 +114,28 @@
 
                             // find the distance between the bar and the current location to determine whats closest
                             distance = calcCrow(userLat, userLong, lat, long)
+
+                            // get this info to plot separately
                             if (distance < totalDistance && json[i]["type"] == "bar") {
                                 totalDistance = distance;
                                 closestBar = json[i]["name"]
                                 closestLat = lat;
                                 closestLong = long;
-                                walkingDistance = distance;
+                                closestPopupMessage = json[i]["name"];
+                                // if mobile add a link to open in google maps
+                                if (isMobile) {
+                                    closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
+                                }
+
+                                // if the what to order field is popuplated
+                                if (json[i]["whatToOrder"]) {
+                                    closestPpopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                                }
+
+
                             }
 
-                            // plot the marker on the map
+                            // determine what marker to use on the map
                             let iconType = redIcon;
                             if (json[i]["type"] == "food") {
                                 iconType = greenIcon;
@@ -141,10 +154,13 @@
                                 popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
                             }
 
+                            // add everything from locations
                             marker = new L.marker([lat, long], { icon: iconType })
                                 .bindPopup(popupMessage)
                                 .addTo(map);
                         }
+
+
                         L.Routing.control({
                             waypoints: [
                                 L.latLng(userLat, userLong),
@@ -153,10 +169,13 @@
                             units: "imperial"
                         }).addTo(map);
 
-                        
                         L.marker(e.latlng).addTo(map)
                             .bindPopup("The closest dive bar is: " + closestBar).openPopup();
 
+                        // this gets added a second time to lay over the routing
+                        closestMarker = new L.marker([closestLat, closestLong], { icon: redIcon })
+                            .bindPopup(closestPopupMessage)
+                            .addTo(map);
 
                     })
 
