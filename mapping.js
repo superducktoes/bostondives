@@ -140,7 +140,7 @@ fetch("./locations.json")
 
                     // if the what to order field is popuplated
                     if (json[i]["whatToOrder"]) {
-                        closestPpopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                        closestPopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
                     }
                 }
 
