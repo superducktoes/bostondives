@@ -111,7 +111,7 @@ fetch("./locations.json")
             let closestLat, closestLong, closestPopupMessage;
 
             // calculate the closest bar
-            let closestBar = "None. You seem really far from Boston.";
+            let closestBar = "You seem pretty far from Boston. Feel free to research dive bars if you're taking a trip. If you load the site on your phone when you're here it will automatically route you to the closest dive bar.";
             let totalDistance = 528000; // roughly 100 miles
 
             for (var i = 0; i < json.length; i++) {
