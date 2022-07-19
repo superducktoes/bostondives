@@ -377,5 +377,10 @@
         "name": "The Red Hat",
         "location": "42.36098, -71.06303",
         "type": "bar"
+    },
+    {
+        "name": "The Sausage Guy",
+        "location": "42.34728, -71.09735",
+        "type": "food"
     }
 ]
