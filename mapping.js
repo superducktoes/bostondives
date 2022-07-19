@@ -124,7 +124,7 @@ fetch("./locations.json")
                 // get this info to plot separately
                 if (distance < totalDistance && json[i]["type"] == "bar") {
                     totalDistance = distance;
-                    closestBar = json[i]["name"]
+                    closestBar = "The closest dive bar is: " + json[i]["name"];
                     closestLat = lat;
                     closestLong = long;
                     closestPopupMessage = json[i]["name"];
@@ -179,7 +179,7 @@ fetch("./locations.json")
             }).addTo(map);
 
             L.marker(e.latlng).addTo(map)
-                .bindPopup("The closest dive bar is: " + closestBar).openPopup();
+                .bindPopup(closestBar).openPopup();
 
             // this gets added a second time to lay over the routing
             closestMarker = new L.marker([closestLat, closestLong], { icon: redIcon })
