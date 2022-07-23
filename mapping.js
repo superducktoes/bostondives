@@ -126,6 +126,7 @@ fetch("./locations.json")
             let userLat = e.latitude
             let userLong = e.longitude
             let closestLat, closestLong, closestPopupMessage;
+            let ua = navigator.userAgent;
 
             // calculate the closest bar
             let closestBar = "You seem pretty far from Boston. Feel free to research dive bars if you're taking a trip. If you load the site on your phone when you're here it will automatically route you to the closest dive bar.";
@@ -151,8 +152,6 @@ fetch("./locations.json")
                         closestPopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
                     }
 
-                    // if mobile add a link to open in google maps
-                    let ua = navigator.userAgent;
 
                     if (isMobile && ua.includes("Android")) {
                         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
