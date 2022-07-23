@@ -157,7 +157,6 @@ fetch("./locations.json")
                     if (isMobile) {
                         closestPopupMessage += `<br><a href='https://bostondives.bar/index.html?bar=${json[i]["name"]}'>Share</a>`;
                     }
-
                 }
 
                 // determine what marker to use on the map
@@ -169,14 +168,20 @@ fetch("./locations.json")
                 // start creating the popup menu when an icon is clicked on
                 let popupMessage = json[i]["name"];
 
-                // if mobile add a link to open in google maps
-                if (isMobile) {
-                    popupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                }
-
                 // if the what to order field is popuplated
                 if (json[i]["whatToOrder"]) {
                     popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                }
+
+                // if mobile add a link to open in google maps
+                if (isMobile && ua.includes("Android")) {
+                    closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
+                } else {
+                    closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
+                }
+
+                if (isMobile) {
+                    closestPopupMessage += `<br><a href='https://bostondives.bar/index.html?bar=${json[i]["name"]}'>Share</a>`;
                 }
 
                 // add everything from locations
