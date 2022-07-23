@@ -101,7 +101,13 @@ fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
 
+        // check to see if on mobile
         let isMobile = window.mobileCheck()
+
+        // check if there is a bar parameter provided
+        let barQuery = window.location.search;
+        const urlParams = new URLSearchParams(barQuery);
+        const plotBarOnMap = urlParams.get('bar');
 
         map.locate({ setView: true, maxZoom: 16 });
         map.on('locationfound', function (e) {
@@ -124,7 +130,12 @@ fetch("./locations.json")
                 // get this info to plot separately
                 if (distance < totalDistance && json[i]["type"] == "bar") {
                     totalDistance = distance;
-                    closestBar = "The closest dive bar is: " + json[i]["name"];
+                    if(!barQuery) {
+                        closestBar = "The closest dive bar is: " + json[i]["name"];
+                    } else {
+                        closestBar = "Directions to: " + plotBarOnMap;
+                    }
+
                     closestLat = lat;
                     closestLong = long;
                     closestPopupMessage = json[i]["name"];
@@ -136,6 +147,10 @@ fetch("./locations.json")
                         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
                     } else {
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
+                    }
+
+                    if(isMobile) {
+                        closestPopupMessage += `<br><a href='https://bostondives.bar?=${json[i]["name"]}>Share</a>`
                     }
 
                     // if the what to order field is popuplated
@@ -169,6 +184,16 @@ fetch("./locations.json")
                     .addTo(map);
             }
 
+            if (plotBarOnMap) {
+                for (let i = 0; i < json.length; i++) {
+                    if (json[i]["name"] == plotBarOnMap) {
+                        var lat = parseFloat(json[i]["location"].split(",")[0])
+                        var long = parseFloat(json[i]["location"].split(",")[1])
+                        closestLat = lat;
+                        closestLong = long;
+                    }
+                }
+            }
 
             L.Routing.control({
                 waypoints: [
