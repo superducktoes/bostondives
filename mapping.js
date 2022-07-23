@@ -154,9 +154,6 @@ fetch("./locations.json")
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
 
-                    if (isMobile) {
-                        closestPopupMessage += `<br><a href='https://bostondives.bar/index.html?bar=${json[i]["name"]}'>Share</a>`;
-                    }
                 }
 
                 // determine what marker to use on the map
@@ -180,9 +177,6 @@ fetch("./locations.json")
                     closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                 }
 
-                if (isMobile) {
-                    closestPopupMessage += `<br><a href='https://bostondives.bar/index.html?bar=${json[i]["name"]}'>Share</a>`;
-                }
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
