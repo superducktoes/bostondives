@@ -130,7 +130,7 @@ fetch("./locations.json")
                 // get this info to plot separately
                 if (distance < totalDistance && json[i]["type"] == "bar") {
                     totalDistance = distance;
-                    if(!barQuery) {
+                    if (!barQuery) {
                         closestBar = "The closest dive bar is: " + json[i]["name"];
                     } else {
                         closestBar = "Directions to: " + plotBarOnMap;
@@ -139,6 +139,11 @@ fetch("./locations.json")
                     closestLat = lat;
                     closestLong = long;
                     closestPopupMessage = json[i]["name"];
+
+                    // if the what to order field is popuplated
+                    if (json[i]["whatToOrder"]) {
+                        closestPopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                    }
 
                     // if mobile add a link to open in google maps
                     let ua = navigator.userAgent;
@@ -149,14 +154,10 @@ fetch("./locations.json")
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
 
-                    if(isMobile) {
-                        closestPopupMessage += `<br><a href='https://bostondives.bar?=${json[i]["name"]}>Share</a>`
+                    if (isMobile) {
+                        closestPopupMessage += `<br><a href='https://bostondives.bar/index.html?bar=${json[i]["name"]}'>Share</a>`;
                     }
 
-                    // if the what to order field is popuplated
-                    if (json[i]["whatToOrder"]) {
-                        closestPopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
-                    }
                 }
 
                 // determine what marker to use on the map
