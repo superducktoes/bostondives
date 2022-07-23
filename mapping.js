@@ -159,9 +159,12 @@ fetch("./locations.json")
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
 
-                } else if(barQuery) {
+                } else if (barQuery) {
+                    totalDistance = 0; // this is a hack to reset the view for out of state users
+
                     closestBar = "Directions to: " + plotBarOnMap;
                     closestPopupMessage = plotBarOnMap;
+
                     if (isMobile && ua.includes("Android")) {
                         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
                     } else if (isMobile && ua.includes("iPhone")) {
@@ -207,12 +210,22 @@ fetch("./locations.json")
                 }
             }
 
+            // reset the view if the user is out of stateish
+            // i also have no way of testing this right now
+            if (totalDistance = 528000) {
+                map.setView([42.36129, -71.05944], 13);
+                L.marker(e.latlng).addTo(map)
+                    .bindPopup(closestBar).openPopup();
+            }
+
+
             L.Routing.control({
                 waypoints: [
                     L.latLng(userLat, userLong),
                     L.latLng(closestLat, closestLong)
                 ],
-                units: "imperial"
+                units: "imperial",
+                fitSelectedRoutes: true
             }).addTo(map);
 
             L.marker(e.latlng).addTo(map)
