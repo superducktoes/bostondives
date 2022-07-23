@@ -103,11 +103,6 @@ fetch("./locations.json")
 
         let isMobile = window.mobileCheck()
 
-        // check if there is a bar parameter provided
-        let barQuery = window.location.search;
-        const urlParams = new URLSearchParams(barQuery);
-        const plotBarOnMap = urlParams.get('bar');
-
         map.locate({ setView: true, maxZoom: 16 });
         map.on('locationfound', function (e) {
             // get the user coordinates
@@ -127,28 +122,27 @@ fetch("./locations.json")
                 distance = calcCrow(userLat, userLong, lat, long)
 
                 // get this info to plot separately
-                if (distance < totalDistance && json[i]["type"] == "bar" && barQuery == "") {
+                if (distance < totalDistance && json[i]["type"] == "bar") {
                     totalDistance = distance;
                     closestBar = "The closest dive bar is: " + json[i]["name"];
                     closestLat = lat;
                     closestLong = long;
                     closestPopupMessage = json[i]["name"];
 
-                    // if the what to order field is popuplated
-                    if (json[i]["whatToOrder"]) {
-                        closestPopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
-                    }
-
                     // if mobile add a link to open in google maps
                     let ua = navigator.userAgent;
 
                     if (isMobile && ua.includes("Android")) {
                         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                    } else if (isMobile && ua.includes("iPhone")) {
+                    } else {
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
 
-                } 
+                    // if the what to order field is popuplated
+                    if (json[i]["whatToOrder"]) {
+                        closestPopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                    }
+                }
 
                 // determine what marker to use on the map
                 let iconType = redIcon;
@@ -160,10 +154,8 @@ fetch("./locations.json")
                 let popupMessage = json[i]["name"];
 
                 // if mobile add a link to open in google maps
-                if (isMobile && ua.includes("Android")) {
-                    closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                } else if (isMobile && ua.includes("iPhone")) {
-                    closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
+                if (isMobile) {
+                    popupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
                 }
 
                 // if the what to order field is popuplated
