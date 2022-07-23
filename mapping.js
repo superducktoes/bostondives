@@ -101,7 +101,6 @@ fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
 
-        // check to see if on mobile
         let isMobile = window.mobileCheck()
 
         // check if there is a bar parameter provided
@@ -128,14 +127,9 @@ fetch("./locations.json")
                 distance = calcCrow(userLat, userLong, lat, long)
 
                 // get this info to plot separately
-                if (distance < totalDistance && json[i]["type"] == "bar") {
+                if (distance < totalDistance && json[i]["type"] == "bar" && barQuery == "") {
                     totalDistance = distance;
-                    if (!barQuery) {
-                        closestBar = "The closest dive bar is: " + json[i]["name"];
-                    } else {
-                        closestBar = "Directions to: " + plotBarOnMap;
-                    }
-
+                    closestBar = "The closest dive bar is: " + json[i]["name"];
                     closestLat = lat;
                     closestLong = long;
                     closestPopupMessage = json[i]["name"];
@@ -150,15 +144,11 @@ fetch("./locations.json")
 
                     if (isMobile && ua.includes("Android")) {
                         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                    } else {
+                    } else if (isMobile && ua.includes("iPhone")) {
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
 
-                    if (isMobile) {
-                        closestPopupMessage += `<br><a href='https://bostondives.bar/index.html?bar=${json[i]["name"]}'>Share</a>`;
-                    }
-
-                }
+                } 
 
                 // determine what marker to use on the map
                 let iconType = redIcon;
@@ -169,22 +159,17 @@ fetch("./locations.json")
                 // start creating the popup menu when an icon is clicked on
                 let popupMessage = json[i]["name"];
 
+                // if mobile add a link to open in google maps
+                if (isMobile && ua.includes("Android")) {
+                    closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
+                } else if (isMobile && ua.includes("iPhone")) {
+                    closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
+                }
+
                 // if the what to order field is popuplated
                 if (json[i]["whatToOrder"]) {
                     popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
                 }
-
-                // if mobile add a link to open in google maps
-                if (isMobile) {
-                    popupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                }
-
-                if (isMobile) {
-                    closestPopupMessage += `<br><a href='https://bostondives.bar/index.html?bar=${json[i]["name"]}'>Share</a>`;
-                } else {
-                    closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
-                }
-
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
@@ -192,16 +177,6 @@ fetch("./locations.json")
                     .addTo(map);
             }
 
-            if (plotBarOnMap) {
-                for (let i = 0; i < json.length; i++) {
-                    if (json[i]["name"] == plotBarOnMap) {
-                        var lat = parseFloat(json[i]["location"].split(",")[0])
-                        var long = parseFloat(json[i]["location"].split(",")[1])
-                        closestLat = lat;
-                        closestLong = long;
-                    }
-                }
-            }
 
             L.Routing.control({
                 waypoints: [
