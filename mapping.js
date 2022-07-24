@@ -162,7 +162,7 @@ fetch("./locations.json")
 
                     if (isMobile && ua.includes("Android")) {
                         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                    } else if (isMobile && ua.includes("iPhone")) {
+                    } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
 
@@ -174,7 +174,7 @@ fetch("./locations.json")
 
                     if (isMobile && ua.includes("Android")) {
                         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                    } else if (isMobile && ua.includes("iPhone")) {
+                    } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
                 }
@@ -227,19 +227,19 @@ fetch("./locations.json")
                 map.setView([42.352842657497064, -71.06222679401405], 14);
             }
 
-            if(closestBar){ 
-            L.Routing.control({
-                waypoints: [
-                    L.latLng(userLat, userLong),
-                    L.latLng(closestLat, closestLong)
-                ],
-                units: "imperial",
-                fitSelectedRoutes: true
-            }).addTo(map);
+            if (closestBar) {
+                L.Routing.control({
+                    waypoints: [
+                        L.latLng(userLat, userLong),
+                        L.latLng(closestLat, closestLong)
+                    ],
+                    units: "imperial",
+                    fitSelectedRoutes: true
+                }).addTo(map);
 
-            
-            L.marker(e.latlng).addTo(map)
-                .bindPopup(closestBar).openPopup();
+
+                L.marker(e.latlng).addTo(map)
+                    .bindPopup(closestBar).openPopup();
             }
 
             // this gets added a second time to lay over the routing
