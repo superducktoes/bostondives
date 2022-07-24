@@ -142,11 +142,6 @@
         "type": "bar"
     },
     {
-        "name": "An Tain",
-        "location": "42.35829, -71.05307",
-        "type": "bar"
-    },
-    {
         "name": "Mr. Dooley's Boston",
         "location": "42.35766, -71.05364",
         "type": "bar"
@@ -374,7 +369,7 @@
         "type": "bar"
     },
     {
-        "name": "The Red Hat",
+        "name": "Teddy's on the Hill",
         "location": "42.36098, -71.06303",
         "type": "bar"
     },
@@ -382,5 +377,51 @@
         "name": "The Sausage Guy",
         "location": "42.34728, -71.09735",
         "type": "food"
+    },
+    {
+        "name": "Coogan's",
+        "location": "42.35833, -71.05334",
+        "whatToOrder": "$1 bud/bud lights drafts",
+        "type": "bar"
+    },
+    {
+        "name": "New Republik",
+        "location": "42.37311, -71.09691",
+        "type": "bar"
+    },
+    {
+        "name": "Union Tavern",
+        "location": "42.38084, -71.09833",
+        "type": "bar"
+    },
+    {
+        "name": "Trina's Starlite Lounge",
+        "location": "42.37449, -71.10159",
+        "type": "bar"
+    },
+    {
+        "name": "Parlor Sports",
+        "location": "42.37445, -71.10152",
+        "type": "bar"
+    },
+    {
+        "name": "Alex's Kitchen Somerville",
+        "location": "42.37462, -71.10049",
+        "type": "bar"
+    },
+    {
+        "name": "Porters Bar and Grill",
+        "location": "42.36434, -71.06163",
+        "type": "bar"
+    },
+    {
+        "name": "JJ's Irish Pub & Grille",
+        "location": "42.31227, -71.05724",
+        "type": "bar"
+    },
+    {
+        "name": "Cornwall's",
+        "location": "42.34942, -71.09570",
+        "type": "bar"
     }
 ]
