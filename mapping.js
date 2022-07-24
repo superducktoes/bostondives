@@ -22,7 +22,7 @@ function toRad(Value) {
 
 // this is all kind of ugly but works. i forgot that people block all location requests
 function onLocationError(e) {
-    alert(e.message);
+    //alert(e.message);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -64,6 +64,11 @@ function onLocationError(e) {
                     .bindPopup(popupMessage)
                     .addTo(map);
             }
+
+            var options = { timeout: 8000, position: "topright" }
+            let msg = "You're not sharing your location. Feel free to click around and research bars. If you share your location on your phone or computer it will automatically route you to the closest dive bar."
+            var box = L.control.messagebox(options).addTo(map).show(msg);
+
         }
 
         )
@@ -102,7 +107,8 @@ window.mobileCheck = function () {
     return check;
 };
 
-var map = L.map('map').setView([42.36129, -71.05944], 13);
+var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
+
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -129,7 +135,7 @@ fetch("./locations.json")
             let ua = navigator.userAgent;
 
             // calculate the closest bar
-            let closestBar = "You seem pretty far from Boston. Feel free to research dive bars if you're taking a trip. If you load the site on your phone when you're here it will automatically route you to the closest dive bar.";
+            let closestBar = "";
             let totalDistance = 528000; // roughly 100 miles
 
             for (var i = 0; i < json.length; i++) {
@@ -212,7 +218,11 @@ fetch("./locations.json")
 
             // reset the view if the user is out of stateish
             // i also have no way of testing this right now
-            if (totalDistance = 528000) {
+            if (totalDistance == 528000) {
+                var options = { timeout: 8000, position: "topright" }
+                let msg = "You seem pretty far from Boston. Feel free to research dive bars if you're taking a trip. If you load the site on your phone when you're here it will automatically route you to the closest dive bar.";
+                var box = L.control.messagebox(options).addTo(map).show(msg);
+
                 map.setView([42.36129, -71.05944], 13);
                 L.marker(e.latlng).addTo(map)
                     .bindPopup(closestBar).openPopup();
