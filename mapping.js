@@ -227,7 +227,7 @@ fetch("./locations.json")
                 map.setView.setView([42.352842657497064, -71.06222679401405], 14);
             }
 
-
+            if(closestBar){ 
             L.Routing.control({
                 waypoints: [
                     L.latLng(userLat, userLong),
@@ -237,11 +237,11 @@ fetch("./locations.json")
                 fitSelectedRoutes: true
             }).addTo(map);
 
-            if(closestBar){ 
+            
             L.marker(e.latlng).addTo(map)
                 .bindPopup(closestBar).openPopup();
             }
-            
+
             // this gets added a second time to lay over the routing
             closestMarker = new L.marker([closestLat, closestLong], { icon: yellowIcon })
                 .bindPopup(closestPopupMessage)
