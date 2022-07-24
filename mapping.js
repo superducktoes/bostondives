@@ -225,8 +225,6 @@ fetch("./locations.json")
                 var box = L.control.messagebox(options).addTo(map).show(msg);
 
                 map.setView([42.36129, -71.05944], 13);
-                L.marker(e.latlng).addTo(map)
-                    .bindPopup(closestBar).openPopup();
             }
 
 
