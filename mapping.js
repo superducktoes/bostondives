@@ -51,7 +51,7 @@ function onLocationError(e) {
                 let ua = navigator.userAgent;
                 if (isMobile && ua.includes("Android")) {
                     popupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                } else if (isMobile && ua.includes("iPhone")) {
+                } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
                     popupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                 }
 
