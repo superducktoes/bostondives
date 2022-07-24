@@ -224,7 +224,7 @@ fetch("./locations.json")
                 let msg = "You seem pretty far from Boston. Feel free to research dive bars if you're taking a trip. If you load the site on your phone when you're here it will automatically route you to the closest dive bar.";
                 var box = L.control.messagebox(options).addTo(map).show(msg);
 
-                map.setView([42.36129, -71.05944], 13);
+                map.setView.setView([42.352842657497064, -71.06222679401405], 14);
             }
 
 
@@ -237,9 +237,11 @@ fetch("./locations.json")
                 fitSelectedRoutes: true
             }).addTo(map);
 
+            if(closestBar){ 
             L.marker(e.latlng).addTo(map)
                 .bindPopup(closestBar).openPopup();
-
+            }
+            
             // this gets added a second time to lay over the routing
             closestMarker = new L.marker([closestLat, closestLong], { icon: yellowIcon })
                 .bindPopup(closestPopupMessage)
