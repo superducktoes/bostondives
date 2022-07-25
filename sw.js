@@ -7,10 +7,10 @@ self.addEventListener("install", function(event) {
     );
 });
 
-self.addEventListener("fetch", function(e) {
-    e.resoindWith(
-        caches.match(e.request).then(function(response) {
-            return response || fetch(e.request);
+self.addEventListener("fetch", function(event) {
+    event.resoindWith(
+        caches.match(event.request).then(function(response) {
+            return response || fetch(event.request);
         })
     );
 });
