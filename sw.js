@@ -1,7 +1,7 @@
 self.addEventListener("install", function(event) {
     event.waitUntil(
         caches.open("sw-cache").then(function(cache) {
-            const urls = ["./index/html"]
+            const urls = ["./index.html"]
             return cache.addAll(urls)
         })
     );
