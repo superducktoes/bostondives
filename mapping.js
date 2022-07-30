@@ -56,7 +56,7 @@ function onLocationError(e) {
                 }
 
                 if(isMobile) {
-                    popupMessage += `<br><a href="bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
+                    popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                 }
 
                 // if the what to order field is popuplated
@@ -125,7 +125,7 @@ fetch("./locations.json")
     .then((json) => {
 
         let isMobile = window.mobileCheck()
-
+        
         // check if there is a bar parameter provided
         let barQuery = window.location.search;
         const urlParams = new URLSearchParams(barQuery);
@@ -171,7 +171,7 @@ fetch("./locations.json")
                     }
 
                     if(isMobile) {
-                        popupMessage += `<br><a href="bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
+                        closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                     }
 
                 } else if (barQuery) {
@@ -187,7 +187,7 @@ fetch("./locations.json")
                     }
 
                     if(isMobile) {
-                        popupMessage += `<br><a href="bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
+                        popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                     }
                 }
 
@@ -212,7 +212,7 @@ fetch("./locations.json")
                 }
 
                 if(isMobile) {
-                    popupMessage += `<br><a href="bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
+                    popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                 }
 
                 // add everything from locations
