@@ -55,6 +55,10 @@ function onLocationError(e) {
                     popupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                 }
 
+                if(isMobile) {
+                    popupMessage += `<br><a href="bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
+                }
+
                 // if the what to order field is popuplated
                 if (json[i]["whatToOrder"]) {
                     popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
@@ -166,6 +170,10 @@ fetch("./locations.json")
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
 
+                    if(isMobile) {
+                        popupMessage += `<br><a href="bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
+                    }
+
                 } else if (barQuery) {
                     totalDistance = 0; // this is a hack to reset the view for out of state users
 
@@ -176,6 +184,10 @@ fetch("./locations.json")
                         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
                     } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
+                    }
+
+                    if(isMobile) {
+                        popupMessage += `<br><a href="bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                     }
                 }
 
@@ -197,6 +209,10 @@ fetch("./locations.json")
                     popupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
                 } else if (isMobile && ua.includes("iPhone")) {
                     popupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
+                }
+
+                if(isMobile) {
+                    popupMessage += `<br><a href="bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                 }
 
                 // add everything from locations
