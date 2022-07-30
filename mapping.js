@@ -125,7 +125,7 @@ fetch("./locations.json")
     .then((json) => {
 
         let isMobile = window.mobileCheck()
-        
+
         // check if there is a bar parameter provided
         let barQuery = window.location.search;
         const urlParams = new URLSearchParams(barQuery);
@@ -187,7 +187,7 @@ fetch("./locations.json")
                     }
 
                     if(isMobile) {
-                        popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
+                        closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                     }
                 }
 
