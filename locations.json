@@ -423,5 +423,10 @@
         "name": "Cornwall's",
         "location": "42.34942, -71.09570",
         "type": "bar"
+    },
+    {
+        "name": "Silhouette Lounge",
+        "location": "42.35310, -71.13440",
+        "type": "bar"
     }
 ]
