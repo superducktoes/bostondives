@@ -20,6 +20,26 @@ function toRad(Value) {
     return Value * Math.PI / 180;
 }
 
+// returns whether or not a bar is open
+function checkBarOpen(currentTime, range) {
+
+    let open = range[0].split(",")[0];
+    let close = range[0].split(",")[1];
+
+    // this handles when bars are open until 1 am the next morning and its still during the day
+    if (close == "01:00" && currentTime < "9:00") {
+        close = "23:59";
+        return currentTime < close && currentTime > open;
+    } else if (currentTime < "10:00" && currentTime >= "00:00") {
+        // now if it's 12 am or later
+        open = "00:00"
+        return currentTime < close && currenTime > open;
+    } else {
+        // for bars that don't bleed over into the next day
+        return currenTime < close && currentTime > open;
+    }
+}
+
 // this is all kind of ugly but works. i forgot that people block all location requests
 function onLocationError(e) {
     //alert(e.message);
@@ -55,7 +75,11 @@ function onLocationError(e) {
                     popupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                 }
 
-                if(isMobile) {
+                if (json[i]["website"]) {
+                    popupMessage += `<br><a href=${json[i]["website"]}>Website</a>`
+                }
+
+                if (isMobile) {
                     popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                 }
 
@@ -138,6 +162,11 @@ fetch("./locations.json")
             let userLong = e.longitude
             let closestLat, closestLong, closestPopupMessage;
             let ua = navigator.userAgent;
+            const d = new Date();
+            let currentDay = d.getDay();
+            let currentHour = d.getHours();
+            let currentMinutes = d.getMinutes();
+            let currentTime = `${currentHour}:${currentMinutes}`
 
             // calculate the closest bar
             let closestBar = "";
@@ -150,7 +179,7 @@ fetch("./locations.json")
                 // find the distance between the bar and the current location to determine whats closest
                 distance = calcCrow(userLat, userLong, lat, long)
 
-                // get this info to plot separately
+                // get this info to plot separately since we need the closest bar
                 if (distance < totalDistance && json[i]["type"] == "bar" && barQuery == "") {
                     totalDistance = distance;
                     closestBar = "The closest dive bar is: " + json[i]["name"];
@@ -170,8 +199,22 @@ fetch("./locations.json")
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
 
-                    if(isMobile) {
+                    isMobile = true;
+                    if (isMobile) {
                         closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
+
+                        // this checks the range to see if the bar is open or not
+                        if (json[i]["hours"]) {
+
+                            // send the current time and then the current day to figure out if the bar is open
+                            let barStatus = checkBarOpen(currentTime, json[i]["hours"][currentDay])
+
+                            if (barStatus) {
+                                closestPopupMessage += `<br><p>Bar is currently open</p>`;
+                            } else {
+                                closestPopupMessage += `<br><p>Bar is currently closed</p>`;
+                            }
+                        }
                     }
 
                 } else if (barQuery) {
@@ -186,7 +229,7 @@ fetch("./locations.json")
                         closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                     }
 
-                    if(isMobile) {
+                    if (isMobile) {
                         closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                     }
                 }
@@ -211,7 +254,7 @@ fetch("./locations.json")
                     popupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
                 }
 
-                if(isMobile) {
+                if (isMobile) {
                     popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
                 }
 
