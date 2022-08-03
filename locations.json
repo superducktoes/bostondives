@@ -533,5 +533,15 @@
         "name": "The Hub Pub",
         "location": "42.35722, -71.05961",
         "type": "bar"
+    },
+    {
+        "name": "Seapoint",
+        "location": "42.33104, -71.04628",
+        "type": "bar"
+    },
+    {
+        "name": "Cityside Tavern",
+        "location": "42.33637, -71.15050",
+        "type": "bar"
     }
 ]
