@@ -523,5 +523,10 @@
         "location": "42.36768, -71.10788",
         "type": "bar",
         "whatToOrder": "$2 beer on the menu"
+    },
+    {
+        "name": "Galway House",
+        "location": "42.31134, -71.11433",
+        "type": "bar"
     }
 ]
