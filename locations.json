@@ -543,5 +543,10 @@
         "name": "Cityside Tavern",
         "location": "42.33637, -71.15050",
         "type": "bar"
+    },
+    {
+        "name": "Jeanie Johnston Pub & Grill",
+        "location": "42.30506, -71.11446",
+        "type": "bar"
     }
 ]
