@@ -383,7 +383,8 @@
     {
         "name": "The Avenue Bar Allston",
         "location": "42.35016, -71.13212",
-        "type": "bar"
+        "type": "bar",
+        "whatToOrder": "$2 bud light drafts"
     },
     {
         "name": "Model Cafe",
@@ -505,5 +506,22 @@
         "name": "Barney's Grill",
         "location": "42.37656, -71.03384",
         "type": "bar"
+    },
+    {
+        "name": "JJ Foley's Cafe",
+        "location": "42.34369, -71.06530",
+        "type": "bar"
+    },
+    {
+        "name": "Moogy's",
+        "location": "42.34158, -71.154339",
+        "type": "bar",
+        "whatToOrder": "$2 PBR drafts"
+    },
+    {
+        "name": "Tanjore",
+        "location": "42.36768, -71.10788",
+        "type": "bar",
+        "whatToOrder": "$2 beer on the menu"
     }
 ]
