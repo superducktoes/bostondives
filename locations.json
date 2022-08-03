@@ -88,11 +88,6 @@
         "website": "https://www.facebook.com/people/Malachys-Saloon/100063593919370/"
     },
     {
-        "name": "Maggy's Lounge",
-        "location": "42.24631, -70.97666",
-        "type": "bar"
-    },
-    {
         "name": "Cronin's Publick House",
         "location": "42.24206, -70.97993",
         "type": "bar"
@@ -527,6 +522,11 @@
     {
         "name": "Galway House",
         "location": "42.31134, -71.11433",
+        "type": "bar"
+    },
+    {
+        "name": "Sally O'Brien's",
+        "location": "42.38077, -71.09799",
         "type": "bar"
     }
 ]
