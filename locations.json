@@ -528,5 +528,10 @@
         "name": "Sally O'Brien's",
         "location": "42.38077, -71.09799",
         "type": "bar"
+    },
+    {
+        "name": "The Hub Pub",
+        "location": "42.35722, -71.05961",
+        "type": "bar"
     }
 ]
