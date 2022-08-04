@@ -33,10 +33,10 @@ function checkBarOpen(currentTime, range) {
     } else if (currentTime < "10:00" && currentTime >= "00:00") {
         // now if it's 12 am or later
         open = "00:00"
-        return currentTime < close && currenTime > open;
+        return currentTime < close && currentTime > open;
     } else {
         // for bars that don't bleed over into the next day
-        return currenTime < close && currentTime > open;
+        return currentTime < close && currentTime > open;
     }
 }
 
