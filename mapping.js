@@ -36,7 +36,6 @@ function checkBarOpen(currentTime, range) {
         return currentTime < close && currentTime > open;
     } else if(open == "closed") {
         return false;
-    }
     } else {
         // for bars that don't bleed over into the next day
         return currentTime < close && currentTime > open;
