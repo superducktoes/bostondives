@@ -51,6 +51,10 @@ function generateDirectionLink(barJson) {
     let long = barJson["long"];
     let barName = barJson["name"];
 
+    if(barJson["whatToOrder"]) {
+        closestPopupMessage += `<br>Recommended order: ${barJson["whatToOrder"]}`
+    }
+
     if (isMobile && ua.includes("Android")) {
         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
     } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
@@ -90,16 +94,7 @@ function onLocationError(e) {
 
                 // start creating the popup menu when an icon is clicked on
                 let popupMessage = json[i]["name"];
-
-                // if mobile add a link to open in google maps
-                let ua = navigator.userAgent;
-
                 popupMessage += generateDirectionLink(json[i]);
-
-                // if the what to order field is popuplated
-                if (json[i]["whatToOrder"]) {
-                    popupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
-                }
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
@@ -174,7 +169,6 @@ fetch("./locations.json")
             let userLat = e.latitude
             let userLong = e.longitude
             let closestLat, closestLong, closestPopupMessage;
-            let ua = navigator.userAgent;
             const distanceLimit = 528000;
             const d = new Date();
             let currentDay = d.getDay();
@@ -200,11 +194,6 @@ fetch("./locations.json")
                     closestLat = lat;
                     closestLong = long;
                     closestPopupMessage = json[i]["name"];
-
-                    // if the what to order field is popuplated
-                    if (json[i]["whatToOrder"]) {
-                        closestPopupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
-                    }
 
                     closestPopupMessage += generateDirectionLink(json[i]);
 
@@ -246,11 +235,6 @@ fetch("./locations.json")
 
                 // start creating the popup menu when an icon is clicked on
                 let popupMessage = json[i]["name"];
-
-                // if the what to order field is popuplated
-                if (json[i]["whatToOrder"]) {
-                    popupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
-                }
 
                 popupMessage += generateDirectionLink(json[i]);
 
