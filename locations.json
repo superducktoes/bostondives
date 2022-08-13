@@ -921,6 +921,7 @@
   {
     "name": "The Tam",
     "location": "42.35151, -71.06464",
+    "whatToOrder": "PBR, Miller High Life, or Schlitz",
     "type": "bar",
     "hours": {
       "0": [

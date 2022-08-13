@@ -87,7 +87,7 @@ function onLocationError(e) {
 
                 // if the what to order field is popuplated
                 if (json[i]["whatToOrder"]) {
-                    popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                    popupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
                 }
 
                 // add everything from locations
@@ -191,7 +191,7 @@ fetch("./locations.json")
 
                     // if the what to order field is popuplated
                     if (json[i]["whatToOrder"]) {
-                        closestPopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                        closestPopupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
                     }
 
 
@@ -247,7 +247,7 @@ fetch("./locations.json")
 
                 // if the what to order field is popuplated
                 if (json[i]["whatToOrder"]) {
-                    popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
+                    popupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
                 }
 
                 if (isMobile && ua.includes("Android")) {
