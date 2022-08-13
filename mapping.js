@@ -207,7 +207,7 @@ fetch("./locations.json")
                     closestLong = long;
                     closestPopupMessage = json[i]["name"];
 
-                    closestPopupMessage += generateDirectionLink(json[i]);
+                    //closestPopupMessage += generateDirectionLink(json[i]);
 
                 } else if (barQuery) {
                     // I call it closestPopup but its really being repurposed if someone is 
