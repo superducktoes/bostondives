@@ -42,9 +42,14 @@ function checkBarOpen(currentTime, range) {
     }
 }
 
-function generateDirectionLink(isMobile,ua,barName, lat, long) {
+function generateDirectionLink(barJson) {
 
     let closestPopupMessage = "";
+    let ua = navigator.userAgent;
+    let isMobile = window.mobileCheck();
+    let lat = barJson["lat"];
+    let long = barJson["long"];
+    let barName = barJson["name"];
 
     if (isMobile && ua.includes("Android")) {
         closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
@@ -53,6 +58,10 @@ function generateDirectionLink(isMobile,ua,barName, lat, long) {
     }
 
     closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${barName}">Share</a>`
+
+    if(barJson["website"]) {
+        closestPopupMessage += `<br><a href="${barJson["website"]}">Website</a>`;
+    }
 
     return closestPopupMessage;
 }
@@ -70,7 +79,6 @@ function onLocationError(e) {
         .then(response => response.json())
         .then((json) => {
 
-            let isMobile = window.mobileCheck()
             for (var i = 0; i < json.length; i++) {
                 var lat = parseFloat(json[i]["location"].split(",")[0])
                 var long = parseFloat(json[i]["location"].split(",")[1])
@@ -86,15 +94,7 @@ function onLocationError(e) {
                 // if mobile add a link to open in google maps
                 let ua = navigator.userAgent;
 
-                popupMessage += generateDirectionLink(isMobile, ua, json[i]["name"], lat, long);
-
-                if (json[i]["website"]) {
-                    popupMessage += `<br><a href=${json[i]["website"]}>Website</a>`
-                }
-
-                /*if (isMobile) {
-                    popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
-                }*/
+                popupMessage += generateDirectionLink(json[i]);
 
                 // if the what to order field is popuplated
                 if (json[i]["whatToOrder"]) {
@@ -206,7 +206,7 @@ fetch("./locations.json")
                         closestPopupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
                     }
 
-                    closestPopupMessage += generateDirectionLink(isMobile, ua, json[i]["name"], lat, long);
+                    closestPopupMessage += generateDirectionLink(json[i]);
 
                     if (isMobile) {
                         //closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
@@ -234,11 +234,8 @@ fetch("./locations.json")
                     closestBar = "Directions to: " + plotBarOnMap;
                     closestPopupMessage = plotBarOnMap;
 
-                    closestPopupMessage += generateDirectionLink(isMobile, ua, json[i]["name"], lat, long);
+                    closestPopupMessage += generateDirectionLink(json[i]);
 
-                    /*if (isMobile) {
-                        closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
-                    }*/
                 }
 
                 // determine what marker to use on the map
@@ -255,11 +252,7 @@ fetch("./locations.json")
                     popupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
                 }
 
-                popupMessage += generateDirectionLink(isMobile, ua, json[i]["name"], lat, long);
-
-                /*if (isMobile) {
-                    popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
-                }*/
+                popupMessage += generateDirectionLink(json[i]);
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
