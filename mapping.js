@@ -34,7 +34,7 @@ function checkBarOpen(currentTime, range) {
         // now if it's 12 am or later
         open = "00:00"
         return currentTime < close && currentTime > open;
-    } else if(open == "closed") {
+    } else if (open == "closed") {
         return false;
     } else {
         // for bars that don't bleed over into the next day
@@ -51,7 +51,13 @@ function generateDirectionLink(barJson) {
     let long = barJson["long"];
     let barName = barJson["name"];
 
-    if(barJson["whatToOrder"]) {
+    const d = new Date();
+    let currentDay = d.getDay();
+    let currentHour = d.getHours();
+    let currentMinutes = d.getMinutes();
+    let currentTime = `${currentHour}:${currentMinutes}`
+
+    if (barJson["whatToOrder"]) {
         closestPopupMessage += `<br>Recommended order: ${barJson["whatToOrder"]}`
     }
 
@@ -63,8 +69,19 @@ function generateDirectionLink(barJson) {
 
     closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${barName}">Share</a>`
 
-    if(barJson["website"]) {
+    if (barJson["website"]) {
         closestPopupMessage += `<br><a href="${barJson["website"]}">Website</a>`;
+    }
+
+    // send the current time and then the current day to figure out if the bar is open
+    if (barJson["hours"]) {
+        let barStatus = checkBarOpen(currentTime, barJson["hours"][currentDay])
+
+        if (barStatus) {
+            closestPopupMessage += `<br><p>Bar is currently open</p>`;
+        } else {
+            closestPopupMessage += `<br><p>Bar is currently closed</p>`;
+        }
     }
 
     return closestPopupMessage;
@@ -102,7 +119,7 @@ function onLocationError(e) {
                     .addTo(map);
             }
 
-            var options = { timeout: 8000, position: "topright" }
+            var options = { timeout: timeout, position: "topright" }
             let msg = "You're not sharing your location. Feel free to click around and research bars. If you share your location on your phone or computer it will automatically route you to the closest dive bar."
             var box = L.control.messagebox(options).addTo(map).show(msg);
 
@@ -145,7 +162,7 @@ window.mobileCheck = function () {
 };
 
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
-
+const timeout = 10000; // timeout setting for message boxes
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -170,11 +187,6 @@ fetch("./locations.json")
             let userLong = e.longitude
             let closestLat, closestLong, closestPopupMessage;
             const distanceLimit = 528000;
-            const d = new Date();
-            let currentDay = d.getDay();
-            let currentHour = d.getHours();
-            let currentMinutes = d.getMinutes();
-            let currentTime = `${currentHour}:${currentMinutes}`
 
             // calculate the closest bar
             let closestBar = "";
@@ -197,27 +209,10 @@ fetch("./locations.json")
 
                     closestPopupMessage += generateDirectionLink(json[i]);
 
-                    if (isMobile) {
-                        //closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
-
-                        // this checks the range to see if the bar is open or not
-                        if (json[i]["hours"]) {
-
-                            // send the current time and then the current day to figure out if the bar is open
-                            let barStatus = checkBarOpen(currentTime, json[i]["hours"][currentDay])
-
-                            if (barStatus) {
-                                closestPopupMessage += `<br><p>Bar is currently open</p>`;
-                            } else {
-                                closestPopupMessage += `<br><p>Bar is currently closed</p>`;
-                            }
-                        }
-                    }
-
                 } else if (barQuery) {
                     // I call it closestPopup but its really being repurposed if someone is 
                     // querying for a bar directly
-                    
+
                     totalDistance = 0; // this is a hack to reset the view for out of state users
 
                     closestBar = "Directions to: " + plotBarOnMap;
@@ -259,7 +254,7 @@ fetch("./locations.json")
             // reset the view if the user is out of stateish
             // i also have no way of testing this right now
             if (totalDistance == distanceLimit) {
-                var options = { timeout: 8000, position: "topright" }
+                var options = { timeout: timeout, position: "topright" }
                 let msg = "You seem pretty far from Boston. Feel free to research dive bars if you're taking a trip. If you load the site on your phone when you're here it will automatically route you to the closest dive bar.";
                 var box = L.control.messagebox(options).addTo(map).show(msg);
 
