@@ -42,7 +42,7 @@ function checkBarOpen(currentTime, range) {
     }
 }
 
-function generateDirectionLink(isMobile,ua,barName) {
+function generateDirectionLink(isMobile,ua,barName, lat, long) {
 
     let closestPopupMessage = "";
 
@@ -86,7 +86,7 @@ function onLocationError(e) {
                 // if mobile add a link to open in google maps
                 let ua = navigator.userAgent;
 
-                popupMessage += generateDirectionLink(isMobile, ua, json[i]["name"]);
+                popupMessage += generateDirectionLink(isMobile, ua, json[i]["name"], lat, long);
 
                 if (json[i]["website"]) {
                     popupMessage += `<br><a href=${json[i]["website"]}>Website</a>`
@@ -206,7 +206,7 @@ fetch("./locations.json")
                         closestPopupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
                     }
 
-                    closestPopupMessage += generateDirectionLink(isMobile, ua, json[i]["name"]);
+                    closestPopupMessage += generateDirectionLink(isMobile, ua, json[i]["name"], lat, long);
 
                     if (isMobile) {
                         //closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
@@ -234,7 +234,7 @@ fetch("./locations.json")
                     closestBar = "Directions to: " + plotBarOnMap;
                     closestPopupMessage = plotBarOnMap;
 
-                    closestPopupMessage += generateDirectionLink(isMobile, ua, json[i]["name"]);
+                    closestPopupMessage += generateDirectionLink(isMobile, ua, json[i]["name"], lat, long);
 
                     /*if (isMobile) {
                         closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
@@ -255,7 +255,7 @@ fetch("./locations.json")
                     popupMessage += "<br>Recommended order: " + json[i]["whatToOrder"];
                 }
 
-                popupMessage += generateDirectionLink(isMobile, ua, json[i]["name"]);
+                popupMessage += generateDirectionLink(isMobile, ua, json[i]["name"], lat, long);
 
                 /*if (isMobile) {
                     popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
