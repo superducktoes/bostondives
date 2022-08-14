@@ -217,7 +217,6 @@ fetch("./locations.json")
                     closestBar = "Directions to: " + plotBarOnMap;
                     //closestPopupMessage = plotBarOnMap;
                     if(json[i]["name"] == plotBarOnMap) {
-                        console.log(json[i])
                         closestPopupMessage = generateDirectionLink(json[i]);
                     }
 
