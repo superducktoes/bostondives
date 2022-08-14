@@ -47,8 +47,8 @@ function generateDirectionLink(barJson) {
     let closestPopupMessage = "";
     let ua = navigator.userAgent;
     let isMobile = window.mobileCheck();
-    let lat = barJson["lat"];
-    let long = barJson["long"];
+    var lat = parseFloat(barJson["location"].split(",")[0])
+    var long = parseFloat(barJson["location"].split(",")[1])
     let barName = barJson["name"];
 
     const d = new Date();
