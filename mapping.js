@@ -215,8 +215,9 @@ fetch("./locations.json")
                     totalDistance = 0; // this is a hack to reset the view for out of state users
 
                     closestBar = "Directions to: " + plotBarOnMap;
-                    closestPopupMessage = plotBarOnMap;
+                    //closestPopupMessage = plotBarOnMap;
                     if(json[i]["name"] == plotBarOnMap) {
+                        console.log(json[i])
                         closestPopupMessage = generateDirectionLink(json[i]);
                     }
 
