@@ -56,33 +56,38 @@ function generateDirectionLink(barJson) {
     let currentHour = d.getHours();
     let currentMinutes = d.getMinutes();
     let currentTime = `${currentHour}:${currentMinutes}`
+    
+    closestPopupMessage += `<h3>${barJson["name"]}</h3>`;
 
     if (barJson["whatToOrder"]) {
-        closestPopupMessage += `<br>Recommended order: ${barJson["whatToOrder"]}`
+        closestPopupMessage += `<p>Recommended order: ${barJson["whatToOrder"]}</p>`
     }
 
+        // send the current time and then the current day to figure out if the bar is open
+        if (barJson["hours"]) {
+            let barStatus = checkBarOpen(currentTime, barJson["hours"][currentDay])
+    
+            if (barStatus) {
+                closestPopupMessage += `<p>Bar is currently <b>open</b></p>`;
+            } else {
+                closestPopupMessage += `<p>Bar is currently <b>closed</b></p>`;
+            }
+        }
+
+    closestPopupMessage += `<div class="row">`
     if (isMobile && ua.includes("Android")) {
-        closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
+        closestPopupMessage += `<div class="column"><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a></div>`;
     } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
-        closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
+        closestPopupMessage += `<div class="column"><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a></div>`
     }
 
-    closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${barName}">Share</a>`
+    closestPopupMessage += `<div class="column"><a href="https://bostondives.bar/?bar=${barName}">Share</a></div>`
 
     if (barJson["website"]) {
-        closestPopupMessage += `<br><a href="${barJson["website"]}">Website</a>`;
+        closestPopupMessage += `<div class="column"><a href="${barJson["website"]}">Website</a></div>`;
     }
 
-    // send the current time and then the current day to figure out if the bar is open
-    if (barJson["hours"]) {
-        let barStatus = checkBarOpen(currentTime, barJson["hours"][currentDay])
-
-        if (barStatus) {
-            closestPopupMessage += `<br><p>Bar is currently open</p>`;
-        } else {
-            closestPopupMessage += `<br><p>Bar is currently closed</p>`;
-        }
-    }
+    closestPopupMessage += `</div>`
 
     return closestPopupMessage;
 }
@@ -110,8 +115,7 @@ function onLocationError(e) {
                 }
 
                 // start creating the popup menu when an icon is clicked on
-                let popupMessage = json[i]["name"];
-                popupMessage += generateDirectionLink(json[i]);
+                let popupMessage = generateDirectionLink(json[i]);
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
@@ -205,7 +209,6 @@ fetch("./locations.json")
                     closestBar = "The closest dive bar is: " + json[i]["name"];
                     closestLat = lat;
                     closestLong = long;
-                    closestPopupMessage = json[i]["name"];
 
                     closestPopupMessage += generateDirectionLink(json[i]);
 
@@ -216,9 +219,9 @@ fetch("./locations.json")
                     totalDistance = 0; // this is a hack to reset the view for out of state users
 
                     closestBar = "Directions to: " + plotBarOnMap;
-                    closestPopupMessage = plotBarOnMap;
+                    //closestPopupMessage = plotBarOnMap;
 
-                    closestPopupMessage += generateDirectionLink(json[i]);
+                    closestPopupMessage = generateDirectionLink(json[i]);
 
                 }
 
@@ -229,9 +232,7 @@ fetch("./locations.json")
                 }
 
                 // start creating the popup menu when an icon is clicked on
-                let popupMessage = json[i]["name"];
-
-                popupMessage += generateDirectionLink(json[i]);
+                let popupMessage = generateDirectionLink(json[i]);
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
