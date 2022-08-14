@@ -43,10 +43,11 @@ function checkBarOpen(currentTime, range) {
     }
 }
 
-function generateDirectionLink(barJson) {
+function generatePopupMessage(barJson) {
 
     let ua = navigator.userAgent;
     let isMobile = window.mobileCheck();
+
     var lat = parseFloat(barJson["location"].split(",")[0])
     var long = parseFloat(barJson["location"].split(",")[1])
     let barName = barJson["name"];
@@ -57,10 +58,10 @@ function generateDirectionLink(barJson) {
     let currentMinutes = d.getMinutes();
     let currentTime = `${currentHour}:${currentMinutes}`
 
-    let closestPopupMessage = `<h3>${barName}</h3>`;
+    let funcPopupMessage = `<h3>${barName}</h3>`;
 
     if (barJson["whatToOrder"]) {
-        closestPopupMessage += `<p>Recommended order: ${barJson["whatToOrder"]}</p>`
+        funcPopupMessage += `<p>Recommended order: ${barJson["whatToOrder"]}</p>`
     }
 
         // send the current time and then the current day to figure out if the bar is open
@@ -68,24 +69,26 @@ function generateDirectionLink(barJson) {
             let barStatus = checkBarOpen(currentTime, barJson["hours"][currentDay])
     
             if (barStatus) {
-                closestPopupMessage += `<p>Bar is currently <b>open</b></p>`;
+                funcPopupMessage += `<p>Bar is currently <b>open</b></p>`;
             } else {
-                closestPopupMessage += `<p>Bar is currently <b>closed</b></p>`;
+                funcPopupMessage += `<p>Bar is currently <b>closed</b></p>`;
             }
         }
 
     if (isMobile && ua.includes("Android")) {
-        closestPopupMessage += `<a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`;
+        funcPopupMessage += `<a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`;
     } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
-        closestPopupMessage += `<a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`
+        funcPopupMessage += `<a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`
+    } else {
+        funcPopupMessage += `<a href="http://www.google.com/maps/place/${lat},${long}">Directions  </a>`
     }
 
-    closestPopupMessage += `<a href="https://bostondives.bar/?bar=${barName}">Share  </a>`
+    funcPopupMessage += `<a href="https://bostondives.bar/?bar=${barName}">Share  </a>`
 
     if (barJson["website"]) {
-        closestPopupMessage += `<a href="${barJson["website"]}">Website</a>`;
+        funcPopupMessage += `<a href="${barJson["website"]}">Website</a>`;
     }
-    return closestPopupMessage;
+    return funcPopupMessage;
 }
 // this is all kind of ugly but works. i forgot that people block all location requests
 function onLocationError(e) {
@@ -111,7 +114,7 @@ function onLocationError(e) {
                 }
 
                 // start creating the popup menu when an icon is clicked on
-                let popupMessage = generateDirectionLink(json[i]);
+                let popupMessage = generatePopupMessage(json[i]);
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
@@ -207,18 +210,18 @@ fetch("./locations.json")
                     closestLat = lat;
                     closestLong = long;
 
-                    closestPopupMessage += generateDirectionLink(json[i]);
+                    closestPopupMessage += generatePopupMessage(json[i]);
                     console.log("closest popup message: ", closestPopupMessage)
                 } else if (barQuery) {
                     // I call it closestPopup but its really being repurposed if someone is 
                     // querying for a bar directly
 
                     totalDistance = 0; // this is a hack to reset the view for out of state users
+                    closestBar = "Directions to: " + plotBarOnMap; // set message on location pin
 
-                    closestBar = "Directions to: " + plotBarOnMap;
-                    //closestPopupMessage = plotBarOnMap;
+                    // loop through to find the bar to plot as the destination
                     if(json[i]["name"] == plotBarOnMap) {
-                        closestPopupMessage = generateDirectionLink(json[i]);
+                        closestPopupMessage = generatePopupMessage(json[i]);
                     }
 
                 }
@@ -230,7 +233,7 @@ fetch("./locations.json")
                 }
 
                 // start creating the popup menu when an icon is clicked on
-                let popupMessage = generateDirectionLink(json[i]);
+                let popupMessage = generatePopupMessage(json[i]);
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
@@ -238,7 +241,7 @@ fetch("./locations.json")
                     .addTo(map);
             }
 
-
+            // instead of getting the plot of the closest bar get the coords of the bar from the query
             if (plotBarOnMap) {
                 for (let i = 0; i < json.length; i++) {
                     if (json[i]["name"] == plotBarOnMap) {
