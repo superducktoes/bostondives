@@ -27,7 +27,8 @@ function checkBarOpen(currentTime, range) {
     let close = range[0].split(",")[1];
 
     // this handles when bars are open until 1 am the next morning and its still during the day
-    if (close == "01:00" && currentTime < "9:00") {
+    // i hate the way this works.
+    if ((close == "01:00" || close == "02:00") && currentTime < "9:00") {
         close = "23:59";
         return currentTime < close && currentTime > open;
     } else if (currentTime < "10:00" && currentTime >= "00:00") {
