@@ -219,7 +219,7 @@ fetch("./locations.json")
                     totalDistance = 0; // this is a hack to reset the view for out of state users
 
                     closestBar = "Directions to: " + plotBarOnMap;
-                    //closestPopupMessage = plotBarOnMap;
+                    closestPopupMessage = plotBarOnMap;
 
                     closestPopupMessage = generateDirectionLink(json[i]);
 
