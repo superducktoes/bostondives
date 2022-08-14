@@ -44,7 +44,6 @@ function checkBarOpen(currentTime, range) {
 
 function generateDirectionLink(barJson) {
 
-    let closestPopupMessage = "";
     let ua = navigator.userAgent;
     let isMobile = window.mobileCheck();
     var lat = parseFloat(barJson["location"].split(",")[0])
@@ -56,8 +55,8 @@ function generateDirectionLink(barJson) {
     let currentHour = d.getHours();
     let currentMinutes = d.getMinutes();
     let currentTime = `${currentHour}:${currentMinutes}`
-    
-    closestPopupMessage += `<h3>${barJson["name"]}</h3>`;
+
+    let closestPopupMessage = `<h3>${barName}</h3>`;
 
     if (barJson["whatToOrder"]) {
         closestPopupMessage += `<p>Recommended order: ${barJson["whatToOrder"]}</p>`
@@ -74,21 +73,17 @@ function generateDirectionLink(barJson) {
             }
         }
 
-    closestPopupMessage += `<div class="row">`
     if (isMobile && ua.includes("Android")) {
-        closestPopupMessage += `<div class="column"><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a></div>`;
+        closestPopupMessage += `<a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`;
     } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
-        closestPopupMessage += `<div class="column"><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a></div>`
+        closestPopupMessage += `<a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`
     }
 
-    closestPopupMessage += `<div class="column"><a href="https://bostondives.bar/?bar=${barName}">Share</a></div>`
+    closestPopupMessage += `<a href="https://bostondives.bar/?bar=${barName}">Share  </a>`
 
     if (barJson["website"]) {
-        closestPopupMessage += `<div class="column"><a href="${barJson["website"]}">Website</a></div>`;
+        closestPopupMessage += `<a href="${barJson["website"]}">Website</a>`;
     }
-
-    closestPopupMessage += `</div>`
-
     return closestPopupMessage;
 }
 // this is all kind of ugly but works. i forgot that people block all location requests
@@ -189,11 +184,12 @@ fetch("./locations.json")
             // get the user coordinates
             let userLat = e.latitude
             let userLong = e.longitude
-            let closestLat, closestLong, closestPopupMessage;
+            let closestLat, closestLong;
             const distanceLimit = 528000;
 
             // calculate the closest bar
             let closestBar = "";
+            let closestPopupMessage = "";
             let totalDistance = distanceLimit; // roughly 100 miles
 
             for (var i = 0; i < json.length; i++) {
@@ -211,7 +207,7 @@ fetch("./locations.json")
                     closestLong = long;
 
                     closestPopupMessage += generateDirectionLink(json[i]);
-
+                    console.log("closest popup message: ", closestPopupMessage)
                 } else if (barQuery) {
                     // I call it closestPopup but its really being repurposed if someone is 
                     // querying for a bar directly
