@@ -1,34 +1,5 @@
 [
   {
-    "name": "Presidential Pub",
-    "location": "42.25105, -71.00244",
-    "type": "bar",
-    "hours": {
-      "0": [
-        "12:00,01:00"
-      ],
-      "1": [
-        "10:00,01:00"
-      ],
-      "2": [
-        "10:00,01:00"
-      ],
-      "3": [
-        "10:00,01:00"
-      ],
-      "4": [
-        "10:00,01:00"
-      ],
-      "5": [
-        "10:00,01:00"
-      ],
-      "6": [
-        "10:00,01:00"
-      ]
-    },
-    "website": "https://www.facebook.com/Prespub/"
-  },
-  {
     "name": "Paddy Barry's",
     "location": "42.24703, -71.00079",
     "whatToOrder": "Beer. Food from the pizza glory hole.",
@@ -57,6 +28,35 @@
       ]
     },
     "website": "http://www.paddybarrys.com/"
+  },
+  {
+    "name": "Presidential Pub",
+    "location": "42.25105, -71.00244",
+    "type": "bar",
+    "hours": {
+      "0": [
+        "12:00,01:00"
+      ],
+      "1": [
+        "10:00,01:00"
+      ],
+      "2": [
+        "10:00,01:00"
+      ],
+      "3": [
+        "10:00,01:00"
+      ],
+      "4": [
+        "10:00,01:00"
+      ],
+      "5": [
+        "10:00,01:00"
+      ],
+      "6": [
+        "10:00,01:00"
+      ]
+    },
+    "website": "https://www.facebook.com/Prespub/"
   },
   {
     "name": "Malachy's Saloon",

@@ -210,8 +210,8 @@ fetch("./locations.json")
                     closestLat = lat;
                     closestLong = long;
 
-                    closestPopupMessage += generatePopupMessage(json[i]);
-                    console.log("closest popup message: ", closestPopupMessage)
+                    closestPopupMessage = generatePopupMessage(json[i]);
+
                 } else if (barQuery) {
                     // I call it closestPopup but its really being repurposed if someone is 
                     // querying for a bar directly
