@@ -21,25 +21,26 @@ function toRad(Value) {
 }
 
 // returns whether or not a bar is open
-function checkBarOpen(currentTime, range) {
+function checkBarOpen(currentTime, barJson, currentDay) {
 
-    let open = range[0].split(",")[0];
-    let close = range[0].split(",")[1];
+    let open = barJson["hours"][currentDay][0].split(",")[0];
+    let close = barJson["hours"][currentDay][0].split(",")[1];
 
     // this handles when bars are open until 1 am the next morning and its still during the day
     // i hate the way this works.
-    if ((close >= "00:00" || close <= "02:00") && currentTime < "9:00") {
-        close = "23:59";
-        return currentTime < close && currentTime > open;
-    } else if (currentTime < "10:00" && currentTime >= "00:00") {
-        // now if it's 12 am or later
+    // i still think this is ugly but it seems like it works
+    if((currentTime > open && (currentTime <= "23:59" && close > "02:00"))) {
+        return true;
+    } else if((close >= "00:00" && close <= "02:00") && (currentTime > open && currentTime < "23:59")) {
+        return true;
+    } else if(currentTime >= "00:00" && currentTime <= "02:00") {
+        currentDay = currentDay - 1;
         open = "00:00"
-        return currentTime < close && currentTime > open;
-    } else if (open == "closed") {
-        return false;
+        close = barJson["hours"][currentDay][0].split(",")[1];
+        return currentTime >= open && currentTime <= close; 
     } else {
-        // for bars that don't bleed over into the next day
-        return currentTime < close && currentTime > open;
+        return false;
+        
     }
 }
 
@@ -66,7 +67,7 @@ function generatePopupMessage(barJson) {
 
         // send the current time and then the current day to figure out if the bar is open
         if (barJson["hours"]) {
-            let barStatus = checkBarOpen(currentTime, barJson["hours"][currentDay])
+            let barStatus = checkBarOpen(currentTime, barJson, currentDay)
     
             if (barStatus) {
                 funcPopupMessage += `<p>Bar is currently <b>open</b></p>`;
