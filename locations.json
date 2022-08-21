@@ -1591,5 +1591,10 @@
     "name": "Jeanie Johnston Pub & Grill",
     "location": "42.30506, -71.11446",
     "type": "bar"
-  }
+  },
+{
+"name":"The Plough and Stars",
+"location": "42.36824, -71.10883",
+"type": "bar"
+}
 ]
