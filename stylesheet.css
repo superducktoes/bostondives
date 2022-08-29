@@ -21,7 +21,7 @@ html, body {
     bottom: 0;
 }
 
-ul {
+#ul-bar {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -29,20 +29,30 @@ ul {
     background-color: #000;
   }
   
-  li {
+#li-bar {
     float: left;
     border-right: 1px solid #bbb;
     font-family: Arial, Helvetica, sans-serif
   }
   
-  li a {
+ #a-bar {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
   }
-  
-  li a:hover {
-    background-color: #111;
+
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
   }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  

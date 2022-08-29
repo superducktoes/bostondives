@@ -21,27 +21,76 @@ function toRad(Value) {
 }
 
 // returns whether or not a bar is open
-function checkBarOpen(currentTime, range) {
+function checkBarOpen(currentTime, barJson, currentDay) {
 
-    let open = range[0].split(",")[0];
-    let close = range[0].split(",")[1];
+    let open = barJson["hours"][currentDay][0].split(",")[0];
+    let close = barJson["hours"][currentDay][0].split(",")[1];
 
     // this handles when bars are open until 1 am the next morning and its still during the day
-    if (close == "01:00" && currentTime < "9:00") {
-        close = "23:59";
-        return currentTime < close && currentTime > open;
-    } else if (currentTime < "10:00" && currentTime >= "00:00") {
-        // now if it's 12 am or later
+    // i hate the way this works.
+    // i still think this is ugly but it seems like it works
+    if((currentTime > open && (currentTime <= "23:59" && close > "02:00"))) {
+        return true;
+    } else if((close >= "00:00" && close <= "02:00") && (currentTime > open && currentTime < "23:59")) {
+        return true;
+    } else if(currentTime >= "00:00" && currentTime <= "02:00") {
+        currentDay = currentDay - 1;
         open = "00:00"
-        return currentTime < close && currentTime > open;
-    } else if(open == "closed") {
-        return false;
+        close = barJson["hours"][currentDay][0].split(",")[1];
+        return currentTime >= open && currentTime <= close; 
     } else {
-        // for bars that don't bleed over into the next day
-        return currentTime < close && currentTime > open;
+        return false;
+        
     }
 }
 
+function generatePopupMessage(barJson) {
+
+    let ua = navigator.userAgent;
+    let isMobile = window.mobileCheck();
+
+    var lat = parseFloat(barJson["location"].split(",")[0])
+    var long = parseFloat(barJson["location"].split(",")[1])
+    let barName = barJson["name"];
+
+    const d = new Date();
+    let currentDay = d.getDay();
+    let currentHour = d.getHours();
+    let currentMinutes = d.getMinutes();
+    let currentTime = `${currentHour}:${currentMinutes}`
+
+    let funcPopupMessage = `<h3>${barName}</h3>`;
+
+    if (barJson["whatToOrder"]) {
+        funcPopupMessage += `<p>Recommended order: ${barJson["whatToOrder"]}</p>`
+    }
+
+        // send the current time and then the current day to figure out if the bar is open
+        if (barJson["hours"]) {
+            let barStatus = checkBarOpen(currentTime, barJson, currentDay)
+    
+            if (barStatus) {
+                funcPopupMessage += `<p>Bar is currently <b>open</b></p>`;
+            } else {
+                funcPopupMessage += `<p>Bar is currently <b>closed</b></p>`;
+            }
+        }
+
+    if (isMobile && ua.includes("Android")) {
+        funcPopupMessage += `<a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`;
+    } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
+        funcPopupMessage += `<a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`
+    } else {
+        funcPopupMessage += `<a href="http://www.google.com/maps/place/${lat},${long}">Directions  </a>`
+    }
+
+    funcPopupMessage += `<a href="https://bostondives.bar/?bar=${barName}">Share  </a>`
+
+    if (barJson["website"]) {
+        funcPopupMessage += `<a href="${barJson["website"]}">Website</a>`;
+    }
+    return funcPopupMessage;
+}
 // this is all kind of ugly but works. i forgot that people block all location requests
 function onLocationError(e) {
     //alert(e.message);
@@ -56,7 +105,6 @@ function onLocationError(e) {
         .then(response => response.json())
         .then((json) => {
 
-            let isMobile = window.mobileCheck()
             for (var i = 0; i < json.length; i++) {
                 var lat = parseFloat(json[i]["location"].split(",")[0])
                 var long = parseFloat(json[i]["location"].split(",")[1])
@@ -67,28 +115,7 @@ function onLocationError(e) {
                 }
 
                 // start creating the popup menu when an icon is clicked on
-                let popupMessage = json[i]["name"];
-
-                // if mobile add a link to open in google maps
-                let ua = navigator.userAgent;
-                if (isMobile && ua.includes("Android")) {
-                    popupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
-                    popupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
-                }
-
-                if (json[i]["website"]) {
-                    popupMessage += `<br><a href=${json[i]["website"]}>Website</a>`
-                }
-
-                if (isMobile) {
-                    popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
-                }
-
-                // if the what to order field is popuplated
-                if (json[i]["whatToOrder"]) {
-                    popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
-                }
+                let popupMessage = generatePopupMessage(json[i]);
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
@@ -96,7 +123,7 @@ function onLocationError(e) {
                     .addTo(map);
             }
 
-            var options = { timeout: 8000, position: "topright" }
+            var options = { timeout: timeout, position: "topright" }
             let msg = "You're not sharing your location. Feel free to click around and research bars. If you share your location on your phone or computer it will automatically route you to the closest dive bar."
             var box = L.control.messagebox(options).addTo(map).show(msg);
 
@@ -139,7 +166,7 @@ window.mobileCheck = function () {
 };
 
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
-
+const timeout = 10000; // timeout setting for message boxes
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -162,17 +189,13 @@ fetch("./locations.json")
             // get the user coordinates
             let userLat = e.latitude
             let userLong = e.longitude
-            let closestLat, closestLong, closestPopupMessage;
-            let ua = navigator.userAgent;
-            const d = new Date();
-            let currentDay = d.getDay();
-            let currentHour = d.getHours();
-            let currentMinutes = d.getMinutes();
-            let currentTime = `${currentHour}:${currentMinutes}`
+            let closestLat, closestLong;
+            const distanceLimit = 528000;
 
             // calculate the closest bar
             let closestBar = "";
-            let totalDistance = 528000; // roughly 100 miles
+            let closestPopupMessage = "";
+            let totalDistance = distanceLimit; // roughly 100 miles
 
             for (var i = 0; i < json.length; i++) {
                 var lat = parseFloat(json[i]["location"].split(",")[0])
@@ -187,53 +210,21 @@ fetch("./locations.json")
                     closestBar = "The closest dive bar is: " + json[i]["name"];
                     closestLat = lat;
                     closestLong = long;
-                    closestPopupMessage = json[i]["name"];
 
-                    // if the what to order field is popuplated
-                    if (json[i]["whatToOrder"]) {
-                        closestPopupMessage += "<br>What to order: " + json[i]["whatToOrder"];
-                    }
-
-
-                    if (isMobile && ua.includes("Android")) {
-                        closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                    } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
-                        closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
-                    }
-
-                    isMobile = true;
-                    if (isMobile) {
-                        closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
-
-                        // this checks the range to see if the bar is open or not
-                        if (json[i]["hours"]) {
-
-                            // send the current time and then the current day to figure out if the bar is open
-                            let barStatus = checkBarOpen(currentTime, json[i]["hours"][currentDay])
-
-                            if (barStatus) {
-                                closestPopupMessage += `<br><p>Bar is currently open</p>`;
-                            } else {
-                                closestPopupMessage += `<br><p>Bar is currently closed</p>`;
-                            }
-                        }
-                    }
+                    closestPopupMessage = generatePopupMessage(json[i]);
 
                 } else if (barQuery) {
+                    // I call it closestPopup but its really being repurposed if someone is 
+                    // querying for a bar directly
+
                     totalDistance = 0; // this is a hack to reset the view for out of state users
+                    closestBar = "Directions to: " + plotBarOnMap; // set message on location pin
 
-                    closestBar = "Directions to: " + plotBarOnMap;
-                    closestPopupMessage = plotBarOnMap;
-
-                    if (isMobile && ua.includes("Android")) {
-                        closestPopupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                    } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
-                        closestPopupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
+                    // loop through to find the bar to plot as the destination
+                    if(json[i]["name"] == plotBarOnMap) {
+                        closestPopupMessage = generatePopupMessage(json[i]);
                     }
 
-                    if (isMobile) {
-                        closestPopupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
-                    }
                 }
 
                 // determine what marker to use on the map
@@ -243,22 +234,7 @@ fetch("./locations.json")
                 }
 
                 // start creating the popup menu when an icon is clicked on
-                let popupMessage = json[i]["name"];
-
-                // if the what to order field is popuplated
-                if (json[i]["whatToOrder"]) {
-                    popupMessage += "<br>What to order: " + json[i]["whatToOrder"];
-                }
-
-                if (isMobile && ua.includes("Android")) {
-                    popupMessage += `<br><a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`;
-                } else if (isMobile && ua.includes("iPhone")) {
-                    popupMessage += `<br><a href='https://maps.apple.com/?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions</a>`
-                }
-
-                if (isMobile) {
-                    popupMessage += `<br><a href="https://bostondives.bar/?bar=${json[i]["name"]}">Share</a>`
-                }
+                let popupMessage = generatePopupMessage(json[i]);
 
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
@@ -266,7 +242,7 @@ fetch("./locations.json")
                     .addTo(map);
             }
 
-
+            // instead of getting the plot of the closest bar get the coords of the bar from the query
             if (plotBarOnMap) {
                 for (let i = 0; i < json.length; i++) {
                     if (json[i]["name"] == plotBarOnMap) {
@@ -280,8 +256,8 @@ fetch("./locations.json")
 
             // reset the view if the user is out of stateish
             // i also have no way of testing this right now
-            if (totalDistance == 528000) {
-                var options = { timeout: 8000, position: "topright" }
+            if (totalDistance == distanceLimit) {
+                var options = { timeout: timeout, position: "topright" }
                 let msg = "You seem pretty far from Boston. Feel free to research dive bars if you're taking a trip. If you load the site on your phone when you're here it will automatically route you to the closest dive bar.";
                 var box = L.control.messagebox(options).addTo(map).show(msg);
 

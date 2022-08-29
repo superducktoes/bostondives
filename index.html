@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="stylesheet.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Best Boston Dive Bars</title>
-    <meta name="description" content="Map of the best Boston dive bars">
+    <meta name="description" content="Map of the best Boston dive bars. Map contains classics like the Tam and An Tain, and other greats like Sidebar and JJ Foleys">
     <meta name="robots" context="index, about">
     <link rel="icon" type="image/png" sizes="64x64" href="images/icons8-beer-64.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons8-beer-64.png">
@@ -28,7 +28,6 @@
 
         gtag('config', 'G-B9BFT1VVW8');
     </script>
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
         crossorigin="" />
@@ -44,13 +43,16 @@
 
     <div id="map">
 
-        <script type="text/javascript" src="./mapping.js"></script>
-
+    <script type="text/javascript" src="./mapping.js"></script>
+    <h1 style="color:rgb(221,221,221">Boston Dive Bars</h1>
     </div>
+
     <div id="info">
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="https://www.instagram.com/boston_dives/"><img src="./images/insta.svg" alt="Instagram" style="height:25px;width:25px;"></a></li>
+        <ul id="ul-bar">
+            <li id="li-bar"><a href="about.html" id="a-bar" style="margin:auto;text-align: center;display:block">About</a></li>
+            <li id="li-bar"><a href="https://www.instagram.com/boston_dives/" id="a-bar"><img src="./images/insta.svg" alt="Instagram" style="height:20px;width:20px;justify-content: center;display:flex"></a></li>
+            <li id="li-bar"><a href="https://www.twitter.com/boston_dives/" id="a-bar"><img src="./images/icons8-twitter-circled-50.png" alt="Twitter" style="height:20px;width:20px;justify-content: center;display:flex"></a></li>
+
             <li style="float:right"><a class="inactive">BostonDives.bar</a></li>
         </ul>
     </div>
