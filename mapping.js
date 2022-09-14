@@ -44,6 +44,15 @@ function checkBarOpen(currentTime, barJson, currentDay) {
     }
 }
 
+function Check(value) {
+    console.log("who knows", value);
+    if(value['checked'] == true) {
+        localStorage.setItem(value['id'], true)
+    } else {
+        localStorage.removeItem(value['id']);
+    }
+  };
+
 function generatePopupMessage(barJson) {
 
     let ua = navigator.userAgent;
@@ -89,6 +98,20 @@ function generatePopupMessage(barJson) {
     if (barJson["website"]) {
         funcPopupMessage += `<a href="${barJson["website"]}">Website</a>`;
     }
+
+    // generate the slidey boi for whether or not you have been to a bar
+    var checked = JSON.parse(localStorage.getItem(barName));
+    var checked_field = " ";
+
+    if(checked == true) {
+        console.log("checked: ", checked);
+        checked_field = "checked";
+    }
+    
+    funcPopupMessage += `<br><br><label>
+    <input type="checkbox" onchange="Check(this)" id="${barName}" ${checked_field}/> Drank here
+    </label>`
+
     return funcPopupMessage;
 }
 // this is all kind of ugly but works. i forgot that people block all location requests
