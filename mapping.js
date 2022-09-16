@@ -45,7 +45,6 @@ function checkBarOpen(currentTime, barJson, currentDay) {
 }
 
 function Check(value) {
-    console.log("who knows", value);
     if(value['checked'] == true) {
         localStorage.setItem(value['id'], true)
     } else {
@@ -99,21 +98,39 @@ function generatePopupMessage(barJson) {
         funcPopupMessage += `<a href="${barJson["website"]}">Website</a>`;
     }
 
+    return funcPopupMessage;
+}
+function onClick(e) {
+
+    // get the content of the original popup message
+    var datas = this.getPopup().getContent()
+
+    // regex out the name of the bar
+    let re = new RegExp('<h3>(.*?)</h3>');
+    let result = re.exec(datas)
+    let barName = result[1]
+
     // generate the slidey boi for whether or not you have been to a bar
+
+    // check to see if this is a bar that has already been visited
     var checked = JSON.parse(localStorage.getItem(barName));
     var checked_field = " ";
 
-    if(checked == true) {
-        console.log("checked: ", checked);
-        checked_field = "checked";
-    }
-    
-    funcPopupMessage += `<br><br><label>
-    <input type="checkbox" onchange="Check(this)" id="${barName}" ${checked_field}/> Drank here
-    </label>`
+    // split on the br tag to remove the checkbox so it doesn't get added multiple times
+    var new_str = datas.split("<br>")[0];
 
-    return funcPopupMessage;
+    if(checked == true) {
+        new_str += `<br><br><label><input type="checkbox" onchange="Check(this)" 
+        id="${barName}" checked/> Drank here
+        </label>`
+    } else {
+        new_str += `<br><br><label><input type="checkbox" onchange="Check(this)" 
+        id="${barName}" /> Drank here
+        </label>`
+    }
+    this.getPopup().setContent(new_str)
 }
+
 // this is all kind of ugly but works. i forgot that people block all location requests
 function onLocationError(e) {
     //alert(e.message);
@@ -143,6 +160,7 @@ function onLocationError(e) {
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
                     .bindPopup(popupMessage)
+                    .on('click', onClick)
                     .addTo(map);
             }
 
@@ -262,6 +280,7 @@ fetch("./locations.json")
                 // add everything from locations
                 marker = new L.marker([lat, long], { icon: iconType })
                     .bindPopup(popupMessage)
+                    .on('click', onClick)
                     .addTo(map);
             }
 
@@ -305,6 +324,7 @@ fetch("./locations.json")
             // this gets added a second time to lay over the routing
             closestMarker = new L.marker([closestLat, closestLong], { icon: yellowIcon })
                 .bindPopup(closestPopupMessage)
+                .on('click', onClick)
                 .addTo(map);
 
         })
