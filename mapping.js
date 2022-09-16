@@ -29,28 +29,28 @@ function checkBarOpen(currentTime, barJson, currentDay) {
     // this handles when bars are open until 1 am the next morning and its still during the day
     // i hate the way this works.
     // i still think this is ugly but it seems like it works
-    if((currentTime > open && (currentTime <= "23:59" && close > "02:00"))) {
+    if ((currentTime > open && (currentTime <= "23:59" && close > "02:00"))) {
         return true;
-    } else if((close >= "00:00" && close <= "02:00") && (currentTime > open && currentTime < "23:59")) {
+    } else if ((close >= "00:00" && close <= "02:00") && (currentTime > open && currentTime < "23:59")) {
         return true;
-    } else if(currentTime >= "00:00" && currentTime <= "02:00") {
+    } else if (currentTime >= "00:00" && currentTime <= "02:00") {
         currentDay = currentDay - 1;
         open = "00:00"
         close = barJson["hours"][currentDay][0].split(",")[1];
-        return currentTime >= open && currentTime <= close; 
+        return currentTime >= open && currentTime <= close;
     } else {
         return false;
-        
+
     }
 }
 
 function Check(value) {
-    if(value['checked'] == true) {
+    if (value['checked'] == true) {
         localStorage.setItem(value['id'], true)
     } else {
         localStorage.removeItem(value['id']);
     }
-  };
+};
 
 function generatePopupMessage(barJson) {
 
@@ -73,16 +73,16 @@ function generatePopupMessage(barJson) {
         funcPopupMessage += `<p>Recommended order: ${barJson["whatToOrder"]}</p>`
     }
 
-        // send the current time and then the current day to figure out if the bar is open
-        if (barJson["hours"]) {
-            let barStatus = checkBarOpen(currentTime, barJson, currentDay)
-    
-            if (barStatus) {
-                funcPopupMessage += `<p>Bar is currently <b>open</b></p>`;
-            } else {
-                funcPopupMessage += `<p>Bar is currently <b>closed</b></p>`;
-            }
+    // send the current time and then the current day to figure out if the bar is open
+    if (barJson["hours"]) {
+        let barStatus = checkBarOpen(currentTime, barJson, currentDay)
+
+        if (barStatus) {
+            funcPopupMessage += `<p>Bar is currently <b>open</b></p>`;
+        } else {
+            funcPopupMessage += `<p>Bar is currently <b>closed</b></p>`;
         }
+    }
 
     if (isMobile && ua.includes("Android")) {
         funcPopupMessage += `<a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`;
@@ -100,6 +100,8 @@ function generatePopupMessage(barJson) {
 
     return funcPopupMessage;
 }
+
+// generate the slidey boi for whether or not you have been to a bar
 function onClick(e) {
 
     // get the content of the original popup message
@@ -110,8 +112,6 @@ function onClick(e) {
     let result = re.exec(datas)
     let barName = result[1]
 
-    // generate the slidey boi for whether or not you have been to a bar
-
     // check to see if this is a bar that has already been visited
     var checked = JSON.parse(localStorage.getItem(barName));
     var checked_field = " ";
@@ -119,7 +119,7 @@ function onClick(e) {
     // split on the br tag to remove the checkbox so it doesn't get added multiple times
     var new_str = datas.split("<br>")[0];
 
-    if(checked == true) {
+    if (checked == true) {
         new_str += `<br><br><label><input type="checkbox" onchange="Check(this)" 
         id="${barName}" checked/> Drank here
         </label>`
@@ -262,7 +262,7 @@ fetch("./locations.json")
                     closestBar = "Directions to: " + plotBarOnMap; // set message on location pin
 
                     // loop through to find the bar to plot as the destination
-                    if(json[i]["name"] == plotBarOnMap) {
+                    if (json[i]["name"] == plotBarOnMap) {
                         closestPopupMessage = generatePopupMessage(json[i]);
                     }
 
