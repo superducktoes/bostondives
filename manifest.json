@@ -1,14 +1,25 @@
 {
     "short_name": "BostonDives.bar",
-    "name":"Boston Dives",
-    "icons": [{
-        "src": "./images/icons8-beer-64.png",
-        "type": "image/png",
-        "sizes": "64x64"
-    }
+    "name": "Boston Dives",
+    "icons": [
+        {
+            "src": "./images/icons8-beer-64.png",
+            "type": "image/png",
+            "sizes": "64x64"
+        },
+        {
+            "src": "./images/icons8-beer-64.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "./images/icons8-beer-64.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
     ],
-    "start_url": "index.html",
+    "start_url": "/index.html",
     "background_color": "#000000",
-    "display": "standalone",
+    "display": "fullscreen",
     "theme_color": "#4dbaa8"
 }
