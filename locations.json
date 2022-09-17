@@ -2880,5 +2880,34 @@
       ]
     },
     "website": "https://agas-highland-tap-room.business.site/"
+  },
+  {
+    "name": "Grainne O'Malley's Tavern",
+    "location": "42.33970, -71.12079",
+    "type": "bar",
+    "hours": {
+      "0": [
+        "01:00,00:00"
+      ],
+      "1": [
+        "16:00,00:00"
+      ],
+      "2": [
+        "16:00,00:00"
+      ],
+      "3": [
+        "16:00,00:00"
+      ],
+      "4": [
+        "16:00,01:00"
+      ],
+      "5": [
+        "12:00,01:00"
+      ],
+      "6": [
+        "12:00,01:00"
+      ]
+    },
+    "website": "http://omalleystavern.com/"
   }
 ]
