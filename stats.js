@@ -6,7 +6,7 @@ window.onload = function () {
 
             let barsVistedCounter = localStorage.length;
             let barsNotVisitedCounter = json.length - localStorage.length;
-            let barsCompleted = Math.round((barsVistedCounter/barsNotVisitedCounter) * 100);
+            let barsCompleted = Math.round((barsVistedCounter/json.length) * 100);
 
             let barsVisistedList = "<ul>";
             let barsNotVisistedList = "<ul>";
