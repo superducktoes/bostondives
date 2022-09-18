@@ -29,7 +29,7 @@ function checkBarOpen(currentTime, barJson, currentDay) {
     // this handles when bars are open until 1 am the next morning and its still during the day
     // i hate the way this works.
     // i still think this is ugly but it seems like it works
-    if ((currentTime > open && (currentTime <= "23:59" && close <= "02:00"))) {
+    if ((currentTime > open && (close <= "02:00"))) {
         return true;
     } else if ((close >= "00:00" && close <= "02:00") && (currentTime > open && currentTime < "23:59")) {
         return true;
