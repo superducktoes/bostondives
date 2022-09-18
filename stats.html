@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B9BFT1VVW8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B9BFT1VVW8');
+</script>
+<script type="text/javascript" src="./stats.js"></script>
+<title>Best Boston Dive Bars</title>
+<meta name="description" content="Map of the best Boston dive bars">
+<meta name="robots" context="index, about">
+<style>
+  body{
+  margin:1em auto;
+  max-width:40em;
+  padding:0 .62em;
+  font:1.2em/1.62 sans-serif;
+  }
+  h1,h2,h3 {
+  line-height:1.2;
+  }
+  @media print{
+  body{
+  max-width:none
+  }
+  }
+  /* lines between items */
+  hr.solid {
+  border-top: 1px solid #f0f0f5;
+  margin: 1em auto;
+}
+  /* arrange images side by side */
+  * {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<article>
+  <header>
+    <h1>Stats</h1>
+    </header>
+  <body>
+    <h2>Bars Visited</h2>
+    <p>These are all of the places that you've visited</p>
+    <div id="visitedBarsCounter"></div>
+    <div id="visitedBarsList"></div>
+    <br>
+    <h2>Bars to Visit</h2>
+    <p>These are all of the places that you haven't visited</p>
+    <div id="notVisitedBarsCounter"></div>
+    <div id="notVisitedBarsList"></div>
+  </body>
+  </article>
