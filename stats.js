@@ -15,11 +15,19 @@ window.onload = function () {
                 for(let j = 0; j < json.length; j++) {
                     if(json[j]["name"] == key) {
                         barsVisistedList += `<li>${key}</li>`
+                        json[j]["visited"] = true;
+                    } else {
+                        json[j]["visited"] = false;
                     }
                 }
             }
 
-
+            for(let i = 0; i < json.length; i++) {
+                if(json[i]["visited"] == false) {
+                    barsNotVisistedList += `<li><a href="https://bostondives.bar/?bar=${json[i]["name"]}">${json[i]["name"]}</a></li>`
+                }
+            }
+            console.log(json);
             console.log(barsVistedCounter);
             console.log(barsNotVisitedCounter);
 
