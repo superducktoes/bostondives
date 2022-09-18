@@ -17,17 +17,17 @@ window.onload = function () {
                     if(json[j]["name"] == key) {
                         barsVisistedList += `<li>${key}</li>`
                         json[j]["visited"] = true;
-                    } else {
-                        json[j]["visited"] = false;
+                        console.log(key)
                     }
                 }
             }
 
             for(let i = 0; i < json.length; i++) {
-                if(json[i]["visited"] == false) {
+                if(!json[i]["visited"]) {
                     barsNotVisistedList += `<li><a href="https://bostondives.bar/?bar=${json[i]["name"]}">${json[i]["name"]}</a></li>`
                 }
             }
+            console.log(json);
 
             document.getElementById("percentageCompleted").innerHTML = `You've been to ${barsCompleted}% of the bars on the map`
 
@@ -36,6 +36,7 @@ window.onload = function () {
 
             barsVisistedList += "</ul>";
             barsNotVisistedList += "</ul>"
+
             document.getElementById("visitedBarsList").innerHTML = barsVisistedList;
             document.getElementById("notVisitedBarsList").innerHTML = barsNotVisistedList;
 
