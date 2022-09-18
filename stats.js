@@ -6,6 +6,7 @@ window.onload = function () {
 
             let barsVistedCounter = localStorage.length;
             let barsNotVisitedCounter = json.length - localStorage.length;
+            let barsCompleted = Math.round((barsVistedCounter/barsNotVisitedCounter) * 100);
 
             let barsVisistedList = "<ul>";
             let barsNotVisistedList = "<ul>";
@@ -27,9 +28,8 @@ window.onload = function () {
                     barsNotVisistedList += `<li><a href="https://bostondives.bar/?bar=${json[i]["name"]}">${json[i]["name"]}</a></li>`
                 }
             }
-            console.log(json);
-            console.log(barsVistedCounter);
-            console.log(barsNotVisitedCounter);
+
+            document.getElementById("percentageCompleted").innerHTML = `You've been to ${barsCompleted}% of the bars on the map`
 
             document.getElementById("visitedBarsCounter").innerHTML = "Visited: " + barsVistedCounter;
             document.getElementById("notVisitedBarsCounter").innerHTML = "Not visited: " + barsNotVisitedCounter;
