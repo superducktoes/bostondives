@@ -5,8 +5,23 @@ const assets = [
     "mapping.js",
     "about.html",
     "locations.json",
+    "stylesheet.css",
+    "sw.js",
+    "stats.js",
+    "stats.html",
+    "manifest.json",
     "/libraries/leaflet-messagebox.css",
-    "/libraries/leaflet-messagebox.js"
+    "/libraries/leaflet-messagebox.js",
+    "/images/beer_logo.svg",
+    "/images/closest.png",
+    "/images/directions.png",
+    "/images/drankhere.png",
+    "/images/food.png",
+    "/images/icons8-beer-64.png",
+    "/images/icons8-twitter-circled-50.png",
+    "/images/insta.svg",
+    "/images/notes.png",
+    "/images/query_bars.png"
 ]
 
 self.addEventListener("install", installEvent => {
