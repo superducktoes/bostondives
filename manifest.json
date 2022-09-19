@@ -3,17 +3,17 @@
     "short_name": "BostonDives.bar",
     "icons": [
         {
-            "src": "./images/beer_logo.svg",
+            "src": "/images/beer_logo.svg",
             "type": "image/svg",
             "sizes": "64x64"
         },
         {
-            "src": "./images/beer_logo.svg",
+            "src": "/images/beer_logo.svg",
             "type": "image/svg",
             "sizes": "192x192"
         },
         {
-            "src": "./images/beer_logo.svg",
+            "src": "/images/beer_logo.svg",
             "type": "image/svg",
             "sizes": "512x512"
         }
