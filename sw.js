@@ -27,6 +27,7 @@ const assets = [
 self.addEventListener("install", installEvent => {
     installEvent.waitUntil(
         caches.open(staticBostonDivesAssets).then(cache => {
+            console.log(cache.add(assets));
             return cache.addAll(assets)
         })
     )
