@@ -3,18 +3,18 @@
     "name": "Boston Dives",
     "icons": [
         {
-            "src": "./images/icons8-beer-64.png",
-            "type": "image/png",
+            "src": "./images/beer_logo.svg",
+            "type": "image/svg",
             "sizes": "64x64"
         },
         {
-            "src": "./images/icons8-beer-64.png",
-            "type": "image/png",
+            "src": "./images/beer_logo.svg",
+            "type": "image/svg",
             "sizes": "192x192"
         },
         {
-            "src": "./images/icons8-beer-64.png",
-            "type": "image/png",
+            "src": "./images/beer_logo.svg",
+            "type": "image/svg",
             "sizes": "512x512"
         }
     ],
