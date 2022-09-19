@@ -218,10 +218,15 @@ fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
 
-        if("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("sw.js");
-        };
-        
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function() {
+              navigator.serviceWorker
+                .register("/sw.js")
+                .then(res => console.log("service worker registered"))
+                .catch(err => console.log("service worker not registered", err))
+            })
+          }
+          
         let isMobile = window.mobileCheck()
 
         // check if there is a bar parameter provided

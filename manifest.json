@@ -1,6 +1,6 @@
 {
-    "short_name": "BostonDives.bar",
     "name": "Boston Dives",
+    "short_name": "BostonDives.bar",
     "icons": [
         {
             "src": "./images/beer_logo.svg",
