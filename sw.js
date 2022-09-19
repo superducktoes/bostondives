@@ -1,7 +1,5 @@
-self.addEventListener("install", function (event) {
-    event.waitUntil(
-        caches.open("sw-cache").then(function (cache) {
-            const urls = [
+const staticBostonDivesAssets = "bostondives-bar"
+const assets = [
                 "index.html",
                 "about.html",
                 "locations.json",
@@ -25,15 +23,11 @@ self.addEventListener("install", function (event) {
                 "/images/notes.png",
                 "/images/query_bars.png"
             ]
-            return cache.addAll(urls)
-        })
-    );
-});
 
-self.addEventListener("fetch", function (event) {
-    event.resoindWith(
-        caches.match(event.request).then(function (response) {
-            return response || fetch(event.request);
-        })
-    );
-});
+            self.addEventListener("install", installEvent => {
+              installEvent.waitUntil(
+                caches.open(staticBostonDivesAssets).then(cache => {
+                  cache.addAll(assets)
+                })
+              )
+            })
