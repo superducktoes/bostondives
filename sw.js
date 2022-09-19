@@ -27,9 +27,8 @@ const assets = [
 self.addEventListener("install", installEvent => {
     installEvent.waitUntil(
         caches.open(staticBostonDivesAssets).then(cache => {
-            console.log(cache.add(assets));
-            return cache.addAll(assets)
-        })
+            cache.addAll(assets)
+        }).catch(console.log)
     )
 })
 
@@ -37,6 +36,6 @@ self.addEventListener("fetch", fetchEvent => {
     fetchEvent.respondWith(
         caches.match(fetchEvent.request).then(res => {
             return res || fetch(fetchEvent.request)
-        })
+        }).catch(console.log)
     )
 })
