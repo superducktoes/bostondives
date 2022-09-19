@@ -2,7 +2,10 @@ const staticBostonDivesAssets = "bostondives-bar"
 const assets = [
     "index.html",
     "mapping.js",
-    "about.html"
+    "about.html",
+    "locations.json",
+    "libraries/leaflet-messagebox.css",
+    "libraries/leaflet-messagebox.js"
 ]
 
 self.addEventListener("install", installEvent => {
