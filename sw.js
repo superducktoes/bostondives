@@ -1,6 +1,8 @@
 const staticBostonDivesAssets = "bostondives-bar"
 const assets = [
-    "/"
+    "index.html",
+    "mapping.js",
+    "about.html"
 ]
 
 self.addEventListener("install", installEvent => {
