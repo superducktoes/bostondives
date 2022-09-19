@@ -12,18 +12,18 @@ self.addEventListener("install", function (event) {
                 "stats.js",
                 "stylesheet.css",
                 "sw.js",
-                "./libraries/leaflet-messagebox.css",
-                "./libraries/leaflet-messagebox.js",
-                "./images/beer-svgrepo-com.svg",
-                "./images/closest.png",
-                "./images/directions.png",
-                "./images/drankhere.png",
-                "./images/food.png",
-                "./images/icons8-beeer-64.png",
-                "./images/icons8-twitter-circled-50.png",
-                "./images/insta.svg",
-                "./images/notes.png",
-                "./images/query_bars.png"
+                "/libraries/leaflet-messagebox.css",
+                "/libraries/leaflet-messagebox.js",
+                "/images/beer-svgrepo-com.svg",
+                "/images/closest.png",
+                "/images/directions.png",
+                "/images/drankhere.png",
+                "/images/food.png",
+                "/images/icons8-beeer-64.png",
+                "/images/icons8-twitter-circled-50.png",
+                "/images/insta.svg",
+                "/images/notes.png",
+                "/images/query_bars.png"
             ]
             return cache.addAll(urls)
         })
