@@ -4,7 +4,6 @@ const assets = [
     "index.html",
     "mapping.js",
     "about.html",
-    "locations.json",
     "stylesheet.css",
     "sw.js",
     "stats.js",
