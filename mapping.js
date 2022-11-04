@@ -29,18 +29,24 @@ function checkBarOpen(currentTime, barJson, currentDay) {
     // this handles when bars are open until 1 am the next morning and its still during the day
     // i hate the way this works.
     // i still think this is ugly but it seems like it works
-    if ((currentTime > open && (close <= "02:00"))) {
-        return true;
-    } else if ((close >= "00:00" && close <= "02:00") && (currentTime > open && currentTime < "23:59")) {
-        return true;
-    } else if (currentTime >= "00:00" && currentTime <= "02:00") {
-        currentDay = currentDay - 1;
-        open = "00:00"
-        close = barJson["hours"][currentDay][0].split(",")[1];
-        return currentTime >= open && currentTime <= close;
-    } else {
-        return false;
-
+    if(close <= "23:30" && close > "02:00") {
+        console.log("closes before midnight")
+        if(currentTime <= close && currentTime >= open) {
+            return true
+        } else {
+            return false;
+        }
+    } else if(close >= "00:00" && close <= "02:00") {
+        if(currentTime <= "23:59") {
+            return true;
+        } else if(currentTime >= "00:00" && currenTime <= "02:00") {
+            currentDay = currentDay - 1;
+            open = "00:00";
+            close = barJson["hours"][currentDay][0].split(",")[1];
+            return currentTime > open && currentTime <= close; 
+        }
+    } else if(close == "closed") {
+        return false
     }
 }
 
@@ -60,7 +66,7 @@ function generatePopupMessage(barJson) {
     var lat = parseFloat(barJson["location"].split(",")[0])
     var long = parseFloat(barJson["location"].split(",")[1])
     let barName = barJson["name"];
-
+    console.log(barName);
     const d = new Date();
     let currentDay = d.getDay();
     let currentHour = d.getHours();
@@ -226,7 +232,7 @@ fetch("./locations.json")
                 .catch(err => console.log("service worker not registered", err))
             })
           }*/
-          
+
         let isMobile = window.mobileCheck()
 
         // check if there is a bar parameter provided
