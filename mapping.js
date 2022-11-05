@@ -302,11 +302,6 @@ fetch("./locations.json")
                     if (json[i]["name"] == plotBarOnMap) {
                         closestPopupMessage = generatePopupMessage(json[i]);
                     }
-                    
-                    document.getElementById("next-button").style.visibility = "hidden";
-                    document.getElementById("closest-button").style.visibility = "visible";
-                    var button = document.getElementById('closest-button');
-                    button.addEventListener('click', () => location.href=`https://bostondives.bar/`);
 
                 }
 
@@ -377,6 +372,11 @@ fetch("./locations.json")
                 button.addEventListener('click', () => location.href=`https://bostondives.bar/?bar=${secondClosestBar}`);
             }
 
+            if(barQuery) {
+                document.getElementById("closest-button").style.visibility = "visible";
+                var button = document.getElementById('closest-button');
+                button.addEventListener('click', () => location.href=`https://bostondives.bar/`);
+            }
         })
 
         map.on('locationerror', onLocationError);
