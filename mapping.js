@@ -366,7 +366,7 @@ fetch("./locations.json")
 
 
             // check to see if we need to add a button to help route to the next closest bar
-            if (totalDistance < 1500) {
+            if (totalDistance < 500) {
                 document.getElementById("closest-button").style.visibility = "hidden";
                 document.getElementById("next-button").style.visibility = "visible";
                 var button = document.getElementById('next-button');
