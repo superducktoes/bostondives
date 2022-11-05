@@ -57,6 +57,7 @@ html, body {
   }
 
   #next-button {
+    background-color: white;
     position: absolute;
     top: 80px;
     left: 10px;
@@ -65,4 +66,13 @@ html, body {
     visibility:hidden
   }
   
+  #closest-button {
+    background-color: white;
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    padding: 10px;
+    z-index: 400;
+    visibility:hidden
+  }
   

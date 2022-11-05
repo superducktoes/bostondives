@@ -303,6 +303,9 @@ fetch("./locations.json")
                         closestPopupMessage = generatePopupMessage(json[i]);
                     }
 
+                    document.getElementById("closest-button").style.visibility = "visible";
+                    var button = document.getElementById('closest-button');
+                    button.addEventListener('click', () => location.href=`https://bostondives.bar/`);
                 }
 
                 // determine what marker to use on the map
