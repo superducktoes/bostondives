@@ -21,35 +21,35 @@ function toRad(Value) {
 }
 
 // returns whether or not a bar is open
- function checkBarOpen(currentTime, barJson, currentDay) {
+function checkBarOpen(currentTime, barJson, currentDay) {
 
     // this handles when bars are open until 1 am the next morning and its still during the day
     // i hate the way this works.
     // i still think this is ugly but it seems like it works
     let open = barJson["hours"][currentDay][0].split(",")[0];
     let close = barJson["hours"][currentDay][0].split(",")[1];
-    
+
     // catch 1 of 4 conditions that can occur
     // 1. bar is closed, 2. bar is closes before midnight
     // 3. bar closes after midnight and it's before midnight
     // 4. same as 3 but it's after midnight
 
-    if(open == "closed") {
+    if (open == "closed") {
         return false;
-    } else if(currentTime < open) {
+    } else if (currentTime < open) {
         return false;
     }
-    
-    if((close <= "23:59" && close > "02:00")) {
+
+    if ((close <= "23:59" && close > "02:00")) {
         return (currentTime > open && currentTime < close);
     }
 
-    if((close >= "00:00" && close <= "02:00") && (currentTime > "02:00" && currentTime <= "23:59")) {
+    if ((close >= "00:00" && close <= "02:00") && (currentTime > "02:00" && currentTime <= "23:59")) {
         close = "23:59";
         return (currentTime > open && currentTime < close);
     }
 
-    if((close >= "00:00" && close <= "02:00") && (currentTime >= "00:00" && currentTime <= "02:00")) {
+    if ((close >= "00:00" && close <= "02:00") && (currentTime >= "00:00" && currentTime <= "02:00")) {
         currentDay = currentDay - 1
         close = barJson["hours"][currentDay][0].split(",")[1];
         open = "00:00";
@@ -58,7 +58,6 @@ function toRad(Value) {
 
     // there's some weird condition that causes a few bars to fall through but they're all overnight
     // so this catches them
-    console.log("this should never fire")
     return true;
 
 
@@ -95,7 +94,7 @@ function generatePopupMessage(barJson) {
     // send the current time and then the current day to figure out if the bar is open
     if (barJson["hours"]) {
         let barStatus = checkBarOpen(currentTime, barJson, currentDay)
-        
+
         if (barStatus) {
             funcPopupMessage += `<p>Bar is currently <b>open</b></p>`;
         } else {
@@ -266,6 +265,9 @@ fetch("./locations.json")
             let closestPopupMessage = "";
             let totalDistance = distanceLimit; // roughly 100 miles
 
+            let secondClosestBar = ""
+            let secondClosestDistance = distanceLimit;
+
             for (var i = 0; i < json.length; i++) {
                 var lat = parseFloat(json[i]["location"].split(",")[0])
                 var long = parseFloat(json[i]["location"].split(",")[1])
@@ -274,13 +276,20 @@ fetch("./locations.json")
                 distance = calcCrow(userLat, userLong, lat, long)
 
                 // get this info to plot separately since we need the closest bar
-                if (distance < totalDistance && json[i]["type"] == "bar" && barQuery == "") {
-                    totalDistance = distance;
-                    closestBar = "The closest dive bar is: " + json[i]["name"];
-                    closestLat = lat;
-                    closestLong = long;
+                // also track the second closest bar in case we're too close and want to go somewhere else
+                if (json[i]["type"] == "bar" && barQuery == "") {
+                    if (distance < totalDistance) {
+                        secondClosestDistance = totalDistance;
+                        totalDistance = distance;
+                        closestBar = "The closest dive bar is: " + json[i]["name"];
+                        closestLat = lat;
+                        closestLong = long;
+                        closestPopupMessage = generatePopupMessage(json[i]);
+                    } else if (distance < secondClosestDistance) {
+                        secondClosestDistance = distance;
+                        secondClosestBar = json[i]["name"];
+                    }
 
-                    closestPopupMessage = generatePopupMessage(json[i]);
 
                 } else if (barQuery) {
                     // I call it closestPopup but its really being repurposed if someone is 
@@ -294,6 +303,9 @@ fetch("./locations.json")
                         closestPopupMessage = generatePopupMessage(json[i]);
                     }
 
+                    document.getElementById("closest-button").style.visibility = "visible";
+                    var button = document.getElementById('closest-button');
+                    button.addEventListener('click', () => location.href=`https://bostondives.bar/`);
                 }
 
                 // determine what marker to use on the map
@@ -354,6 +366,14 @@ fetch("./locations.json")
                 .bindPopup(closestPopupMessage)
                 .on('click', onClick)
                 .addTo(map);
+
+
+            // check to see if we need to add a button to help route to the next closest bar
+            if (totalDistance < 1500) {
+                document.getElementById("next-button").style.visibility = "visible";
+                var button = document.getElementById('next-button');
+                button.addEventListener('click', () => location.href=`https://bostondives.bar/?bar=${secondClosestBar}`);
+            }
 
         })
 
