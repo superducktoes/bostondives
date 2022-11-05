@@ -21,33 +21,43 @@ function toRad(Value) {
 }
 
 // returns whether or not a bar is open
-function checkBarOpen(currentTime, barJson, currentDay) {
-
-    let open = barJson["hours"][currentDay][0].split(",")[0];
-    let close = barJson["hours"][currentDay][0].split(",")[1];
+ function checkBarOpen(currentTime, barJson, currentDay) {
 
     // this handles when bars are open until 1 am the next morning and its still during the day
     // i hate the way this works.
     // i still think this is ugly but it seems like it works
-    if(close <= "23:30" && close > "02:00") {
-        console.log("closes before midnight")
-        if(currentTime <= close && currentTime >= open) {
-            return true
-        } else {
-            return false;
-        }
-    } else if(close >= "00:00" && close <= "02:00") {
-        if(currentTime <= "23:59") {
-            return true;
-        } else if(currentTime >= "00:00" && currenTime <= "02:00") {
-            currentDay = currentDay - 1;
-            open = "00:00";
-            close = barJson["hours"][currentDay][0].split(",")[1];
-            return currentTime > open && currentTime <= close; 
-        }
-    } else if(close == "closed") {
-        return false
+    let open = barJson["hours"][currentDay][0].split(",")[0];
+    let close = barJson["hours"][currentDay][0].split(",")[1];
+    
+    // catch 1 of 4 conditions that can occur
+    // 1. bar is closed, 2. bar is closes before midnight
+    // 3. bar closes after midnight and it's before midnight
+    // 4. same as 3 but it's after midnight
+
+    if(open == "closed") {
+        return false;
     }
+
+    if(close <= "23:59" && close > "02:00") {
+        return (currentTime > open && currentTime < close);
+    }
+
+    if((close >= "00:00" && close <= "02:00") && (currentTime > "02:00" && currentTime <= "23:59")) {
+        close = "23:59";
+        return (currentTime > open && currentTime < close);
+    }
+
+    if((close >= "00:00" && close <= "02:00") && (currentTime >= "00:00" && currentTime <= "02:00")) {
+        currentDay = currentDay - 1
+        close = barJson["hours"][currentDay][0].split(",")[1];
+        open = "00:00";
+        return (currentTime > open && currentTime < close);
+    }
+
+    // there's some weird condition that causes a few bars to fall through but they're all overnight
+    // so this catches them
+    return true;
+
 }
 
 function Check(value) {
@@ -66,11 +76,11 @@ function generatePopupMessage(barJson) {
     var lat = parseFloat(barJson["location"].split(",")[0])
     var long = parseFloat(barJson["location"].split(",")[1])
     let barName = barJson["name"];
-    console.log(barName);
     const d = new Date();
     let currentDay = d.getDay();
-    let currentHour = d.getHours();
-    let currentMinutes = d.getMinutes();
+    const currentHour = d.getHours();
+    //const currentMinutes = d.getMinutes();
+    const currentMinutes = String(d.getMinutes()).padStart(2, '0');
     let currentTime = `${currentHour}:${currentMinutes}`
 
     let funcPopupMessage = `<h3>${barName}</h3>`;
@@ -82,7 +92,7 @@ function generatePopupMessage(barJson) {
     // send the current time and then the current day to figure out if the bar is open
     if (barJson["hours"]) {
         let barStatus = checkBarOpen(currentTime, barJson, currentDay)
-
+        
         if (barStatus) {
             funcPopupMessage += `<p>Bar is currently <b>open</b></p>`;
         } else {
