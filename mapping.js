@@ -36,9 +36,11 @@ function toRad(Value) {
 
     if(open == "closed") {
         return false;
+    } else if(currentTime < open) {
+        return false;
     }
-
-    if(close <= "23:59" && close > "02:00") {
+    
+    if((close <= "23:59" && close > "02:00")) {
         return (currentTime > open && currentTime < close);
     }
 
@@ -56,7 +58,9 @@ function toRad(Value) {
 
     // there's some weird condition that causes a few bars to fall through but they're all overnight
     // so this catches them
+    console.log("this should never fire")
     return true;
+
 
 }
 
@@ -78,8 +82,7 @@ function generatePopupMessage(barJson) {
     let barName = barJson["name"];
     const d = new Date();
     let currentDay = d.getDay();
-    const currentHour = d.getHours();
-    //const currentMinutes = d.getMinutes();
+    const currentHour = String(d.getHours()).padStart(2, '0');
     const currentMinutes = String(d.getMinutes()).padStart(2, '0');
     let currentTime = `${currentHour}:${currentMinutes}`
 
