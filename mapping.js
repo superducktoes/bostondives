@@ -367,12 +367,14 @@ fetch("./locations.json")
 
             // check to see if we need to add a button to help route to the next closest bar
             if (totalDistance < 1500) {
+                document.getElementById("closest-button").style.visibility = "hidden";
                 document.getElementById("next-button").style.visibility = "visible";
                 var button = document.getElementById('next-button');
                 button.addEventListener('click', () => location.href=`https://bostondives.bar/?bar=${secondClosestBar}`);
             }
 
             if(barQuery) {
+                document.getElementById("next-button").style.visibility = "hidden";
                 document.getElementById("closest-button").style.visibility = "visible";
                 var button = document.getElementById('closest-button');
                 button.addEventListener('click', () => location.href=`https://bostondives.bar/`);
