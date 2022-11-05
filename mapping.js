@@ -236,14 +236,14 @@ fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
 
-        /*if ("serviceWorker" in navigator) {
+        if ("serviceWorker" in navigator) {
             window.addEventListener("load", function() {
               navigator.serviceWorker
                 .register("/sw.js")
                 .then(res => console.log("service worker registered"))
                 .catch(err => console.log("service worker not registered", err))
             })
-          }*/
+          }
 
         let isMobile = window.mobileCheck()
 
@@ -366,7 +366,7 @@ fetch("./locations.json")
 
 
             // check to see if we need to add a button to help route to the next closest bar
-            if (totalDistance < 500) {
+            if (totalDistance < 300) {
                 document.getElementById("closest-button").style.visibility = "hidden";
                 document.getElementById("next-button").style.visibility = "visible";
                 var button = document.getElementById('next-button');
