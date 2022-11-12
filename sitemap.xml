@@ -9,13 +9,18 @@
 
 <url>
   <loc>https://bostondives.bar/</loc>
-  <lastmod>2022-11-05T16:52:48+00:00</lastmod>
+  <lastmod>2022-11-12T18:04:27+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://bostondives.bar/about.html</loc>
   <lastmod>2022-08-13T10:18:18+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://bostondives.bar/stats.html</loc>
+  <lastmod>2022-11-12T18:04:27+00:00</lastmod>
+  <priority>0.90</priority>
 </url>
 
 
