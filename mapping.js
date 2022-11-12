@@ -351,7 +351,7 @@ fetch("./locations.json")
                     ],
                     units: "imperial",
                     fitSelectedRoutes: true,
-                    collapsible: (isMobile ? false : true),
+                    collapsible: true,
                     show: (isMobile ? false : true) // don't show the directions by default if we're on mobile
                 }).addTo(map);
 
