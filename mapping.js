@@ -237,13 +237,13 @@ fetch("./locations.json")
     .then((json) => {
 
         if ("serviceWorker" in navigator) {
-            window.addEventListener("load", function() {
-              navigator.serviceWorker
-                .register("/sw.js")
-                .then(res => console.log("service worker registered"))
-                .catch(err => console.log("service worker not registered", err))
+            window.addEventListener("load", function () {
+                navigator.serviceWorker
+                    .register("/sw.js")
+                    .then(res => console.log("service worker registered"))
+                    .catch(err => console.log("service worker not registered", err))
             })
-          }
+        }
 
         let isMobile = window.mobileCheck()
 
@@ -347,12 +347,13 @@ fetch("./locations.json")
                 L.Routing.control({
                     waypoints: [
                         L.latLng(userLat, userLong),
-                        L.latLng(closestLat, closestLong)
+                        L.latLng(closestLat, closestLong),
                     ],
                     units: "imperial",
-                    fitSelectedRoutes: true
+                    fitSelectedRoutes: true,
+                    collapsible: (isMobile ? false : true),
+                    show: (isMobile ? false : true) // don't show the directions by default if we're on mobile
                 }).addTo(map);
-
 
                 L.marker(e.latlng).addTo(map)
                     .bindPopup(closestBar).openPopup();
@@ -370,14 +371,14 @@ fetch("./locations.json")
                 document.getElementById("closest-button").style.visibility = "hidden";
                 document.getElementById("next-button").style.visibility = "visible";
                 var button = document.getElementById('next-button');
-                button.addEventListener('click', () => location.href=`https://bostondives.bar/?bar=${secondClosestBar}`);
+                button.addEventListener('click', () => location.href = `https://bostondives.bar/?bar=${secondClosestBar}`);
             }
 
-            if(barQuery) {
+            if (barQuery) {
                 document.getElementById("next-button").style.visibility = "hidden";
                 document.getElementById("closest-button").style.visibility = "visible";
                 var button = document.getElementById('closest-button');
-                button.addEventListener('click', () => location.href=`https://bostondives.bar/`);
+                button.addEventListener('click', () => location.href = `https://bostondives.bar/`);
             }
         })
 
