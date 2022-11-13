@@ -76,3 +76,10 @@ html, body {
     visibility:hidden
   }
   
+  /* override the leaflet settings to make the box a little more noticable */
+  .leaflet-control-container .leaflet-routing-container-hide {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 7px !important;
+    border: 2px solid #de95d0 !important;
+  }
