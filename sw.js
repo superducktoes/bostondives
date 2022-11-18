@@ -23,15 +23,12 @@ const assets = [
     "/images/query_bars.png"
 ]
 
-const version = "1.0.0";
-
 self.addEventListener("install", installEvent => {
     caches.delete(staticBostonDivesAssets);
 
     installEvent.waitUntil(
         caches.open(staticBostonDivesAssets).then(cache => {
             cache.addAll(assets)
-            console.log(cache.keys())
         }).catch(console.log)
     )
 })
