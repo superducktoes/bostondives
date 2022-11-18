@@ -27,12 +27,16 @@ self.addEventListener("install", installEvent => {
     //caches.delete(staticBostonDivesAssets);
 
     console.log(caches.match(staticBostonDivesAssets));
-
     installEvent.waitUntil(
+        caches.open(staticBostonDivesAssets).then(function (cache) {
+            console.log(cache)
+        })
+    )
+    /*installEvent.waitUntil(
         caches.open(staticBostonDivesAssets).then(cache => {
             cache.addAll(assets)
         }).catch(console.log)
-    )
+    )*/
 })
 
 self.addEventListener("fetch", fetchEvent => {
