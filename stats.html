@@ -12,6 +12,7 @@
 
   gtag('config', 'G-B9BFT1VVW8');
 </script>
+
 <script type="text/javascript" src="./stats.js"></script>
 <title>Best Boston Dive Bars - Stats</title>
 <meta name="description" content="Map of the best Boston dive bars">
@@ -53,6 +54,17 @@
   clear: both;
   display: table;
 }
+#myInput {
+
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
 </style>
 </head>
 <article>
@@ -63,16 +75,12 @@
     </header>
   <body>
     <p>Assuming that you're marking off bars on the map, this page shows information on where you've been and where you still need to try</p>
+    <input type="text" id="myInput" onkeyup="searchBars()" placeholder="Search for a bar..." title="Search for a bar">
     <h2>Bars Visited</h2>
     <div id="percentageCompleted"></div>
-    <p>These are all of the places that you've visited</p>
-    <div id="visitedBarsCounter"></div>
-    <div id="visitedBarsList"></div>
-    <br>
-    <h2>Bars to Visit</h2>
-    <p>These are all of the places that you haven't visited</p>
-    <div id="notVisitedBarsCounter"></div>
-    <div id="notVisitedBarsList"></div>
+    <div id="visitedBarsStats"></div>
+    <h2>List of Bars</h2>
+    <div id="listOfBars"></div>
     <a href="https://bostondives.bar">HOME</a>
   </body>
   </article>

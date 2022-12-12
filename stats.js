@@ -8,37 +8,43 @@ window.onload = function () {
             let barsNotVisitedCounter = json.length - localStorage.length;
             let barsCompleted = Math.round((barsVistedCounter/json.length) * 100);
 
-            let barsVisistedList = "<ul>";
-            let barsNotVisistedList = "<ul>";
-
-            for (let i = 0; i < localStorage.length; i++) {
-                var key = localStorage.key(i);
-                for(let j = 0; j < json.length; j++) {
-                    if(json[j]["name"] == key) {
-                        barsVisistedList += `<li>${key}</li>`
-                        json[j]["visited"] = true;
-                        console.log(key)
-                    }
-                }
-            }
+            let listOfBars = "<ul id='listOfBars' style='list-style-type: none';padding: 0;margin: 0;>"
 
             for(let i = 0; i < json.length; i++) {
-                if(!json[i]["visited"]) {
-                    barsNotVisistedList += `<li><a href="https://bostondives.bar/?bar=${json[i]["name"]}">${json[i]["name"]}</a></li>`
+                let bullet = "❌"
+
+                if(json[i]["visited"]) {
+                   bullet = "✅" 
                 }
+                listOfBars += `<li>${bullet} <a href="https://bostondives.bar/?bar=${json[i]["name"]}">${json[i]["name"]}</a></li>`
             }
-            console.log(json);
 
             document.getElementById("percentageCompleted").innerHTML = `You've been to ${barsCompleted}% of the bars on the map`
+            document.getElementById("visitedBarsStats").innerHTML = `Visited: ${barsVistedCounter}  Not Visited: ${barsNotVisitedCounter}`
 
-            document.getElementById("visitedBarsCounter").innerHTML = "Visited: " + barsVistedCounter;
-            document.getElementById("notVisitedBarsCounter").innerHTML = "Not visited: " + barsNotVisitedCounter;
+            listOfBars += "</ul>"
 
-            barsVisistedList += "</ul>";
-            barsNotVisistedList += "</ul>"
+            document.getElementById("listOfBars").innerHTML = listOfBars
 
-            document.getElementById("visitedBarsList").innerHTML = barsVisistedList;
-            document.getElementById("notVisitedBarsList").innerHTML = barsNotVisistedList;
+        })
+}
 
-        })   
+function searchBars() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+
+    ul = document.getElementById("listOfBars");
+
+    li = ul.getElementsByTagName("li");
+
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
 }
