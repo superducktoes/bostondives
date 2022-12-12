@@ -10,6 +10,15 @@ window.onload = function () {
 
             let listOfBars = "<ul id='listOfBars' style='list-style-type: none';padding: 0;margin: 0;>"
 
+            for (let i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                for(let j = 0; j < json.length; j++) {
+                    if(json[j]["name"] == key) {
+                        json[j]["visited"] = true;
+                    }
+                }
+            }
+
             for(let i = 0; i < json.length; i++) {
                 let bullet = "❌"
 
