@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/superducktoes/bostondives/issues"
   },
-  "homepage": "https://github.com/superducktoes/bostondives#readme",
-  "dependencies": {
-    "@astrajs/rest": "^0.3.4"
-  }
+  "homepage": "https://github.com/superducktoes/bostondives#readme"
 }
