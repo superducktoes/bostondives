@@ -149,6 +149,14 @@ function onClick(e) {
     this.getPopup().setContent(new_str)
 }
 
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
 // this is all kind of ugly but works. i forgot that people block all location requests
 function onLocationError(e) {
     //alert(e.message);
@@ -359,6 +367,8 @@ fetch("./locations.json")
 
                 L.marker(e.latlng).addTo(map)
                     .bindPopup(closestBar).openPopup();
+
+                r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${closestBar}`)
             }
 
             // this gets added a second time to lay over the routing
