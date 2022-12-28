@@ -4,7 +4,8 @@ exports.handler = async (event, context) => {
     const bar = queryString.bar || 'None';
 
     console.log("bar: ", bar);
-
+    console.log("event ip: ", event.multiValueHeaders)
+    console.log("query: ", event.multiValueQueryStringParameters)
     const data = {
     }
 
