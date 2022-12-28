@@ -1,0 +1,22 @@
+{
+  "name": "bostondives",
+  "version": "1.0.0",
+  "description": "bostondives.com",
+  "main": "mapping.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superducktoes/bostondives.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/superducktoes/bostondives/issues"
+  },
+  "homepage": "https://github.com/superducktoes/bostondives#readme",
+  "dependencies": {
+    "@astrajs/rest": "^0.3.4"
+  }
+}
