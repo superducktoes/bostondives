@@ -2,6 +2,7 @@ const { createClient } = require("@astrajs/rest");
 
 exports.handler = async (event, context) => {
 
+
     const queryString = event.queryStringParameters;
     const bar = queryString.bar || 'None';
     console.log("bar: ", bar);
@@ -13,8 +14,8 @@ exports.handler = async (event, context) => {
         applicationToken: process.env.ASTRA_DB_APPLICATION_TOKEN,
     });
 
-    const basePath = "/api/rest/v2/namespaces/app/collections/logs";
-
+    //const basePath = "/api/rest/v2/namespaces/app/collections/logs";
+    const basePath = "/api/rest/v2/KEYSPACES/bostondives/collections/logs";
     try {
         const { data, status } = await astraClient.post(basePath, {
             closestBar: bar,
