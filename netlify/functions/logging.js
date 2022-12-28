@@ -17,10 +17,14 @@ exports.handler = async (event, context) => {
     //const basePath = "/api/rest/v2/namespaces/app/collections/logs";
     const basePath = "/api/rest/v2/KEYSPACES/bostondives/collections/logs";
     try {
-        const { data, status } = await astraClient.post(basePath, {
+        /*const { data, status } = await astraClient.post(basePath, {
             closestBar: bar,
             ipAddress: "0.0.0.0",
-        });
+        });*/
+        const { data, status } = await astraClient.post(${basePath}, {
+            closestBar: bar,
+            ipAddress: "0.0.0.0",
+          });
         return {
             statusCode: 200,
             body: JSON.stringify(message),
