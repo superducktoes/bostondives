@@ -290,35 +290,6 @@
       "website": "https://bansheeboston.com/"
    },
    {
-      "name": "Sports Connection Bar and Grill Inc",
-      "location": "42.33044, -71.05677",
-      "type": "bar",
-      "hours": {
-         "0": [
-            "12:00,02:00"
-         ],
-         "1": [
-            "closed,closed"
-         ],
-         "2": [
-            "closed,closed"
-         ],
-         "3": [
-            "closed,closed"
-         ],
-         "4": [
-            "12:00,02:00"
-         ],
-         "5": [
-            "12:00,02:00"
-         ],
-         "6": [
-            "12:00,02:00"
-         ]
-      },
-      "website": "https://www.facebook.com/The-Connection-182391371800364/"
-   },
-   {
       "name": "Shamrock Pub",
       "location": "42.33125, -71.0412",
       "type": "bar",
