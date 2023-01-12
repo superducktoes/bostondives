@@ -272,7 +272,7 @@ fetch("./locations.json")
             const distanceLimit = 528000;
 
             let location = "location: " + String(userLat) + "," + String(userLong);
-            r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barName=${location}`)
+            r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${location}`)
             // calculate the closest bar
             let closestBar = "";
             let closestPopupMessage = "";
