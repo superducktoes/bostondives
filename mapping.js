@@ -1,3 +1,8 @@
+function onLocationError(e) {
+    let errortype = e["type"]
+    console.log(errortype)
+    r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=${errortype}`);
+}
 function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
@@ -394,5 +399,5 @@ fetch("./locations.json")
             }
 
         })
-        
+        map.on('locationerror', onLocationError);
     })
