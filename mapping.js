@@ -244,7 +244,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
 
-fetch("./locations.json")
 if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(function(position) {
       console.log("User allowed location sharing.");
@@ -257,6 +256,8 @@ if ("geolocation" in navigator) {
   } else {
     console.log("Geolocation not supported by this browser.");
   }
+  
+fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
 
