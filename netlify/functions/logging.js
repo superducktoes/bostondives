@@ -5,15 +5,15 @@ exports.handler = async (event, context) => {
     const barSaved = queryString.barSaved || 'None';
     const error = queryString.error || 'None';
 
-    if(bar){
+    if(bar != "None"){
         console.log("closest_bar: ", bar);
         console.log("useragent: ", event["headers"]["user-agent"]);
         console.log("clientip: ", event["multiValueHeaders"]["X-Forwarded-For"][0].split(",")[0]);
-    } else if(barSaved){
+    } else if(barSaved != "None"){
         console.log("saved_bar: ", barSaved);
         console.log("useragent: ", event["headers"]["user-agent"]);
         console.log("clientip: ", event["multiValueHeaders"]["X-Forwarded-For"][0].split(",")[0]);
-    } else if(error) {
+    } else if(error != "None") {
         console.log("error_message:", error);
         console.log("useragent: ", event["headers"]["user-agent"]);
         console.log("clientip: ", event["multiValueHeaders"]["X-Forwarded-For"][0].split(",")[0]);
