@@ -6,7 +6,6 @@ exports.handler = async (event, context) => {
     console.log("closest_bar: ", bar);
     console.log("useragent: ", event["headers"]["user-agent"]);
     console.log("clientip: ", event["multiValueHeaders"]["X-Forwarded-For"][0].split(",")[0]);
-    console.log(`${event["headers"]["user-agent"]},${event["multiValueHeaders"]["X-Forwarded-For"][0].split(",")[0]},${bar}`)
 
     const data = {
     }
