@@ -1,17 +1,5 @@
 const staticBostonDivesAssets = "bostondives-bar"
 const assets = [
-    "/",
-    "index.html",
-    "mapping.js",
-    "about.html",
-    "stylesheet.css",
-    "sw.js",
-    "stats.js",
-    "stats.html",
-    "manifest.json",
-    "/libraries/leaflet-messagebox.css",
-    "/libraries/leaflet-messagebox.js",
-    "/images/beer_logo.svg",
     "/images/closest.png",
     "/images/directions.png",
     "/images/drankhere.png",
