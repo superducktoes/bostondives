@@ -298,10 +298,6 @@ fetch("./locations.json")
                 } else if (barQuery) {
                     // I call it closestPopup but its really being repurposed if someone is 
                     // querying for a bar directly
-                    var options = { timeout: timeout, position: "topright" }
-                    let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
-                    var box = L.control.messagebox(options).addTo(map).show(msg);
-
                     totalDistance = 0; // this is a hack to reset the view for out of state users
                     closestBar = "Directions to: " + plotBarOnMap; // set message on location pin
 
@@ -392,6 +388,10 @@ fetch("./locations.json")
                 document.getElementById("closest-button").style.visibility = "visible";
                 var button = document.getElementById('closest-button');
                 button.addEventListener('click', () => location.href = `https://bostondives.bar/`);
+
+                var options = { timeout: timeout, position: "topright" }
+                let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
+                var box = L.control.messagebox(options).addTo(map).show(msg);
             }
 
         })
