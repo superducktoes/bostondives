@@ -275,10 +275,15 @@ fetch("./locations.json")
           } else {
             console.log("Geolocation not supported by this browser.");
           }
-        const urlParams = new URLSearchParams(barQuery);
-        console.log(urlParams.length)
-        const plotBarOnMap = urlParams.get('bar');
+        
+        let plotBarOnMap;
 
+        url = new URL(window.location.href);
+        if (url.searchParams.has('bar')) {
+            const urlParams = new URLSearchParams(barQuery);
+            plotBarOnMap = urlParams.get('bar');
+        }
+        
         map.locate({ setView: true, maxZoom: 16 });
         console.log(map);
         map.on('locationfound', function (e) {
