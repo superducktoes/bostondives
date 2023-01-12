@@ -355,25 +355,31 @@ fetch("./locations.json")
             }
 
             if (closestBar) {
-                L.Routing.control({
-                    waypoints: [
-                        L.latLng(userLat, userLong),
-                        L.latLng(closestLat, closestLong),
-                    ],
-                    units: "imperial",
-                    fitSelectedRoutes: true,
-                    draggableWaypoints: false,
-                    addWaypoints: false,
-                    collapsible: true,
-                    show: (isMobile ? false : true) // don't show the directions by default if we're on mobile
-                }).addTo(map);
-
-                L.marker(e.latlng).addTo(map)
-                    .bindPopup(closestBar).openPopup();
-
-                // this is temporary I tell myself
-                let httpGetRequest = closestBar.split(":")[1]
-                r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${httpGetRequest}`)
+                if(closestBar != 'none') {
+                    L.Routing.control({
+                        waypoints: [
+                            L.latLng(userLat, userLong),
+                            L.latLng(closestLat, closestLong),
+                        ],
+                        units: "imperial",
+                        fitSelectedRoutes: true,
+                        draggableWaypoints: false,
+                        addWaypoints: false,
+                        collapsible: true,
+                        show: (isMobile ? false : true) // don't show the directions by default if we're on mobile
+                    }).addTo(map);
+    
+                    L.marker(e.latlng).addTo(map)
+                        .bindPopup(closestBar).openPopup();
+    
+                    // this is temporary I tell myself
+                    let httpGetRequest = closestBar.split(":")[1]
+                    r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${httpGetRequest}`)
+                } else {
+                    var options = { timeout: 30000, position: "topright" }
+                    let msg = "For some reason I can't get your location. This happens sometimes if you're browing through instagram or other apps. If you try opening in your browser it should help. If not can you please shoot me an email with what kind of device you are using? contact@bostondives.com"
+                    var box = L.control.messagebox(options).addTo(map).show(msg);
+                }
             }
 
             // this gets added a second time to lay over the routing
