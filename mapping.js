@@ -236,38 +236,6 @@ window.mobileCheck = function () {
     return check;
 };
 
-function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else { 
-      console.log("Geolocation is not supported by this browser.");
-    }
-  }
-  
-  function showPosition(position) {
-    locationText = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-    console.log(locationText)
-  }
-  
-  function showError(error) {
-    switch(error.code) {
-      case error.PERMISSION_DENIED:
-       console.log("User denied the request for Geolocation.")
-        break;
-      case error.POSITION_UNAVAILABLE:
-        console.log("Location information is unavailable.")
-        break;
-      case error.TIMEOUT:
-        console.log("The request to get user location timed out.")
-        break;
-      case error.UNKNOWN_ERROR:
-        console.log("An unknown error occurred.")
-        break;
-    }
-  }
-
-  getLocation();
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
 const timeout = 10000; // timeout setting for message boxes
 
