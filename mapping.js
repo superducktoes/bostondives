@@ -264,6 +264,7 @@ fetch("./locations.json")
         const plotBarOnMap = urlParams.get('bar');
 
         map.locate({ setView: true, maxZoom: 16 });
+        console.log(map);
         map.on('locationfound', function (e) {
             // get the user coordinates
             let userLat = e.latitude
