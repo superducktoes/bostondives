@@ -163,7 +163,7 @@ function httpGet(theUrl)
 // this is all kind of ugly but works. i forgot that people block all location requests
 function onLocationError(e) {
     //alert(e.message);
-    r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=error}`)
+    r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=locationerror}`)
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
