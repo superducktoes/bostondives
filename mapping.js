@@ -274,11 +274,34 @@ fetch("./locations.json")
         map.on('locationfound', function (e) {
             console.log(map)
             // get the user coordinates
-            let userLat = e.latitude
-            let userLong = e.longitude
+            let userLat = e.latitude || 'None'
+            let userLong = e.longitude || 'None'
             let closestLat, closestLong;
             const distanceLimit = 528000;
-
+            if(userLat == "None") {
+                for (var i = 0; i < json.length; i++) {
+                    var lat = parseFloat(json[i]["location"].split(",")[0])
+                    var long = parseFloat(json[i]["location"].split(",")[1])
+                    // determine what marker to use on the map
+                    let iconType = redIcon;
+                    if (json[i]["type"] == "food") {
+                        iconType = greenIcon;
+                    }
+    
+                    // start creating the popup menu when an icon is clicked on
+                    let popupMessage = generatePopupMessage(json[i]);
+    
+                    // add everything from locations
+                    marker = new L.marker([lat, long], { icon: iconType })
+                        .bindPopup(popupMessage)
+                        .on('click', onClick)
+                        .addTo(map);
+                }
+    
+                var options = { timeout: timeout, position: "topright" }
+                let msg = "You're not sharing your location. Feel free to click around and research bars. If you share your location on your phone or computer it will automatically route you to the closest dive bar."
+                var box = L.control.messagebox(options).addTo(map).show(msg);
+            } else {
             // calculate the closest bar
             let closestBar = "";
             let closestPopupMessage = "";
@@ -405,7 +428,7 @@ fetch("./locations.json")
                 var button = document.getElementById('closest-button');
                 button.addEventListener('click', () => location.href = `https://bostondives.bar/`);
             }
+            }
         })
-
         map.on('locationerror', onLocationError);
     })
