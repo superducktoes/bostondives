@@ -240,6 +240,9 @@ fetch("./locations.json")
         let plotBarOnMap = urlParams.get('bar')
         if(plotBarOnMap) {
             barQuery = true;
+            var options = { timeout: timeout, position: "topright" }
+            let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
+            var box = L.control.messagebox(options).addTo(map).show(msg);
         }
 
         let popupMessagePosition;
@@ -388,10 +391,6 @@ fetch("./locations.json")
                 document.getElementById("closest-button").style.visibility = "visible";
                 var button = document.getElementById('closest-button');
                 button.addEventListener('click', () => location.href = `https://bostondives.bar/`);
-
-                var options = { timeout: timeout, position: "topright" }
-                let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
-                var box = L.control.messagebox(options).addTo(map).show(msg);
             }
 
         })
