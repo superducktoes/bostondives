@@ -236,39 +236,6 @@ window.mobileCheck = function () {
     return check;
 };
 
-if ( navigator.permissions && navigator.permissions.query) {
-    //try permissions APIs first
-    navigator.permissions.query({ name: 'geolocation' }).then(function(result) {
-        // Will return ['granted', 'prompt', 'denied']
-        const permission = result.state;
-        if ( permission === 'granted' || permission === 'prompt' ) {
-            _onGetCurrentLocation();
-        }
-    });
-  } else if (navigator.geolocation) {
-    //then Navigation APIs
-    _onGetCurrentLocation();
-  }
-  
-  function _onGetCurrentLocation () {
-      const options = {
-              enableHighAccuracy: true,
-              timeout: 5000,
-              maximumAge: 0
-      };
-      navigator.geolocation.getCurrentPosition( function (position) {
-          //use coordinates
-          const marker = { 
-            lat: position.coords.latitude, 
-            lng: position.coords.longitude 
-          };
-          console.log(marker)
-      }, function (error) {
-        //error handler here
-        console.log(error)
-      }, options)
-  }
-
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
 const timeout = 10000; // timeout setting for message boxes
 
@@ -281,14 +248,6 @@ fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
 
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", function () {
-                navigator.serviceWorker
-                    .register("/sw.js")
-                    .then(res => console.log("service worker registered"))
-                    .catch(err => console.log("service worker not registered", err))
-            })
-        }
 
         let isMobile = window.mobileCheck()
 
