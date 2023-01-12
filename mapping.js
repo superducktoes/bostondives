@@ -262,6 +262,7 @@ fetch("./locations.json")
         // check if there is a bar parameter provided
         let barQuery = window.location.search;
         r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${barQuery}`)
+        console.log(barQuery);
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(function(position) {
               console.log("User allowed location sharing.");
