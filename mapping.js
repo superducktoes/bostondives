@@ -261,6 +261,19 @@ fetch("./locations.json")
 
         // check if there is a bar parameter provided
         let barQuery = window.location.search;
+        r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${barQuery}`)
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              console.log("User allowed location sharing.");
+              console.log(position);
+            }, function(error) {
+              if (error.code === error.PERMISSION_DENIED) {
+                console.log("User denied location sharing.");
+              }
+            });
+          } else {
+            console.log("Geolocation not supported by this browser.");
+          }
         const urlParams = new URLSearchParams(barQuery);
         const plotBarOnMap = urlParams.get('bar');
 
@@ -273,8 +286,6 @@ fetch("./locations.json")
             let closestLat, closestLong;
             const distanceLimit = 528000;
 
-            let location = "location: " + String(userLat) + "," + String(userLong);
-            r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${location}`)
             // calculate the closest bar
             let closestBar = "";
             let closestPopupMessage = "";
