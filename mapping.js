@@ -259,10 +259,12 @@ fetch("./locations.json")
             // get the user coordinates
             let userLat = e.latitude;
             let userLong = e.longitude;
+            lc.stop();
+            lc.stopFollowing();
             console.log(lc);
             console.log(barQuery);
             console.log(plotBarOnMap);
-            
+
             let closestLat, closestLong;
             const distanceLimit = 528000;
 
