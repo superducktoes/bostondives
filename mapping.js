@@ -276,6 +276,7 @@ fetch("./locations.json")
             console.log("Geolocation not supported by this browser.");
           }
         const urlParams = new URLSearchParams(barQuery);
+        console.log(urlParams.length)
         const plotBarOnMap = urlParams.get('bar');
 
         map.locate({ setView: true, maxZoom: 16 });
