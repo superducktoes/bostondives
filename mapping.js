@@ -244,19 +244,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
 
-if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log("User allowed location sharing.");
-      console.log(position);
-    }, function(error) {
-      if (error.code === error.PERMISSION_DENIED) {
-        console.log("User denied location sharing.");
-      }
-    });
-  } else {
-    console.log("Geolocation not supported by this browser.");
-  }
-  
 fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
