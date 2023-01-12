@@ -259,10 +259,6 @@ fetch("./locations.json")
 
         let isMobile = window.mobileCheck()
 
-        // check if there is a bar parameter provided
-        let barQuery = window.location.search;
-        r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${barQuery}`)
-        console.log(barQuery);
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(function(position) {
               console.log("User allowed location sharing.");
@@ -276,12 +272,14 @@ fetch("./locations.json")
             console.log("Geolocation not supported by this browser.");
           }
         
+        // needs better work
         let plotBarOnMap;
-
+        let barQuery = false;
         url = new URL(window.location.href);
         if (url.searchParams.has('bar')) {
             const urlParams = new URLSearchParams(barQuery);
             plotBarOnMap = urlParams.get('bar');
+            barQuery = true;
         }
         
         map.locate({ setView: true, maxZoom: 16 });
