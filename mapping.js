@@ -259,7 +259,7 @@ fetch("./locations.json")
             // get the user coordinates
             let userLat = e.latitude;
             let userLong = e.longitude;
-
+            lc.stopFollowing();
             let closestLat, closestLong;
             const distanceLimit = 528000;
 
@@ -389,7 +389,7 @@ fetch("./locations.json")
                 var button = document.getElementById('closest-button');
                 button.addEventListener('click', () => location.href = `https://bostondives.bar/`);
             }
-            lc.stopFollowing();
+
         })
         
     })
