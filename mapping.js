@@ -147,6 +147,9 @@ function onClick(e) {
         </label>`
     }
     this.getPopup().setContent(new_str)
+
+    // also temporary of course
+    r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barSaved=${barName}`)
 }
 
 function httpGet(theUrl)
