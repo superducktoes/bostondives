@@ -270,7 +270,7 @@ fetch("./locations.json")
             barQuery = true;
         }
         
-        map.locate({ setView: true, maxZoom: 16 });
+        map.locate({ setView: true, maxZoom: 16, timeout:10000 });
         map.on('locationfound', function (e) {
             // get the user coordinates
             let userLat = e.latitude
