@@ -61,6 +61,7 @@ function onClick(e) {
     // check to see if this is a bar that has already been visited
     var checked = JSON.parse(localStorage.getItem(barName));
     var checked_field = " ";
+    r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barSaved=${barName}`)
 
     // split on the br tag to remove the checkbox so it doesn't get added multiple times
     var new_str = datas.split("<br>")[0];
