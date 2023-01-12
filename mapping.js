@@ -358,7 +358,7 @@ fetch("./locations.json")
 
                 // this is temporary I tell myself
                 let httpGetRequest = closestBar.split(":")[1]
-                //r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${httpGetRequest}`)
+                r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${httpGetRequest}`)
             }
 
             // this gets added a second time to lay over the routing
