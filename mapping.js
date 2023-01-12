@@ -245,6 +245,18 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 fetch("./locations.json")
+if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log("User allowed location sharing.");
+      console.log(position);
+    }, function(error) {
+      if (error.code === error.PERMISSION_DENIED) {
+        console.log("User denied location sharing.");
+      }
+    });
+  } else {
+    console.log("Geolocation not supported by this browser.");
+  }
     .then(response => response.json())
     .then((json) => {
 
@@ -259,18 +271,6 @@ fetch("./locations.json")
 
         let isMobile = window.mobileCheck()
 
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-              console.log("User allowed location sharing.");
-              console.log(position);
-            }, function(error) {
-              if (error.code === error.PERMISSION_DENIED) {
-                console.log("User denied location sharing.");
-              }
-            });
-          } else {
-            console.log("Geolocation not supported by this browser.");
-          }
         
         // needs better work
         let plotBarOnMap;
