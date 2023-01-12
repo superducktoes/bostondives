@@ -374,32 +374,7 @@ fetch("./locations.json")
                 // this is temporary I tell myself
                 let httpGetRequest = closestBar.split(":")[1]
                 r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${httpGetRequest}`)
-            } else {
-
-        
-                    for (var i = 0; i < json.length; i++) {
-                        var lat = parseFloat(json[i]["location"].split(",")[0])
-                        var long = parseFloat(json[i]["location"].split(",")[1])
-                        // determine what marker to use on the map
-                        let iconType = redIcon;
-                        if (json[i]["type"] == "food") {
-                            iconType = greenIcon;
-                        }
-        
-                        // start creating the popup menu when an icon is clicked on
-                        let popupMessage = generatePopupMessage(json[i]);
-        
-                        // add everything from locations
-                        marker = new L.marker([lat, long], { icon: iconType })
-                            .bindPopup(popupMessage)
-                            .on('click', onClick)
-                            .addTo(map);
-
-                    var options = { timeout: timeout, position: "topright" }
-                    let msg = "You're not sharing your location. Feel free to click around and research bars. If you share your location on your phone or computer it will automatically route you to the closest dive bar."
-                    var box = L.control.messagebox(options).addTo(map).show(msg);
-
-            }// end else
+            } 
 
             // this gets added a second time to lay over the routing
             closestMarker = new L.marker([closestLat, closestLong], { icon: yellowIcon })
