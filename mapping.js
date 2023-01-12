@@ -262,8 +262,10 @@ if ( navigator.permissions && navigator.permissions.query) {
             lat: position.coords.latitude, 
             lng: position.coords.longitude 
           };
+          console.log(marker)
       }, function (error) {
         //error handler here
+        console.log(error)
       }, options)
   }
 
