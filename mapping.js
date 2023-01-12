@@ -271,6 +271,7 @@ fetch("./locations.json")
         }
         
         map.locate({ setView: true, maxZoom: 16, timeout:10000 });
+        console.log(map)
         map.on('locationfound', function (e) {
             // get the user coordinates
             let userLat = e.latitude
