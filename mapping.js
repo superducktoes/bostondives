@@ -238,7 +238,19 @@ window.mobileCheck = function () {
 
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
 const timeout = 10000; // timeout setting for message boxes
-
+if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log("User allowed location sharing.");
+      console.log(position);
+    }, function(error) {
+      if (error.code === error.PERMISSION_DENIED) {
+        console.log("User denied location sharing.");
+      }
+    });
+  } else {
+    console.log("Geolocation not supported by this browser.");
+  }
+  
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
@@ -271,7 +283,6 @@ fetch("./locations.json")
         }
         
         map.locate({ setView: true, maxZoom: 16 });
-        console.log(map);
         map.on('locationfound', function (e) {
             // get the user coordinates
             let userLat = e.latitude
