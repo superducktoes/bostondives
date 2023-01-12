@@ -255,11 +255,14 @@ fetch("./locations.json")
 
         //map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
 
-        map.on('locationfound', function (e, lc, plotBarOnMap, barQuery) {
+        map.on('locationfound', function (e) {
             // get the user coordinates
             let userLat = e.latitude;
             let userLong = e.longitude;
-
+            console.log(lc);
+            console.log(barQuery);
+            console.log(plotBarOnMap);
+            
             let closestLat, closestLong;
             const distanceLimit = 528000;
 
