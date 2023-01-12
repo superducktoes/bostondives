@@ -370,8 +370,6 @@ fetch("./locations.json")
 
                 // this is temporary I tell myself
                 let httpGetRequest = closestBar.split(":")[1]
-                console.log("http get request: ", httpGetRequest);
-                console.log("closest bar: ", closestBar)
                 r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${httpGetRequest}`)
             }
 
