@@ -236,21 +236,40 @@ window.mobileCheck = function () {
     return check;
 };
 
-var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
-const timeout = 10000; // timeout setting for message boxes
-if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log("User allowed location sharing.");
-      console.log(position);
-    }, function(error) {
-      if (error.code === error.PERMISSION_DENIED) {
-        console.log("User denied location sharing.");
-      }
-    });
-  } else {
-    console.log("Geolocation not supported by this browser.");
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else { 
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
   }
   
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+  }
+  
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        x.innerHTML = "User denied the request for Geolocation."
+        break;
+      case error.POSITION_UNAVAILABLE:
+        x.innerHTML = "Location information is unavailable."
+        break;
+      case error.TIMEOUT:
+        x.innerHTML = "The request to get user location timed out."
+        break;
+      case error.UNKNOWN_ERROR:
+        x.innerHTML = "An unknown error occurred."
+        break;
+    }
+  }
+
+  getLocation();
+var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
+const timeout = 10000; // timeout setting for message boxes
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
