@@ -234,21 +234,21 @@ fetch("./locations.json")
         let isMobile = window.mobileCheck()
 
         // needs better work
-        let plotBarOnMap;
         let barQuery = false;
-        url = new URL(window.location.href);
-        if (url.searchParams.has('bar')) {
-            const urlParams = new URLSearchParams(barQuery);
-            plotBarOnMap = urlParams.get('bar');
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let plotBarOnMap = urlParams.get('bar')
+        if(plotBarOnMap) {
             barQuery = true;
         }
-        let popupMessagePosition;
 
+        let popupMessagePosition;
         if(isMobile){
             popupMessagePosition = "bottomright"    
         } else {
             popupMessagePosition = "topright"
         }
+
         var options = { timeout: timeout, position: popupMessagePosition }
         let msg = "BostonDives.com an interactive map of dives and neighborhood bars.<br>If you share your location with the button the left the map will automatically navigate you to the closest bar.<br>You can also track the bars you've drank at by marking them when clicking/tapping on an icon."
         var box = L.control.messagebox(options).addTo(map).show(msg);
@@ -259,11 +259,7 @@ fetch("./locations.json")
             // get the user coordinates
             let userLat = e.latitude;
             let userLong = e.longitude;
-            lc.stop();
-            lc.stopFollowing();
-            console.log(lc);
-            console.log(barQuery);
-            console.log(plotBarOnMap);
+            lc.stop(); // once we know the users location stop getting updates. although it would be cool to turn this on and find bars as you're walking
 
             let closestLat, closestLong;
             const distanceLimit = 528000;
