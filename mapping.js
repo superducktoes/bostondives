@@ -389,6 +389,7 @@ fetch("./locations.json")
                 var button = document.getElementById('closest-button');
                 button.addEventListener('click', () => location.href = `https://bostondives.bar/`);
             }
+            lc.stopFollowing();
         })
         
     })
