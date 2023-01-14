@@ -6,8 +6,6 @@ const client = new faunadb.Client({
     secret: process.env.FAUNADB_SERVER_SECRET
 });
 
-s
-
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
     /* parse the string body into a useable JS object */
@@ -18,7 +16,7 @@ exports.handler = async (event, context) => {
     };
     /* construct the fauna query */
     return client
-      .query(q.Create(q.Ref('9d861bad-bf9e-4bdd-92c2-7ceb583e3c15/log'), item))
+      .query(q.Create(q.Ref('9d861bad-bf9e-4bdd-92c2-7ceb583e3c15/logs'), item))
       .then(response => {
         console.log('success', response);
         /* Success! return the response with statusCode 200 */
