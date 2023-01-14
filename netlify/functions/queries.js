@@ -29,6 +29,6 @@ exports.handler = async (event, context) => {
 
       return {
         statusCode: statusCode,
-        body: JSON.stringify(data),
+        body: JSON.stringify(returnData),
     }
   };
