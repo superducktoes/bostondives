@@ -16,8 +16,6 @@ exports.handler = async (event, context) => {
           q.Create(q.Collection('logs'), { data: { title, description } })
         );
 
-        res.status(201).json(data);
-      } catch (error) {
-        res.status(500).json({error: error.description})
+        console.log(data);
       }
   };
