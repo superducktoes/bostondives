@@ -9,7 +9,8 @@ const client = new faunadb.Client({
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
     /* parse the string body into a useable JS object */
-    const data = JSON.parse(event.body);
+    //const data = JSON.parse(event.body);
+    const data = JSON.parse({"test": "test"})
     console.log('Function `create` invoked', data);
     const item = {
       data: data
