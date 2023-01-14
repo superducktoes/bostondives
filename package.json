@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/superducktoes/bostondives/issues"
   },
-  "homepage": "https://github.com/superducktoes/bostondives#readme"
+  "homepage": "https://github.com/superducktoes/bostondives#readme",
+  "dependencies": {
+    "faunadb": "^4.7.1"
+  }
 }
