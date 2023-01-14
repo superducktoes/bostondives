@@ -61,7 +61,7 @@ function onClick(e) {
     // check to see if this is a bar that has already been visited
     var checked = JSON.parse(localStorage.getItem(barName));
     var checked_field = " ";
-    
+
 
     // split on the br tag to remove the checkbox so it doesn't get added multiple times
     var new_str = datas.split("<br>")[0];
@@ -202,19 +202,6 @@ fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
 
-        navigator.permissions && navigator.permissions.query({name: 'geolocation'})
-        .then(function(PermissionStatus) {
-            if (PermissionStatus.state == 'granted') {
-                  console.log("allowed")
-            } else if (PermissionStatus.state == 'prompt') {
-                  // prompt - not yet grated or denied
-                  console.log("prompt");
-            } else {
-                 //denied
-                 console.log("denied");
-            }
-        })
-
         var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
         const timeout = 12000; // timeout setting for message boxes
 
@@ -251,7 +238,7 @@ fetch("./locations.json")
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         let plotBarOnMap = urlParams.get('bar')
-        if(plotBarOnMap) {
+        if (plotBarOnMap) {
             barQuery = true;
             var options = { timeout: timeout, position: "topright" }
             let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
@@ -259,17 +246,27 @@ fetch("./locations.json")
         }
 
         let popupMessagePosition;
-        if(isMobile){
-            popupMessagePosition = "bottomright"    
+        if (isMobile) {
+            popupMessagePosition = "bottomright"
         } else {
             popupMessagePosition = "topright"
         }
 
         var options = { timeout: timeout, position: popupMessagePosition }
         let msg = "BostonDives.com an interactive map of dives and neighborhood bars.<br>If you share your location with the button the left the map will automatically navigate you to the closest bar.<br>You can also track the bars you've drank at by marking them when clicking/tapping on an icon."
-        var box = L.control.messagebox(options).addTo(map).show(msg);
+        //var box = L.control.messagebox(options).addTo(map).show(msg);
 
-        //map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
+        navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
+            .then(function (PermissionStatus) {
+                if (PermissionStatus.state == 'granted') {
+                    console.log("allowed")
+                    map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
+                } else {
+                    //denied
+                    console.log("denied");
+                    var box = L.control.messagebox(options).addTo(map).show(msg);
+                }
+            })
 
         map.on('locationfound', function (e) {
             // get the user coordinates
