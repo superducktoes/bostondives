@@ -13,12 +13,13 @@ exports.handler = async (event, context) => {
         //const {title, description } = req.body;
         const title = "test";
         const description = "test";
-        const { data } = await client.query(
+
+        const { rdata } = await client.query(
           q.Create(q.Collection('logs'), { data: { title, description } })
         );
         statusCode = 200
-        console.log(data);
-        returnData = data;
+        console.log(rdata);
+        returnData = rdata;
       }
       catch (error) {
         statusCode = 500
