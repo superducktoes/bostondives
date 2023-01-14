@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
         console.log("useragent: ", useragent);
         console.log("clientip: ", clientip);
 
-        postData = { "saved_bar": [{ "bar": barSaved }, { "ip": "ip" }, { "userAgent": useragent }] }
+        postData = { "saved_bar": [{ "bar": barSaved }, { "clientip": clientip }, { "userAgent": useragent }] }
 
     } else if (error != "None") {
         console.log("error_message:", error);
