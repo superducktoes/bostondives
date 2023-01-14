@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
     };
     /* construct the fauna query */
     return client
-      .query(q.Create(q.Ref('9d861bad-bf9e-4bdd-92c2-7ceb583e3c15/logs'), item))
+      .query(q.Create(q.Ref('logs'), item))
       .then(response => {
         console.log('success', response);
         /* Success! return the response with statusCode 200 */
