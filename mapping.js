@@ -202,6 +202,19 @@ fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
 
+        navigator.permissions && navigator.permissions.query({name: 'geolocation'})
+        .then(function(PermissionStatus) {
+            if (PermissionStatus.state == 'granted') {
+                  console.log("allowed")
+            } else if (PermissionStatus.state == 'prompt') {
+                  // prompt - not yet grated or denied
+                  console.log("prompt");
+            } else {
+                 //denied
+                 console.log("denied");
+            }
+        })
+
         var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
         const timeout = 12000; // timeout setting for message boxes
 
