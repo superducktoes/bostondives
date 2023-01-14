@@ -256,6 +256,8 @@ fetch("./locations.json")
         let msg = "BostonDives.com an interactive map of dives and neighborhood bars.<br>If you share your location with the button the left the map will automatically navigate you to the closest bar.<br>You can also track the bars you've drank at by marking them when clicking/tapping on an icon."
         //var box = L.control.messagebox(options).addTo(map).show(msg);
 
+        // if a user has allowed the location to be accessed jump right to where they are.
+        // if not there's a geolocate button they can use
         navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
             .then(function (PermissionStatus) {
                 if (PermissionStatus.state == 'granted') {
@@ -269,6 +271,13 @@ fetch("./locations.json")
             })
 
         map.on('locationfound', function (e) {
+
+            // check to see if there is a prevous directions menu that we might need to delete
+            var i, elements = document.getElementsByClassName('leaflet-routing-container leaflet-bar leaflet-routing-collapsible leaflet-control');
+            for (i = elements.length; i--;) {
+                elements[i].parentNode.removeChild(elements[i]);
+            }
+
             // get the user coordinates
             let userLat = e.latitude;
             let userLong = e.longitude;
