@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
     const item = {
       data: data
     };
-    item = JSON.parse(item);
+    item = String(JSON.parse(item));
     console.log("item: ", item);
     /* construct the fauna query */
     return client
