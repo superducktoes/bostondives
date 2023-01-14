@@ -16,6 +16,7 @@ exports.handler = async (event, context) => {
     const item = {
       data: data
     };
+    console.log("item: ", item);
     /* construct the fauna query */
     return client
       .query(q.Create(q.Ref('logs'), item))
