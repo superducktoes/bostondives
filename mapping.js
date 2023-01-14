@@ -230,7 +230,12 @@ fetch("./locations.json")
                 .addTo(map);
         }
 
-        var lc = L.control.locate().addTo(map);
+        var lc = L.control.locate({
+            strings: {
+              title: "Show me the closest dive bar"
+            }
+          }).addTo(map);
+
         let isMobile = window.mobileCheck()
 
         // needs better work
