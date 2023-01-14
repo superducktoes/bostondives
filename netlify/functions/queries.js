@@ -9,13 +9,14 @@ const client = new faunadb.Client({
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
     let statusCode, returnData;
+    
       try {
         //const {title, description } = req.body;
         const title = "test";
         const description = "test";
-
+        let postData = {"data": [{"bar": "test"}, {"ip": "ip"}, {"userAgent": "agent"}]}
         const { rdata } = await client.query(
-          q.Create(q.Collection('logs'), { data: { title, description } })
+          q.Create(q.Collection('logs'), { data: postData })
         );
         statusCode = 200
         console.log(rdata);
