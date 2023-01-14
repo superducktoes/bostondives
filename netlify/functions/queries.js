@@ -8,6 +8,7 @@ const client = new faunadb.Client({
 
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
+    let statusCode, returnData;
       try {
         //const {title, description } = req.body;
         const title = "test";
@@ -15,7 +16,18 @@ exports.handler = async (event, context) => {
         const { data } = await client.query(
           q.Create(q.Collection('logs'), { data: { title, description } })
         );
-
+        statusCode = 200
         console.log(data);
+        returnData = data;
       }
+      catch (error) {
+        statusCode = 500
+        returnData = error;
+        console.log(error);
+      }
+
+      return {
+        statusCode: statusCode,
+        body: JSON.stringify(data),
+    }
   };
