@@ -14,10 +14,9 @@ exports.handler = async (event, context) => {
 
     console.log('Function `create` invoked', data);
     const item = {
-      data: data
+        "data": "test"
     };
-    item = String(JSON.parse(item));
-    console.log("item: ", item);
+
     /* construct the fauna query */
     return client
       .query(q.Create(q.Ref('logs'), item))
