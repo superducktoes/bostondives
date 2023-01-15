@@ -20,7 +20,7 @@ exports.handler = async (event, context) => {
     const error = queryString.error || 'None';
 
     const barsCompleted = queryString.barsCompleted || 'None';
-    const barsVistedCounter = queryString.barsVistedCounter || 'None';
+    const barsVisitedCounter = queryString.barsVistedCounter || 'None';
     const barsNotVisitedCounter = queryString.barsNotVisitedCounter || 'None';
 
     if (bar != "None") {
