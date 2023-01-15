@@ -9,6 +9,7 @@ const client = new faunadb.Client({
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
     let statusCode, returnData, postData;
+    let collection = "logs";
 
     let clientip = event["multiValueHeaders"]["X-Forwarded-For"][0].split(",")[0];
     let useragent = event["headers"]["user-agent"];
@@ -22,8 +23,9 @@ exports.handler = async (event, context) => {
         console.log("closest_bar: ", bar);
         console.log("useragent: ", useragent);
         console.log("clientip: ", clientip);
-
-        postData = { "closest_bar": [{ "bar": bar }, { "clientip": clientip }, { "userAgent": useragent }] };
+        
+        collection = "closest_bar";
+        postData = {[{ "bar": bar }, { "clientip": clientip }, { "userAgent": useragent }] };
 
     } else if (barSaved != "None") {
         console.log("saved_bar: ", barSaved);
@@ -36,8 +38,8 @@ exports.handler = async (event, context) => {
         console.log("error_message:", error);
         console.log("useragent: ", useragent);
         console.log("clientip: ", clientip);
-
-        postData = { "error_message": [{ "error_message": error }, { "clientip": clientip }, { "userAgent": useragent }] }
+        collection = "errors"
+        postData = {[{ "error_message": error }, { "clientip": clientip }, { "userAgent": useragent }] }
 
     } else {
         console.log("Not Sharing Location");
@@ -52,7 +54,7 @@ exports.handler = async (event, context) => {
         //const {title, description } = req.body;
         //let postData = { "saved_bar": [{ "bar": "test" }, { "ip": "ip" }, { "userAgent": "agent" }] }
         const { rdata } = await client.query(
-            q.Create(q.Collection('logs'), { data: postData })
+            q.Create(q.Collection(collection), { data: postData })
         );
         statusCode = 200
         console.log(rdata);
