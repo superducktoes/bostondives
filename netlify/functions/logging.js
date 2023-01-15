@@ -19,6 +19,10 @@ exports.handler = async (event, context) => {
     const barSaved = queryString.barSaved || 'None';
     const error = queryString.error || 'None';
 
+    const barsCompleted = queryString.barsCompleted || 'None';
+    const barsVistedCounter = queryString.barsVistedCounter || 'None';
+    const barsNotVisitedCounter = queryString.barsNotVisitedCounter || 'None';
+
     if (bar != "None") {
         console.log("closest_bar: ", bar);
         console.log("useragent: ", useragent);
@@ -42,6 +46,24 @@ exports.handler = async (event, context) => {
         collection = "errors";
         postData = { "error_message": [{ "error_message": error }, { "clientip": clientip }, { "userAgent": useragent }] }
 
+    } else if (barsCompleted != "None") {
+        console.log("bars completed: ", barsCompleted);
+        console.log("bars visisted: ", barsVisited);
+        console.log("bars not visited: ", barsNotVisitedCounter);
+
+        console.log("error_message:", error);
+        console.log("useragent: ", useragent);
+        console.log("clientip: ", clientip);
+
+        collection = "stats";
+        postData = {
+            "stats": [{ "barsCompleted": barsCompleted },
+            { "barsVisited": barsVisited },
+            { "barsNotVisited": barsNotVisitedCounter },
+            { "clientip": clientip },
+            { "userAgent": useragent }
+            ]
+        }
     } else {
         console.log("Not Sharing Location");
         console.log("useragent: ", useragent);

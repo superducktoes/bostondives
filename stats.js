@@ -1,3 +1,10 @@
+//todo make this so i dont have to copy/paste
+function httpGet(theUrl) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+    xmlHttp.send(null);
+    return xmlHttp.responseText;
+}
 
 window.onload = function () {
     fetch("./locations.json")
@@ -31,6 +38,7 @@ window.onload = function () {
                 listOfBars += `<li>${bullet} <a href="https://bostondives.bar/?bar=${json[i]["name"]}">${json[i]["name"]}</a></li>`
             }
 
+            r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barsCompleted=${barsCompleted}&barsVisitedCounter=${barsVistedCounter}&barsNotVisitedCounter=${barsNotVisitedCounter}`)
             document.getElementById("percentageCompleted").innerHTML = `You've been to ${barsCompleted}% of the bars on the map`
             document.getElementById("visitedBarsStats").innerHTML = `Visited: ${barsVistedCounter}  Not Visited: ${barsNotVisitedCounter}`
 
