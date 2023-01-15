@@ -38,7 +38,7 @@ window.onload = function () {
                 listOfBars += `<li>${bullet} <a href="https://bostondives.bar/?bar=${json[i]["name"]}">${json[i]["name"]}</a></li>`
             }
 
-            r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barsCompleted=${barsCompleted}&barsVisitedCounter=${barsVistedCounter}&barsNotVisitedCounter=${barsNotVisitedCounter}`)
+            r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barsCompleted=${barsCompleted}&barsVistedCounter=${barsVistedCounter}&barsNotVisitedCounter=${barsNotVisitedCounter}`)
             document.getElementById("percentageCompleted").innerHTML = `You've been to ${barsCompleted}% of the bars on the map`
             document.getElementById("visitedBarsStats").innerHTML = `Visited: ${barsVistedCounter}  Not Visited: ${barsNotVisitedCounter}`
 
