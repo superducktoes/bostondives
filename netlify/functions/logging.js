@@ -23,9 +23,9 @@ exports.handler = async (event, context) => {
         console.log("closest_bar: ", bar);
         console.log("useragent: ", useragent);
         console.log("clientip: ", clientip);
-        
+
         collection = "closest_bar";
-        postData = {[{ "bar": bar }, { "clientip": clientip }, { "userAgent": useragent }] };
+        postData = {{ "bar": bar }, { "clientip": clientip }, { "userAgent": useragent }};
 
     } else if (barSaved != "None") {
         console.log("saved_bar: ", barSaved);
@@ -38,8 +38,9 @@ exports.handler = async (event, context) => {
         console.log("error_message:", error);
         console.log("useragent: ", useragent);
         console.log("clientip: ", clientip);
+
         collection = "errors"
-        postData = {[{ "error_message": error }, { "clientip": clientip }, { "userAgent": useragent }] }
+        postData = {{ "error_message": error }, { "clientip": clientip }, { "userAgent": useragent } }
 
     } else {
         console.log("Not Sharing Location");
