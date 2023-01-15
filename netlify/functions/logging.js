@@ -48,7 +48,7 @@ exports.handler = async (event, context) => {
 
     } else if (barsCompleted != "None") {
         console.log("bars completed: ", barsCompleted);
-        console.log("bars visisted: ", barsVisited);
+        console.log("bars visisted: ", barsVisitedCounter);
         console.log("bars not visited: ", barsNotVisitedCounter);
 
         console.log("error_message:", error);
@@ -58,7 +58,7 @@ exports.handler = async (event, context) => {
         collection = "stats";
         postData = {
             "stats": [{ "barsCompleted": barsCompleted },
-            { "barsVisited": barsVisited },
+            { "barsVisited": barsVisitedCounter },
             { "barsNotVisited": barsNotVisitedCounter },
             { "clientip": clientip },
             { "userAgent": useragent }
