@@ -198,11 +198,13 @@ var yellowIcon = new L.Icon({
     shadowSize: [41, 41]
 });
 
+var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
+
 fetch("./locations.json")
     .then(response => response.json())
     .then((json) => {
 
-        var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
+
         const timeout = 12000; // timeout setting for message boxes
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
