@@ -1,8 +1,9 @@
-function onLocationError(e) {
+/*function onLocationError(e) {
     let errortype = e["type"]
     console.log(errortype)
     r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=${errortype}`);
-}
+}*/
+
 function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
@@ -423,5 +424,21 @@ fetch("./locations.json")
             }
 
         })
-        map.on('locationerror', onLocationError);
+        //map.on('locationerror', onLocationError(e));
+        map.on('locationerror', function(e) {
+            let isMobile = window.mobileCheck()
+
+            console.log("event e: ", e)
+            let errortype = e["type"]
+            console.log("error getting location");
+            console.log(isMobile);
+            if(isMobile){
+                alert(`Sorry, looks like you're not sharing your location.\nIf you're on iOS you can go to:\nPrivacy and security > location services > safai\nAlso\nSettings > safari and enable location services\n\n For Android\n Settings > Location and make sure your browser has access.`)
+            } else {
+                alert("Error getting location, check your computer settings to make sure that you're sharing your location")
+            }
+
+            r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=${errortype}`);
+
+          });
     })
