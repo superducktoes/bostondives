@@ -232,11 +232,14 @@ fetch("./locations.json")
                 .addTo(map);
         }
 
-        var lc = L.control.locate({
+        /*var lc = L.control.locate({
             strings: {
               title: "Show me the closest dive bar"
             }
-          }).addTo(map);
+          }).addTo(map);*/
+          L.DomEvent.on(document.getElementById('findClosestBarButton'), 'click', function(){
+            map.locate({setView: true, maxZoom: 16});
+          })
 
         let isMobile = window.mobileCheck()
 
@@ -288,7 +291,7 @@ fetch("./locations.json")
             // get the user coordinates
             let userLat = e.latitude;
             let userLong = e.longitude;
-            lc.stop(); // once we know the users location stop getting updates. although it would be cool to turn this on and find bars as you're walking
+            //lc.stop(); // once we know the users location stop getting updates. although it would be cool to turn this on and find bars as you're walking
 
             let closestLat, closestLong;
             const distanceLimit = 528000;

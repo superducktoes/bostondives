@@ -83,3 +83,11 @@ html, body {
     border-radius: 7px !important;
     border: 2px solid #de95d0 !important;
   }
+
+  #findClosestBarButton {
+    position: absolute;
+    top: 90px;
+    left: 10px;
+    padding: 10px;
+    z-index: 400;
+  }
