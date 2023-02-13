@@ -358,6 +358,9 @@ fetch("./locations.json")
                         closestPopupMessage = generatePopupMessage(json[i]);
                     }
 
+                    var x = document.getElementById('findClosestBarButton');
+                    x = style.visibility='hidden';
+
                 }
 
                 // determine what marker to use on the map
