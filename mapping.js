@@ -359,7 +359,7 @@ fetch("./locations.json")
                     }
 
                     var x = document.getElementById('findClosestBarButton');
-                    x = style.visibility='hidden';
+                    x.style.visibility='hidden';
 
                 }
 
