@@ -233,6 +233,7 @@ fetch("./locations.json")
                 .addTo(map);
         }
 
+
         /*var lc = L.control.locate({
             strings: {
               title: "Show me the closest dive bar"
@@ -251,9 +252,27 @@ fetch("./locations.json")
         let plotBarOnMap = urlParams.get('bar')
         if (plotBarOnMap) {
             barQuery = true;
+            //document.querySelector('#closest-button').value = 'Hide';
+            document.getElementById("closest-button").text = "test";
             var options = { timeout: timeout, position: "topright" }
             let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
             var box = L.control.messagebox(options).addTo(map).show(msg);
+
+            for(var i = 0; i < json.length; i++) {
+
+                if(json[i]["name"] == plotBarOnMap) {
+                    let closestPopupMessage = generatePopupMessage(json[i]);
+                    var lat = parseFloat(json[i]["location"].split(",")[0])
+                    var long = parseFloat(json[i]["location"].split(",")[1])
+                    map.setView([lat, long], 16);
+
+                    closestMarker = new L.marker([lat, long], { icon: yellowIcon })
+                    .bindPopup(closestPopupMessage)
+                    .on('click', onClick)
+                    .addTo(map);
+                }
+            }
+            
         }
 
         let popupMessagePosition;
