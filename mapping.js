@@ -252,8 +252,6 @@ fetch("./locations.json")
         let plotBarOnMap = urlParams.get('bar')
         if (plotBarOnMap) {
             barQuery = true;
-            //document.querySelector('#closest-button').value = 'Hide';
-            document.getElementById("closest-button").text = "test";
             var options = { timeout: timeout, position: "topright" }
             let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
             var box = L.control.messagebox(options).addTo(map).show(msg);
@@ -272,6 +270,8 @@ fetch("./locations.json")
                     .addTo(map);
                 }
             }
+            var x = document.getElementById("findClosestBarButton");
+            x.innerHTML = "Get Directions To Bar";
             
         }
 
