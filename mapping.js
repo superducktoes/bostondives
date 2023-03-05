@@ -272,9 +272,12 @@ fetch("./locations.json")
         if (plotBarOnMap) {
             barQuery = true;
             var accessLocation = canGetLocation();
-            var options = { timeout: timeout, position: "topright" }
-            let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
-            var box = L.control.messagebox(options).addTo(map).show(msg);
+            if(!accessLocation) {
+                var options = { timeout: timeout, position: "topright" }
+                let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
+                var box = L.control.messagebox(options).addTo(map).show(msg);
+            }
+
 
             for(var i = 0; i < json.length; i++) {
 
