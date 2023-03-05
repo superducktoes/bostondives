@@ -233,6 +233,7 @@ fetch("./locations.json")
                 .addTo(map);
         }
 
+
         /*var lc = L.control.locate({
             strings: {
               title: "Show me the closest dive bar"
@@ -240,6 +241,7 @@ fetch("./locations.json")
           }).addTo(map);*/
           L.DomEvent.on(document.getElementById('findClosestBarButton'), 'click', function(){
             map.locate({setView: true, maxZoom: 16});
+            document.getElementById("findClosestBarButton").style.visibility = "hidden";
           })
 
         let isMobile = window.mobileCheck()
@@ -251,9 +253,36 @@ fetch("./locations.json")
         let plotBarOnMap = urlParams.get('bar')
         if (plotBarOnMap) {
             barQuery = true;
-            var options = { timeout: timeout, position: "topright" }
-            let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
-            var box = L.control.messagebox(options).addTo(map).show(msg);
+
+            navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
+            .then(function (PermissionStatus) {
+                if (PermissionStatus.state == 'granted') {
+                    console.log("allowed")
+                    document.getElementById("findClosestBarButton").style.visibility = "hidden";
+                } else {
+                    var options = { timeout: timeout, position: "topright" }
+                    let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
+                    var box = L.control.messagebox(options).addTo(map).show(msg);
+                }
+            })
+
+            for(var i = 0; i < json.length; i++) {
+
+                if(json[i]["name"] == plotBarOnMap) {
+                    let closestPopupMessage = generatePopupMessage(json[i]);
+                    var lat = parseFloat(json[i]["location"].split(",")[0])
+                    var long = parseFloat(json[i]["location"].split(",")[1])
+                    map.setView([lat, long], 16);
+
+                    closestMarker = new L.marker([lat, long], { icon: yellowIcon })
+                    .bindPopup(closestPopupMessage).openPopup()
+                    .on('click', onClick)
+                    .addTo(map);
+                }
+            }
+            var x = document.getElementById("findClosestBarButton");
+            x.innerHTML = "Get Directions To Bar";
+            
         }
 
         let popupMessagePosition;
@@ -274,12 +303,14 @@ fetch("./locations.json")
                 if (PermissionStatus.state == 'granted') {
                     console.log("allowed")
                     map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
+                    document.getElementById("findClosestBarButton").style.visibility = "hidden";
                 } else {
                     //denied
                     console.log("denied");
                     var box = L.control.messagebox(options).addTo(map).show(msg);
                 }
             })
+
 
         map.on('locationfound', function (e) {
 
@@ -338,6 +369,9 @@ fetch("./locations.json")
                     if (json[i]["name"] == plotBarOnMap) {
                         closestPopupMessage = generatePopupMessage(json[i]);
                     }
+
+                    var x = document.getElementById('findClosestBarButton');
+                    x.style.visibility='hidden';
 
                 }
 
