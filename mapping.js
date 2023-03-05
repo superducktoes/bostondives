@@ -127,20 +127,18 @@ function checkBarOpen(currentTime, barJson, currentDay) {
 function canGetLocation() {
     // if a user has allowed the location to be accessed jump right to where they are.
     // if not there's a geolocate button they can use
-    var canGetLocation = true
-
     navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
         .then(function (PermissionStatus) {
             if (PermissionStatus.state == 'granted') {
+                console.log("allowed")
                 map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
                 document.getElementById("findClosestBarButton").style.visibility = "hidden";
             } else {
                 //denied
-                canGetLocation = false;
+                console.log("denied");
+                //var box = L.control.messagebox(options).addTo(map).show(msg);
             }
         })
-
-        return canGetLocation;
 }
 function generatePopupMessage(barJson) {
 
@@ -272,7 +270,6 @@ fetch("./locations.json")
         if (plotBarOnMap) {
             barQuery = true;
             var accessLocation = canGetLocation();
-            console.log(accessLocation);
             if(!accessLocation) {
                 console.log("accessLocation: ", accessLocation);
                 var options = { timeout: timeout, position: "topright" }
