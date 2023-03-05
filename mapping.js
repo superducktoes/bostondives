@@ -124,6 +124,24 @@ function checkBarOpen(currentTime, barJson, currentDay) {
 
 }
 
+function canGetLocation() {
+        // if a user has allowed the location to be accessed jump right to where they are.
+        // if not there's a geolocate button they can use
+        navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
+            .then(function (PermissionStatus) {
+                if (PermissionStatus.state == 'granted') {
+                    console.log("allowed")
+                    map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
+                    document.getElementById("findClosestBarButton").style.visibility = "hidden";
+                    return true;
+                } else {
+                    //denied
+                    console.log("denied");
+                    var box = L.control.messagebox(options).addTo(map).show(msg);
+                    return false;
+                }
+            })
+}
 function generatePopupMessage(barJson) {
 
     let ua = navigator.userAgent;
@@ -253,6 +271,7 @@ fetch("./locations.json")
         let plotBarOnMap = urlParams.get('bar')
         if (plotBarOnMap) {
             barQuery = true;
+            var accessLocation = canGetLocation();
             var options = { timeout: timeout, position: "topright" }
             let msg = "Looks like someone shared a bar with you.<br>If you share your location using the arrow directions to the bar will load automatically."
             var box = L.control.messagebox(options).addTo(map).show(msg);
@@ -287,7 +306,7 @@ fetch("./locations.json")
         let msg = "BostonDives.com an interactive map of dives and neighborhood bars.<br>If you share your location with the button the left the map will automatically navigate you to the closest bar.<br>You can also track the bars you've drank at by marking them when clicking/tapping on an icon."
         //var box = L.control.messagebox(options).addTo(map).show(msg);
 
-        // if a user has allowed the location to be accessed jump right to where they are.
+        /*// if a user has allowed the location to be accessed jump right to where they are.
         // if not there's a geolocate button they can use
         navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
             .then(function (PermissionStatus) {
@@ -300,7 +319,8 @@ fetch("./locations.json")
                     console.log("denied");
                     var box = L.control.messagebox(options).addTo(map).show(msg);
                 }
-            })
+            })*/
+        var accessLocation = canGetLocation();
 
         map.on('locationfound', function (e) {
 
