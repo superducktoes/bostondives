@@ -294,6 +294,7 @@ fetch("./locations.json")
                 if (PermissionStatus.state == 'granted') {
                     console.log("allowed")
                     map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
+                    document.getElementById("findClosestBarButton").style.visibility = "hidden";
                 } else {
                     //denied
                     console.log("denied");
