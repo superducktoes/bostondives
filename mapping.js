@@ -272,6 +272,7 @@ fetch("./locations.json")
         if (plotBarOnMap) {
             barQuery = true;
             var accessLocation = canGetLocation();
+            console.log(accessLocation);
             if(!accessLocation) {
                 console.log("accessLocation: ", accessLocation);
                 var options = { timeout: timeout, position: "topright" }
