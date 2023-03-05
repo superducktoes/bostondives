@@ -3,6 +3,7 @@
     console.log(errortype)
     r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=${errortype}`);
 }*/
+const timeout = 12000; // timeout setting for message boxes
 
 function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
@@ -132,7 +133,7 @@ function canGetLocation() {
     let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
     var box = L.control.messagebox(options).addTo(map).show(msg);
     const timeout = 12000; // timeout setting for message boxes
-    
+
     navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
         .then(function (PermissionStatus) {
             if (PermissionStatus.state == 'granted') {
