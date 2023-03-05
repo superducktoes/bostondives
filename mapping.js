@@ -3,7 +3,6 @@
     console.log(errortype)
     r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=${errortype}`);
 }*/
-const timeout = 12000; // timeout setting for message boxes
 
 function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
@@ -128,11 +127,11 @@ function checkBarOpen(currentTime, barJson, currentDay) {
 function canGetLocation() {
     // if a user has allowed the location to be accessed jump right to where they are.
     // if not there's a geolocate button they can use
+    const timeout = 12000; // timeout setting for message boxes
     var canGetLocation = true
     var options = { timeout: timeout, position: "topright" }
     let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
     var box = L.control.messagebox(options).addTo(map).show(msg);
-    const timeout = 12000; // timeout setting for message boxes
 
     navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
         .then(function (PermissionStatus) {
