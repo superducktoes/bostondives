@@ -125,22 +125,24 @@ function checkBarOpen(currentTime, barJson, currentDay) {
 }
 
 function canGetLocation() {
-        // if a user has allowed the location to be accessed jump right to where they are.
-        // if not there's a geolocate button they can use
-        navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
-            .then(function (PermissionStatus) {
-                if (PermissionStatus.state == 'granted') {
-                    console.log("allowed")
-                    map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
-                    document.getElementById("findClosestBarButton").style.visibility = "hidden";
-                    return true;
-                } else {
-                    //denied
-                    console.log("denied");
-                    var box = L.control.messagebox(options).addTo(map).show(msg);
-                    return false;
-                }
-            })
+    // if a user has allowed the location to be accessed jump right to where they are.
+    // if not there's a geolocate button they can use
+    var canGetLocation = true
+    navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
+        .then(function (PermissionStatus) {
+            if (PermissionStatus.state == 'granted') {
+                console.log("allowed")
+                map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
+                document.getElementById("findClosestBarButton").style.visibility = "hidden";
+            } else {
+                //denied
+                console.log("denied");
+                var box = L.control.messagebox(options).addTo(map).show(msg);
+                canGetLocation = false;
+            }
+        })
+
+        return canGetLocation;
 }
 function generatePopupMessage(barJson) {
 
