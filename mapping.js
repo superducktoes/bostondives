@@ -128,15 +128,17 @@ function canGetLocation() {
     // if a user has allowed the location to be accessed jump right to where they are.
     // if not there's a geolocate button they can use
     var canGetLocation = true
+    var options = { timeout: timeout, position: "topright" }
+    let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
+    var box = L.control.messagebox(options).addTo(map).show(msg);
+    
     navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
         .then(function (PermissionStatus) {
             if (PermissionStatus.state == 'granted') {
-                console.log("allowed")
                 map.locate({ setView: true, maxZoom: 16, timeout: 10000 });
                 document.getElementById("findClosestBarButton").style.visibility = "hidden";
             } else {
                 //denied
-                console.log("denied");
                 var box = L.control.messagebox(options).addTo(map).show(msg);
                 canGetLocation = false;
             }
