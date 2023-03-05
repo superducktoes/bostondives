@@ -258,6 +258,7 @@ fetch("./locations.json")
             .then(function (PermissionStatus) {
                 if (PermissionStatus.state == 'granted') {
                     console.log("allowed")
+                    document.getElementById("findClosestBarButton").style.visibility = "hidden";
                 } else {
                     var options = { timeout: timeout, position: "topright" }
                     let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
