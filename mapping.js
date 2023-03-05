@@ -127,11 +127,7 @@ function checkBarOpen(currentTime, barJson, currentDay) {
 function canGetLocation() {
     // if a user has allowed the location to be accessed jump right to where they are.
     // if not there's a geolocate button they can use
-    const timeout = 12000; // timeout setting for message boxes
     var canGetLocation = true
-    var options = { timeout: timeout, position: "topright" }
-    let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
-    var box = L.control.messagebox(options).addTo(map).show(msg);
 
     navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
         .then(function (PermissionStatus) {
@@ -140,7 +136,6 @@ function canGetLocation() {
                 document.getElementById("findClosestBarButton").style.visibility = "hidden";
             } else {
                 //denied
-                var box = L.control.messagebox(options).addTo(map).show(msg);
                 canGetLocation = false;
             }
         })
@@ -277,12 +272,12 @@ fetch("./locations.json")
         if (plotBarOnMap) {
             barQuery = true;
             var accessLocation = canGetLocation();
-            /*if(!accessLocation) {
+            if(!accessLocation) {
                 console.log("accessLocation: ", accessLocation);
                 var options = { timeout: timeout, position: "topright" }
                 let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
                 var box = L.control.messagebox(options).addTo(map).show(msg);
-            }*/
+            }
 
 
             for(var i = 0; i < json.length; i++) {
