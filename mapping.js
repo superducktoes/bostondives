@@ -278,7 +278,6 @@ fetch("./locations.json")
                     .on('click', onClick)
                     .addTo(map);
                 }
-                break;
             }
             var x = document.getElementById("findClosestBarButton");
             x.innerHTML = "Get Directions To Bar";
