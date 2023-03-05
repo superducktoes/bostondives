@@ -273,6 +273,7 @@ fetch("./locations.json")
             barQuery = true;
             var accessLocation = canGetLocation();
             if(!accessLocation) {
+                console.log("accessLocation: ", accessLocation);
                 var options = { timeout: timeout, position: "topright" }
                 let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
                 var box = L.control.messagebox(options).addTo(map).show(msg);
