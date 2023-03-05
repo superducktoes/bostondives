@@ -131,6 +131,7 @@ function canGetLocation() {
     var options = { timeout: timeout, position: "topright" }
     let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
     var box = L.control.messagebox(options).addTo(map).show(msg);
+    const timeout = 12000; // timeout setting for message boxes
     
     navigator.permissions && navigator.permissions.query({ name: 'geolocation' })
         .then(function (PermissionStatus) {
@@ -276,12 +277,12 @@ fetch("./locations.json")
         if (plotBarOnMap) {
             barQuery = true;
             var accessLocation = canGetLocation();
-            if(!accessLocation) {
+            /*if(!accessLocation) {
                 console.log("accessLocation: ", accessLocation);
                 var options = { timeout: timeout, position: "topright" }
                 let msg = "Looks like someone shared a bar with you or you're getting directions direct to a bar.<br>If you share your location using the arrow directions to the bar will load automatically."
                 var box = L.control.messagebox(options).addTo(map).show(msg);
-            }
+            }*/
 
 
             for(var i = 0; i < json.length; i++) {
