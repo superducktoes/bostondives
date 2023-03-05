@@ -274,7 +274,7 @@ fetch("./locations.json")
                     map.setView([lat, long], 16);
 
                     closestMarker = new L.marker([lat, long], { icon: yellowIcon })
-                    .bindPopup(closestPopupMessage)
+                    .bindPopup(closestPopupMessage).openPopup()
                     .on('click', onClick)
                     .addTo(map);
                 }
