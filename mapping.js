@@ -71,12 +71,12 @@ function onClick(e) {
         new_str += `<br><br><label><input type="checkbox" onchange="Check(this)" 
         id="${barName}" checked/> Drank here
         </label>`
-        r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barSaved=${barName} - Saved`)
+        //r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barSaved=${barName} - Saved`)
     } else {
         new_str += `<br><br><label><input type="checkbox" onchange="Check(this)" 
         id="${barName}" /> Drank here
         </label>`
-        r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barSaved=${barName}`)
+        //r = httpGet(`https://bostondives.bar/.netlify/functions/logging?barSaved=${barName}`)
     }
     this.getPopup().setContent(new_str)
 
@@ -420,7 +420,7 @@ fetch("./locations.json")
 
                 // this is temporary I tell myself
                 let httpGetRequest = closestBar.split(":")[1]
-                r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${httpGetRequest}`)
+                //r = httpGet(`https://bostondives.bar/.netlify/functions/logging?bar=${httpGetRequest}`)
             }
 
             // this gets added a second time to lay over the routing
@@ -460,7 +460,7 @@ fetch("./locations.json")
                 alert("Error getting location, check your computer settings to make sure that you're sharing your location")
             }
 
-            r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=${errortype}`);
+            //r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=${errortype}`);
 
           });
     })
