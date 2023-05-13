@@ -173,6 +173,7 @@ function generatePopupMessage(barJson) {
 }
 
 
+
 var redIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -308,7 +309,12 @@ fetch("./locations.json")
                 } else {
                     //denied
                     console.log("denied");
-                    var box = L.control.messagebox(options).addTo(map).show(msg);
+                    let bannerViewed = localStorage.getItem("bannerViewed");
+                    console.log(bannerViewed);
+                    if(!bannerViewed) {
+                        var box = L.control.messagebox(options).addTo(map).show(msg);
+                        localStorage.setItem("bannerViewed", true);
+                    }
                 }
             })
 
