@@ -172,29 +172,6 @@ function generatePopupMessage(barJson) {
     return funcPopupMessage;
 }
 
-function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
 
 var redIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
@@ -331,13 +308,7 @@ fetch("./locations.json")
                 } else {
                     //denied
                     console.log("denied");
-                    let introViewed = false;
-                    introViewed = getCookie("messageviewed");
-                    console.log(introViewed);
-                    if(introViewed) {
-                        var box = L.control.messagebox(options).addTo(map).show(msg);
-                        setCookie("messageviewed", true, 180);
-                    }
+                    var box = L.control.messagebox(options).addTo(map).show(msg);
                 }
             })
 
