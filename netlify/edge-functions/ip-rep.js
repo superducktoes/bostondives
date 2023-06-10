@@ -21,7 +21,7 @@ export default async (request, context) => {
 
   const data = await response.json();
   const score = data.score;
-  const override = false;
+  const override = true;
 
   if ((score < 75 || data["result"]["data"]["verdict"] === "unknown") && !override) {
     return Response.redirect("https://bostondives.bar");
