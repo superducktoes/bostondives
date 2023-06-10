@@ -34,7 +34,7 @@ export default async (request, context) => {
   console.log(score);
 
   if (score < 75 || data["result"]["data"]["verdict"] === "unknown") {
-    return new Response('', {
+    return new Response.redirect('', {
       status: 302,
       headers: {
         'Location': 'https://bostondives.com',
