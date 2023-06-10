@@ -33,13 +33,20 @@ export default async (request, context) => {
   console.log("=====");
   console.log(score);
 
-  if (score < 75 || data["result"]["data"]["verdict"] === "unknown") {
+  /*if (score < 75 || data["result"]["data"]["verdict"] === "unknown") {
     return new Response.redirect('', {
       status: 302,
       headers: {
         'Location': 'https://bostondives.com',
       },
     });
+  } else {
+    return new Response('Access Denied', {
+      status: 403,
+    });
+  }*/
+  if (score < 75 || data["result"]["data"]["verdict"] === "unknown") {
+    return Response.redirect("https://bostondives.bar");
   } else {
     return new Response('Access Denied', {
       status: 403,
