@@ -11,7 +11,8 @@ export default async (request, context) => {
   //const PROVIDER = process.env.PROVIDER;
   const PANGEA_ACCESS_TOKEN = Netlify.env.get("PANGEA_ACCESS_TOKEN");
   const PROVIDER = Netlify.env.get("PROVIDER");
-
+  const ip = context["ip"];
+  console.log(ip);
 
   if (countryCode === BLOCKED_COUNTRY_CODE) {
     return new Response(`We're sorry, you can't access our content from ${countryName}!`, {
