@@ -33,7 +33,7 @@ export default async (request, context) => {
   console.log("=====");
   console.log(score);
 
-  if (score < 75) {
+  if (score < 75 || result["data"]["verdict"] === "unknown") {
     return new Response('', {
       status: 302,
       headers: {
