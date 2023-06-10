@@ -21,9 +21,14 @@ export default async (request, context) => {
 
   const data = await response.json();
   const score = data.score;
+  const override = false;
 
-  if (score < 75 || data["result"]["data"]["verdict"] === "unknown") {
+  if ((score < 75 || data["result"]["data"]["verdict"] === "unknown") && !override) {
     return Response.redirect("https://bostondives.bar");
+  } else if(override) {
+    return new Response('Access Denied', {
+      status: 403,
+    });
   } else {
     return new Response('Access Denied', {
       status: 403,
