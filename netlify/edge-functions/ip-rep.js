@@ -1,8 +1,8 @@
 // ipReputation.js
-export const config = { path: "/test" };
+
 const fetch = require('node-fetch');
 
-export default async () => {
+const handler = async (event) => {
   const { ip } = JSON.parse(event.body);
 
   const { PANGEA_ACCESS_TOKEN, PROVIDER } = process.env;
@@ -36,4 +36,10 @@ export default async () => {
       status: 403,
     });
   }
+};
+
+export default handler;
+
+export const config = {
+  path: "/test",
 };
