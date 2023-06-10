@@ -2,9 +2,10 @@ export default async (request, context) => {
   const BLOCKED_COUNTRY_CODE = "GB";
   const countryCode = "US";
   const countryName = "United States of America";
-  const { ip } = JSON.parse(request.body);
+  //const { ip } = JSON.parse(request.body);
+  console.log(request, context);
   const { PANGEA_ACCESS_TOKEN, PROVIDER } = process.env;
-
+  console.log(PANGEA_ACCESS_TOKEN);
   if (countryCode === BLOCKED_COUNTRY_CODE) {
     return new Response(`We're sorry, you can't access our content from ${countryName}!`, {
       headers: { "content-type": "text/html" },
