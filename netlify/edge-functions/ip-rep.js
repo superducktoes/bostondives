@@ -3,7 +3,7 @@ export default async (request, context) => {
   const BLOCKED_COUNTRY_CODE = "GB";
   const countryCode = "US";
   const countryName = "United States of America";
-  
+
   console.log(request);
   console.log("---")
   console.log(context);
@@ -29,7 +29,25 @@ export default async (request, context) => {
   const data = await response.json();
   const score = data.score;
 
-  if (countryCode === BLOCKED_COUNTRY_CODE) {
+  console.log(data);
+  console.log("=====");
+  console.log(score);
+
+  if (score < 75) {
+    return new Response('', {
+      status: 302,
+      headers: {
+        'Location': 'https://bostondives.com',
+      },
+    });
+  } else {
+    return new Response('Access Denied', {
+      status: 403,
+    });
+  }
+};
+
+  /*if (countryCode === BLOCKED_COUNTRY_CODE) {
     return new Response(`We're sorry, you can't access our content from ${countryName}!`, {
       headers: { "content-type": "text/html" },
       status: 451,
@@ -38,7 +56,7 @@ export default async (request, context) => {
 
   return new Response(`Hello there! You can freely access our content from ${countryName}!`, {
     headers: { "content-type": "text/html" },
-  });
+  });*/
 };
 
 export const config = { path: "/test" };
