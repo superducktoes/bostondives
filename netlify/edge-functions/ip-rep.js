@@ -2,7 +2,7 @@
 export const config = { path: "/test" };
 const fetch = require('node-fetch');
 
-exports.handler = async (event) => {
+export default async () => {
   const { ip } = JSON.parse(event.body);
 
   const { PANGEA_ACCESS_TOKEN, PROVIDER } = process.env;
@@ -25,17 +25,15 @@ exports.handler = async (event) => {
   const score = data.score;
 
   if (score < 75) {
-    return {
-      statusCode: 302,
+    return new Response('', {
+      status: 302,
       headers: {
         'Location': 'https://bostondives.com',
       },
-      body: '',
-    };
+    });
   } else {
-    return {
-      statusCode: 403,
-      body: 'Access Denied',
-    };
+    return new Response('Access Denied', {
+      status: 403,
+    });
   }
 };
