@@ -1,11 +1,13 @@
+
 export default async (request, context) => {
   const BLOCKED_COUNTRY_CODE = "GB";
   const countryCode = "US";
   const countryName = "United States of America";
   //const { ip } = JSON.parse(request.body);
   console.log(request["ip"]);
-  const PANGEA_ACCESS_TOKEN = process.env.PANGEA_ACCESS_TOKEN;
-  const PROVIDER = process.env.PROVIDER;
+  //const PANGEA_ACCESS_TOKEN = process.env.PANGEA_ACCESS_TOKEN;
+  //const PROVIDER = process.env.PROVIDER;
+  const PANGEA_ACCESS_TOKEN = Netlify.env.get("PANGEA_ACCESS_TOKEN");
   
   console.log(PANGEA_ACCESS_TOKEN);
 
