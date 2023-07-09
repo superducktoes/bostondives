@@ -341,6 +341,7 @@ fetch("./locations.json")
             // calculate the closest bar
             let closestBar = "";
             let closestPopupMessage = "";
+            let secondClosestPopupMessage = "";
             let totalDistance = distanceLimit; // roughly 100 miles
 
             let secondClosestBar = ""
@@ -369,6 +370,7 @@ fetch("./locations.json")
                         secondClosestBar = json[i]["name"];
                         secondClosestLat = lat;
                         secondClosestLong = long;
+                        secondClosestPopupMessage = generatePopupMessage(json[i]);
                     }
 
 
@@ -429,13 +431,9 @@ fetch("./locations.json")
             // This should automatically re-route people to the next closest bar if they are alreay at or close to one.
             if(totalDistance < 300) {
                 closestBar = `Looks like you're at or close to ${closestBarName}. ${secondClosestBar} is the next closest bar`
+                closestPopupMessage = secondClosestPopupMessage
                 closestLat = secondClosestLat;
                 closestLong = secondClosestLong;
-
-                closestMarker = new L.marker([closestLat, closestLong], { icon: yellowIcon })
-                .bindPopup(closestBarName).openPopup()
-                .on('click', onClick)
-                .addTo(map);
             }
 
             if (closestBar) {
