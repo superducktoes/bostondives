@@ -420,6 +420,13 @@ fetch("./locations.json")
                 map.setView([42.352842657497064, -71.06222679401405], 14);
             }
 
+            // figure out where the next bar is automatically and route someone there.
+            if(totalDistance < 300) {
+                let msg = `Looks like you're already at or very close to ${closestBar}. ${secondClosestBar} is the next closest bar.`
+                closestBar = secondClosestBar;
+                var box = L.control.messagebox(options).addTo(map).show(msg);
+            }
+
             if (closestBar) {
                 L.Routing.control({
                     waypoints: [
@@ -450,12 +457,13 @@ fetch("./locations.json")
 
 
             // check to see if we need to add a button to help route to the next closest bar
-            if (totalDistance < 300) {
+            // i dont really want to use this anymore. 
+            /*if (totalDistance < 300) {
                 document.getElementById("closest-button").style.visibility = "hidden";
                 document.getElementById("next-button").style.visibility = "visible";
                 var button = document.getElementById('next-button');
                 button.addEventListener('click', () => location.href = `https://bostondives.bar/?bar=${secondClosestBar}`);
-            }
+            }*/
 
             if (barQuery) {
                 document.getElementById("next-button").style.visibility = "hidden";
