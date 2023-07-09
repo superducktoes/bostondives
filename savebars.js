@@ -4,6 +4,9 @@ let encoded = btoa(bars);
 document.getElementById('copyb64').value = encoded;
 
 const element = document.getElementById("savebars");
+
+console.log("encoded data: ", encoded);
+
 element.addEventListener('click', function() {
     try {
         document.getElementById('loadMessage').innerText = "";
