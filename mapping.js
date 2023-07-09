@@ -428,7 +428,7 @@ fetch("./locations.json")
 
             // This should automatically re-route people to the next closest bar if they are alreay at or close to one.
             if(totalDistance < 300) {
-                closestBar == `Looks like you're at or close to ${closestBarName}. ${secondClosestBar} is the next closest bar`
+                closestBar = `Looks like you're at or close to ${closestBarName}. ${secondClosestBar} is the next closest bar`
                 closestLat = secondClosestLat;
                 closestLong = secondClosestLong;
             }
