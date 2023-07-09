@@ -333,6 +333,9 @@ fetch("./locations.json")
             //lc.stop(); // once we know the users location stop getting updates. although it would be cool to turn this on and find bars as you're walking
 
             let closestLat, closestLong;
+            let secondClosestLat, secondClosestLong;
+            let closestBarName;
+
             const distanceLimit = 528000;
 
             // calculate the closest bar
@@ -357,12 +360,15 @@ fetch("./locations.json")
                         secondClosestDistance = totalDistance;
                         totalDistance = distance;
                         closestBar = "The closest dive bar is: " + json[i]["name"];
+                        closestBarName = json[i]["name"];
                         closestLat = lat;
                         closestLong = long;
                         closestPopupMessage = generatePopupMessage(json[i]);
                     } else if (distance < secondClosestDistance) {
                         secondClosestDistance = distance;
                         secondClosestBar = json[i]["name"];
+                        secondClosestLat = lat;
+                        secondClosestLong = long;
                     }
 
 
@@ -420,11 +426,11 @@ fetch("./locations.json")
                 map.setView([42.352842657497064, -71.06222679401405], 14);
             }
 
-            // figure out where the next bar is automatically and route someone there.
+            // This should automatically re-route people to the next closest bar if they are alreay at or close to one.
             if(totalDistance < 300) {
-                let msg = `Looks like you're already at or very close to ${closestBar}. ${secondClosestBar} is the next closest bar.`
-                closestBar = secondClosestBar;
-                var box = L.control.messagebox(options).addTo(map).show(msg);
+                closestBar == `Looks like you're at or close to ${closestBarName}. ${secondClosestBar} is the next closest bar`
+                closestLat = secondClosestLat;
+                closestLong = secondClosestLong;
             }
 
             if (closestBar) {
@@ -457,7 +463,6 @@ fetch("./locations.json")
 
 
             // check to see if we need to add a button to help route to the next closest bar
-            // i dont really want to use this anymore. 
             /*if (totalDistance < 300) {
                 document.getElementById("closest-button").style.visibility = "hidden";
                 document.getElementById("next-button").style.visibility = "visible";
