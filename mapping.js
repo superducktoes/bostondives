@@ -431,6 +431,11 @@ fetch("./locations.json")
                 closestBar = `Looks like you're at or close to ${closestBarName}. ${secondClosestBar} is the next closest bar`
                 closestLat = secondClosestLat;
                 closestLong = secondClosestLong;
+
+                closestMarker = new L.marker([closestLat, closestLong], { icon: yellowIcon })
+                .bindPopup(closestBarName).openPopup()
+                .on('click', onClick)
+                .addTo(map);
             }
 
             if (closestBar) {
