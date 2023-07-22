@@ -20,5 +20,4 @@ document.getElementById('themeDropdown').addEventListener('change', function() {
     localStorage.setItem('selectedTheme', "light");
     // Set other light mode styles here
   }
-  //setTheme(selectedTheme);
 });
