@@ -216,17 +216,57 @@ fetch("./locations.json")
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
-        if(savedTheme == "dark") {
+        
+        if (savedTheme == "dark") {
             var elements = document.querySelectorAll('.leaflet-layer, .leaflet-control-zoom-in, .leaflet-control-zoom-out, .leaflet-control-attribution');
             for (var i = 0; i < elements.length; i++) {
-              elements[i].style.filter = 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)';
+                elements[i].style.filter = 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)';
             }
 
             var closestBarButton = document.getElementById('findClosestBarButton');
-closestBarButton.style.filter = 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)';
+            closestBarButton.style.filter = 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)';
 
-        }
+            // page loads with an empty custom class for light mode. this sets the custom class for the popups
+            var customPopupStyles = `
+            .custom-popup .leaflet-popup-content-wrapper {
+                background: #2c3e50;
+                color: #fff;
+                font-size: 16px;
+                line-height: 24px;
+                border: none; /* Remove the border */
+                border-radius: 10px; /* Add border radius to create a rounded popup */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+                padding: 10px; /* Add some padding inside the popup */
+                position: relative;
+              }
+              .custom-popup .leaflet-popup-content-wrapper a {
+                color: rgba(255, 255, 255, 0.5);
+              }
+              .custom-popup .leaflet-popup-tip-container {
+                position: absolute;
+                bottom: -15px; /* Adjust the position of the triangle */
+                left: 50%;
+                margin-left: -15px;
+                width: 0;
+                height: 0;
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                border-top: 15px solid #2c3e50; /* Set the border-top color to match the background */
+              }
+          `;
+
+          var styleElement = document.createElement('style');
+          styleElement.type = 'text/css';
+          if (styleElement.styleSheet) {
+            styleElement.styleSheet.cssText = customPopupStyles;
+          } else {
+            styleElement.appendChild(document.createTextNode(customPopupStyles));
+          }
         
+          // Append the <style> element to the <head> section of the document
+          document.head.appendChild(styleElement);
+        }
+
         for (var i = 0; i < json.length; i++) {
             var lat = parseFloat(json[i]["location"].split(",")[0])
             var long = parseFloat(json[i]["location"].split(",")[1])
