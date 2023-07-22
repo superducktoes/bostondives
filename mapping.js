@@ -209,12 +209,24 @@ fetch("./locations.json")
 
 
         const timeout = 12000; // timeout setting for message boxes
+        const savedTheme = localStorage.getItem('selectedTheme');
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
+        if(savedTheme == "dark") {
+            var elements = document.querySelectorAll('.leaflet-layer, .leaflet-control-zoom-in, .leaflet-control-zoom-out, .leaflet-control-attribution');
+            for (var i = 0; i < elements.length; i++) {
+              elements[i].style.filter = 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)';
+            }
+
+            var closestBarButton = document.getElementById('findClosestBarButton');
+closestBarButton.style.filter = 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)';
+
+        }
+        
         for (var i = 0; i < json.length; i++) {
             var lat = parseFloat(json[i]["location"].split(",")[0])
             var long = parseFloat(json[i]["location"].split(",")[1])
