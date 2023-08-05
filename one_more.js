@@ -19,6 +19,27 @@ function convertTime(departureTime) {
     return timeString;
 }
 
+function calculateTimeDifference(departureTime, mbtaDistance) {
+    const dateObject = new Date(departureTime);
+    const currentTime = new Date();
+    let message;
+
+    // calculate the time difference in minutes
+    const timeDifference = Math.round((dateObject - currentTime) / (1000 * 60));
+    console.log(timeDifference);
+
+    if(timeDifference == mbtaDistance) {
+        message = "Just enough time. Run!"
+    } else if(timeDifference > mbtaDistance) {
+        let updatedTime = timeDifference - mbtaDistance;
+        message = `You have about ${updatedTime} minutes until you have to leave`
+    } else {
+        message = "Probably best to wait for the next one at this point."
+    }
+
+    return message;
+}
+
 function displayData(dataArray) {
     const resolvedStationInformation = dataArray[0];
     console.log('station information:');
@@ -35,8 +56,8 @@ function displayData(dataArray) {
     document.getElementById('barName').textContent = barName;
     document.getElementById("resolved_mbta_stop").textContent = resolvedStationInformation["data"]["attributes"]["name"];
     document.getElementById("mbta_distance").textContent = mbtaDistance;
-    document.getElementById("departure_one").textContent = `Northbound: ${convertTime(northDeparture["data"][0]["attributes"]["departure_time"])} towards ${northDeparture["included"][0]["attributes"]["platform_name"]}`
-    document.getElementById("departure_two").textContent = `Southbound: ${convertTime(southDeparture["data"][0]["attributes"]["departure_time"])} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}`
+    document.getElementById("departure_one").textContent = `Northbound: ${convertTime(northDeparture["data"][0]["attributes"]["departure_time"])} towards ${northDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(northDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
+    document.getElementById("departure_two").textContent = `Southbound: ${convertTime(southDeparture["data"][0]["attributes"]["departure_time"])} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(northDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
 }
 
 // now that we have our parameters let's make our api calls
