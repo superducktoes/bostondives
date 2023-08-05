@@ -14,7 +14,7 @@ const mbtaDistance = urlParams.get("mbta_distance");
 const mbtaLine = urlParams.get("mbta_line");
 
 function displayData(dataArray) {
-    const resolvedStationInformation = dataArray[0]["data"];
+    const resolvedStationInformation = dataArray[0];
     console.log('station information:');
     console.log(resolvedStationInformation); // JSON object from the first API call
 
@@ -27,16 +27,17 @@ function displayData(dataArray) {
     console.log(northDeparture); // JSON object from the third API call
 
     document.getElementById('barName').textContent = barName;
-    document.getElementById("resolved_mbta_stop").textContent = resolvedStationInformation["attributes"]["name"];
+    document.getElementById("resolved_mbta_stop").textContent = resolvedStationInformation["data"]["attributes"]["name"];
     document.getElementById("mbta_distance").textContent = mbtaDistance;
-    //document.getElementById("departure_one").textContent = `Northbound: ${southDeparture["data"][]}`
+    document.getElementById("departure_one").textContent = `Northbound: ${northDeparture["data"][0]["attributes"]["departure_time"]}`
+    document.getElementById("departure_two").textContent = `Southbound: ${southDeparture["data"][0]["attributes"]["departure_time"]} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}`
 }
 
 // now that we have our parameters let's make our api calls
 const stationDetails = `https://api-v3.mbta.com/stops/${mbtaStop}`;
 
 if (mbtaLine == "red") {
-    const southDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}n&include=stop&filter[route_type]=1&page[limit]=1&sort=departure_time`
+    const southDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&include=stop&filter[route_type]=1&page[limit]=1&sort=departure_time`
     const northDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=1&include=stop&filter[route_type]=1&page[limit]=1&sort=departure_time`
 
     // store the promises
