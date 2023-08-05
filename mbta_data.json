@@ -1,0 +1,4353 @@
+{
+    "data": [
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Braintree - Red Line",
+                "latitude": 42.207424,
+                "location_type": 0,
+                "longitude": -71.001645,
+                "municipality": "Braintree",
+                "name": "Braintree",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Red Line",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70105",
+            "links": {
+                "self": "/stops/70105"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70105"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-brntn",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Downtown Crossing - Red Line - Alewife",
+                "latitude": 42.355518,
+                "location_type": 0,
+                "longitude": -71.060225,
+                "municipality": "Boston",
+                "name": "Downtown Crossing",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70078",
+            "links": {
+                "self": "/stops/70078"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70078"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-dwnxg",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Savin Hill - Red Line - Ashmont",
+                "latitude": 42.310603,
+                "location_type": 0,
+                "longitude": -71.053678,
+                "municipality": "Boston",
+                "name": "Savin Hill",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70087",
+            "links": {
+                "self": "/stops/70087"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70087"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-shmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Wollaston - Red Line - Alewife",
+                "latitude": 42.266788,
+                "location_type": 0,
+                "longitude": -71.020457,
+                "municipality": "Quincy",
+                "name": "Wollaston",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70100",
+            "links": {
+                "self": "/stops/70100"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70100"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-wlsta",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Porter - Red Line - Ashmont/Braintree",
+                "latitude": 42.3884,
+                "location_type": 0,
+                "longitude": -71.119149,
+                "municipality": "Cambridge",
+                "name": "Porter",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70065",
+            "links": {
+                "self": "/stops/70065"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70065"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-portr",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Ashmont - Red Line - Exit Only",
+                "latitude": 42.284508,
+                "location_type": 0,
+                "longitude": -71.063833,
+                "municipality": "Boston",
+                "name": "Ashmont",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Exit Only",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70093",
+            "links": {
+                "self": "/stops/70093"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70093"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-asmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Ruggles - Orange Line - Forest Hills",
+                "latitude": 42.33649,
+                "location_type": 0,
+                "longitude": -71.089684,
+                "municipality": "Boston",
+                "name": "Ruggles",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70010",
+            "links": {
+                "self": "/stops/70010"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70010"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-rugg",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Stony Brook - Orange Line - Oak Grove",
+                "latitude": 42.317062,
+                "location_type": 0,
+                "longitude": -71.104248,
+                "municipality": "Boston",
+                "name": "Stony Brook",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70005",
+            "links": {
+                "self": "/stops/70005"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70005"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-sbmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Wonderland - Blue Line - Exit Only",
+                "latitude": 42.413361,
+                "location_type": 0,
+                "longitude": -70.991685,
+                "municipality": "Revere",
+                "name": "Wonderland",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Exit Only",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70060",
+            "links": {
+                "self": "/stops/70060"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70060"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-wondl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Massachusetts Avenue - Orange Line - Oak Grove",
+                "latitude": 42.340892,
+                "location_type": 0,
+                "longitude": -71.084124,
+                "municipality": "Boston",
+                "name": "Massachusetts Avenue",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70013",
+            "links": {
+                "self": "/stops/70013"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70013"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-masta",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Wood Island - Blue Line - Wonderland",
+                "latitude": 42.379671,
+                "location_type": 0,
+                "longitude": -71.022783,
+                "municipality": "Boston",
+                "name": "Wood Island",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70050",
+            "links": {
+                "self": "/stops/70050"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70050"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-wimnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Quincy Center - Red Line - Braintree",
+                "latitude": 42.251809,
+                "location_type": 0,
+                "longitude": -71.005409,
+                "municipality": "Quincy",
+                "name": "Quincy Center",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70101",
+            "links": {
+                "self": "/stops/70101"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70101"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-qnctr",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Downtown Crossing - Red Line - Ashmont/Braintree",
+                "latitude": 42.355518,
+                "location_type": 0,
+                "longitude": -71.060225,
+                "municipality": "Boston",
+                "name": "Downtown Crossing",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70077",
+            "links": {
+                "self": "/stops/70077"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70077"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-dwnxg",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "State - Orange Line - Forest Hills",
+                "latitude": 42.358978,
+                "location_type": 0,
+                "longitude": -71.057598,
+                "municipality": "Boston",
+                "name": "State",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70022",
+            "links": {
+                "self": "/stops/70022"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70022"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-state",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Wood Island - Blue Line - Bowdoin",
+                "latitude": 42.37974,
+                "location_type": 0,
+                "longitude": -71.022818,
+                "municipality": "Boston",
+                "name": "Wood Island",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70049",
+            "links": {
+                "self": "/stops/70049"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70049"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-wimnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Aquarium - Blue Line - Bowdoin",
+                "latitude": 42.359784,
+                "location_type": 0,
+                "longitude": -71.051652,
+                "municipality": "Boston",
+                "name": "Aquarium",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70043",
+            "links": {
+                "self": "/stops/70043"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70043"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-aqucl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "North Quincy - Red Line - Braintree",
+                "latitude": 42.27577,
+                "location_type": 0,
+                "longitude": -71.030194,
+                "municipality": "Quincy",
+                "name": "North Quincy",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70097",
+            "links": {
+                "self": "/stops/70097"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70097"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-nqncy",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Kendall/MIT - Red Line - Ashmont/Braintree",
+                "latitude": 42.362355,
+                "location_type": 0,
+                "longitude": -71.085605,
+                "municipality": "Cambridge",
+                "name": "Kendall/MIT",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70071",
+            "links": {
+                "self": "/stops/70071"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70071"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-knncl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Quincy Center - Red Line - Alewife",
+                "latitude": 42.251809,
+                "location_type": 0,
+                "longitude": -71.005409,
+                "municipality": "Quincy",
+                "name": "Quincy Center",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70102",
+            "links": {
+                "self": "/stops/70102"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70102"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-qnctr",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Stony Brook - Orange Line - Forest Hills",
+                "latitude": 42.317062,
+                "location_type": 0,
+                "longitude": -71.104248,
+                "municipality": "Boston",
+                "name": "Stony Brook",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70004",
+            "links": {
+                "self": "/stops/70004"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70004"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-sbmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Wellington - Orange Line - Forest Hills",
+                "latitude": 42.401505,
+                "location_type": 0,
+                "longitude": -71.077252,
+                "municipality": "Medford",
+                "name": "Wellington",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70032",
+            "links": {
+                "self": "/stops/70032"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70032"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-welln",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Alewife - Red Line",
+                "latitude": 42.396158,
+                "location_type": 0,
+                "longitude": -71.139971,
+                "municipality": "Cambridge",
+                "name": "Alewife",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Red Line",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70061",
+            "links": {
+                "self": "/stops/70061"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70061"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-alfcl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Wellington - Orange Line - Oak Grove",
+                "latitude": 42.401507,
+                "location_type": 0,
+                "longitude": -71.07715,
+                "municipality": "Medford",
+                "name": "Wellington",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70033",
+            "links": {
+                "self": "/stops/70033"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70033"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-welln",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Harvard - Red Line - Ashmont/Braintree",
+                "latitude": 42.373362,
+                "location_type": 0,
+                "longitude": -71.118956,
+                "municipality": "Cambridge",
+                "name": "Harvard",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70067",
+            "links": {
+                "self": "/stops/70067"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70067"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-harsq",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Back Bay - Orange Line - Oak Grove",
+                "latitude": 42.34735,
+                "location_type": 0,
+                "longitude": -71.075727,
+                "municipality": "Boston",
+                "name": "Back Bay",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70015",
+            "links": {
+                "self": "/stops/70015"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70015"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-bbsta",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Quincy Adams - Red Line - Braintree",
+                "latitude": 42.233391,
+                "location_type": 0,
+                "longitude": -71.007153,
+                "municipality": "Quincy",
+                "name": "Quincy Adams",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70103",
+            "links": {
+                "self": "/stops/70103"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70103"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-qamnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Roxbury Crossing - Orange Line - Forest Hills",
+                "latitude": 42.330671,
+                "location_type": 0,
+                "longitude": -71.096121,
+                "municipality": "Boston",
+                "name": "Roxbury Crossing",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70008",
+            "links": {
+                "self": "/stops/70008"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70008"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-rcmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Porter - Red Line - Alewife",
+                "latitude": 42.3884,
+                "location_type": 0,
+                "longitude": -71.119149,
+                "municipality": "Cambridge",
+                "name": "Porter",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70066",
+            "links": {
+                "self": "/stops/70066"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70066"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-portr",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Broadway - Red Line - Alewife",
+                "latitude": 42.342622,
+                "location_type": 0,
+                "longitude": -71.056967,
+                "municipality": "Boston",
+                "name": "Broadway",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70082",
+            "links": {
+                "self": "/stops/70082"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70082"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-brdwy",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Suffolk Downs - Blue Line - Wonderland",
+                "latitude": 42.39061,
+                "location_type": 0,
+                "longitude": -70.99703,
+                "municipality": "Boston",
+                "name": "Suffolk Downs",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70054",
+            "links": {
+                "self": "/stops/70054"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70054"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-sdmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Wollaston - Red Line - Braintree",
+                "latitude": 42.266762,
+                "location_type": 0,
+                "longitude": -71.020542,
+                "municipality": "Quincy",
+                "name": "Wollaston",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70099",
+            "links": {
+                "self": "/stops/70099"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70099"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-wlsta",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Ashmont - Red Line - Alewife",
+                "latitude": 42.28453,
+                "location_type": 0,
+                "longitude": -71.063725,
+                "municipality": "Boston",
+                "name": "Ashmont",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70094",
+            "links": {
+                "self": "/stops/70094"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70094"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-asmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Jackson Square - Orange Line - Forest Hills",
+                "latitude": 42.323132,
+                "location_type": 0,
+                "longitude": -71.099592,
+                "municipality": "Boston",
+                "name": "Jackson Square",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70006",
+            "links": {
+                "self": "/stops/70006"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70006"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-jaksn",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Andrew - Red Line - Ashmont/Braintree",
+                "latitude": 42.330154,
+                "location_type": 0,
+                "longitude": -71.057655,
+                "municipality": "Boston",
+                "name": "Andrew",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70083",
+            "links": {
+                "self": "/stops/70083"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70083"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-andrw",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Park Street - Red Line - Alewife",
+                "latitude": 42.356395,
+                "location_type": 0,
+                "longitude": -71.062424,
+                "municipality": "Boston",
+                "name": "Park Street",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70076",
+            "links": {
+                "self": "/stops/70076"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70076"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-pktrm",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "JFK/UMass - Red Line - Alewife (from Braintree)",
+                "latitude": 42.320434,
+                "location_type": 0,
+                "longitude": -71.052215,
+                "municipality": "Boston",
+                "name": "JFK/UMass",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife (from Braintree)",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70096",
+            "links": {
+                "self": "/stops/70096"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70096"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-jfk",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Downtown Crossing - Orange Line - Oak Grove",
+                "latitude": 42.355518,
+                "location_type": 0,
+                "longitude": -71.060225,
+                "municipality": "Boston",
+                "name": "Downtown Crossing",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70021",
+            "links": {
+                "self": "/stops/70021"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70021"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-dwnxg",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Quincy Adams - Red Line - Alewife",
+                "latitude": 42.233391,
+                "location_type": 0,
+                "longitude": -71.007153,
+                "municipality": "Quincy",
+                "name": "Quincy Adams",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70104",
+            "links": {
+                "self": "/stops/70104"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70104"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-qamnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Haymarket - Orange Line - Forest Hills",
+                "latitude": 42.363021,
+                "location_type": 0,
+                "longitude": -71.05829,
+                "municipality": "Boston",
+                "name": "Haymarket",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70024",
+            "links": {
+                "self": "/stops/70024"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70024"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-haecl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Sullivan Square - Orange Line - Forest Hills",
+                "latitude": 42.383975,
+                "location_type": 0,
+                "longitude": -71.076994,
+                "municipality": "Boston",
+                "name": "Sullivan Square",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70030",
+            "links": {
+                "self": "/stops/70030"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70030"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-sull",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "State - Orange Line - Oak Grove",
+                "latitude": 42.358978,
+                "location_type": 0,
+                "longitude": -71.057598,
+                "municipality": "Boston",
+                "name": "State",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70023",
+            "links": {
+                "self": "/stops/70023"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70023"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-state",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "State - Blue Line - Wonderland",
+                "latitude": 42.358978,
+                "location_type": 0,
+                "longitude": -71.057598,
+                "municipality": "Boston",
+                "name": "State",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70042",
+            "links": {
+                "self": "/stops/70042"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70042"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-state",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Government Center - Blue Line - Bowdoin",
+                "latitude": 42.359705,
+                "location_type": 0,
+                "longitude": -71.059215,
+                "municipality": "Boston",
+                "name": "Government Center",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70039",
+            "links": {
+                "self": "/stops/70039"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70039"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-gover",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Orient Heights - Blue Line - Wonderland",
+                "latitude": 42.386842,
+                "location_type": 0,
+                "longitude": -71.004767,
+                "municipality": "Boston",
+                "name": "Orient Heights",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70052",
+            "links": {
+                "self": "/stops/70052"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70052"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-orhte",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Chinatown - Orange Line - Forest Hills",
+                "latitude": 42.352547,
+                "location_type": 0,
+                "longitude": -71.062752,
+                "municipality": "Boston",
+                "name": "Chinatown",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70018",
+            "links": {
+                "self": "/stops/70018"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70018"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-chncl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Bowdoin - Blue Line - Wonderland",
+                "latitude": 42.361365,
+                "location_type": 0,
+                "longitude": -71.062037,
+                "municipality": "Boston",
+                "name": "Bowdoin",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 2
+            },
+            "id": "70038",
+            "links": {
+                "self": "/stops/70038"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70038"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-bomnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Downtown Crossing - Orange Line - Forest Hills",
+                "latitude": 42.355518,
+                "location_type": 0,
+                "longitude": -71.060225,
+                "municipality": "Boston",
+                "name": "Downtown Crossing",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70020",
+            "links": {
+                "self": "/stops/70020"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70020"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-dwnxg",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Beachmont - Blue Line - Wonderland",
+                "latitude": 42.397204,
+                "location_type": 0,
+                "longitude": -70.992551,
+                "municipality": "Revere",
+                "name": "Beachmont",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70056",
+            "links": {
+                "self": "/stops/70056"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70056"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-bmmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Green Street - Orange Line - Forest Hills",
+                "latitude": 42.309832,
+                "location_type": 0,
+                "longitude": -71.108059,
+                "municipality": "Boston",
+                "name": "Green Street",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70002",
+            "links": {
+                "self": "/stops/70002"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70002"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-grnst",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Beachmont - Blue Line - Bowdoin",
+                "latitude": 42.397219,
+                "location_type": 0,
+                "longitude": -70.992647,
+                "municipality": "Revere",
+                "name": "Beachmont",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70055",
+            "links": {
+                "self": "/stops/70055"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70055"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-bmmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Charles/MGH - Red Line - Ashmont/Braintree",
+                "latitude": 42.361187,
+                "location_type": 0,
+                "longitude": -71.071505,
+                "municipality": "Boston",
+                "name": "Charles/MGH",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70073",
+            "links": {
+                "self": "/stops/70073"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70073"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-chmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Suffolk Downs - Blue Line - Bowdoin",
+                "latitude": 42.390422,
+                "location_type": 0,
+                "longitude": -70.997323,
+                "municipality": "Boston",
+                "name": "Suffolk Downs",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70053",
+            "links": {
+                "self": "/stops/70053"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70053"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-sdmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "South Station - Red Line - Ashmont/Braintree",
+                "latitude": 42.352271,
+                "location_type": 0,
+                "longitude": -71.055242,
+                "municipality": "Boston",
+                "name": "South Station",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70079",
+            "links": {
+                "self": "/stops/70079"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70079"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-sstat",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Roxbury Crossing - Orange Line - Oak Grove",
+                "latitude": 42.33064,
+                "location_type": 0,
+                "longitude": -71.09604,
+                "municipality": "Boston",
+                "name": "Roxbury Crossing",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70009",
+            "links": {
+                "self": "/stops/70009"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70009"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-rcmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "JFK/UMass - Red Line - Braintree",
+                "latitude": 42.320418,
+                "location_type": 0,
+                "longitude": -71.052287,
+                "municipality": "Boston",
+                "name": "JFK/UMass",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70095",
+            "links": {
+                "self": "/stops/70095"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70095"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-jfk",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Assembly - Orange Line - Forest Hills",
+                "latitude": 42.392331,
+                "location_type": 0,
+                "longitude": -71.077262,
+                "municipality": "Somerville",
+                "name": "Assembly",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70278",
+            "links": {
+                "self": "/stops/70278"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70278"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-astao",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Malden Center - Orange Line - Oak Grove",
+                "latitude": 42.426662,
+                "location_type": 0,
+                "longitude": -71.074314,
+                "municipality": "Malden",
+                "name": "Malden Center",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70035",
+            "links": {
+                "self": "/stops/70035"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70035"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-mlmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Andrew - Red Line - Alewife",
+                "latitude": 42.330154,
+                "location_type": 0,
+                "longitude": -71.057655,
+                "municipality": "Boston",
+                "name": "Andrew",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70084",
+            "links": {
+                "self": "/stops/70084"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70084"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-andrw",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Broadway - Red Line - Ashmont/Braintree",
+                "latitude": 42.342622,
+                "location_type": 0,
+                "longitude": -71.056967,
+                "municipality": "Boston",
+                "name": "Broadway",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70081",
+            "links": {
+                "self": "/stops/70081"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70081"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-brdwy",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Bowdoin - Blue Line - Exit Only",
+                "latitude": 42.361365,
+                "location_type": 0,
+                "longitude": -71.062037,
+                "municipality": "Boston",
+                "name": "Bowdoin",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Exit Only",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 2
+            },
+            "id": "70838",
+            "links": {
+                "self": "/stops/70838"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70838"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-bomnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "JFK/UMass - Red Line - Ashmont",
+                "latitude": 42.320632,
+                "location_type": 0,
+                "longitude": -71.052514,
+                "municipality": "Boston",
+                "name": "JFK/UMass",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70085",
+            "links": {
+                "self": "/stops/70085"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70085"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-jfk",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Maverick - Blue Line - Wonderland",
+                "latitude": 42.369119,
+                "location_type": 0,
+                "longitude": -71.03953,
+                "municipality": "Boston",
+                "name": "Maverick",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70046",
+            "links": {
+                "self": "/stops/70046"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70046"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-mvbcl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Shawmut - Red Line - Alewife",
+                "latitude": 42.293126,
+                "location_type": 0,
+                "longitude": -71.065738,
+                "municipality": "Boston",
+                "name": "Shawmut",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70092",
+            "links": {
+                "self": "/stops/70092"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70092"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-smmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Revere Beach - Blue Line - Bowdoin",
+                "latitude": 42.40776,
+                "location_type": 0,
+                "longitude": -70.992586,
+                "municipality": "Revere",
+                "name": "Revere Beach",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70057",
+            "links": {
+                "self": "/stops/70057"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70057"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-rbmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Tufts Medical Center - Orange Line - Forest Hills",
+                "latitude": 42.349662,
+                "location_type": 0,
+                "longitude": -71.063917,
+                "municipality": "Boston",
+                "name": "Tufts Medical Center",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70016",
+            "links": {
+                "self": "/stops/70016"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70016"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-tumnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "North Quincy - Red Line - Alewife",
+                "latitude": 42.275802,
+                "location_type": 0,
+                "longitude": -71.030144,
+                "municipality": "Quincy",
+                "name": "North Quincy",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70098",
+            "links": {
+                "self": "/stops/70098"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70098"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-nqncy",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Park Street - Red Line - Ashmont/Braintree",
+                "latitude": 42.356395,
+                "location_type": 0,
+                "longitude": -71.062424,
+                "municipality": "Boston",
+                "name": "Park Street",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70075",
+            "links": {
+                "self": "/stops/70075"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70075"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-pktrm",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Central - Red Line - Alewife",
+                "latitude": 42.365379,
+                "location_type": 0,
+                "longitude": -71.103554,
+                "municipality": "Cambridge",
+                "name": "Central",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70070",
+            "links": {
+                "self": "/stops/70070"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70070"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-cntsq",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Sullivan Square - Orange Line - Oak Grove",
+                "latitude": 42.383975,
+                "location_type": 0,
+                "longitude": -71.076994,
+                "municipality": "Boston",
+                "name": "Sullivan Square",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70031",
+            "links": {
+                "self": "/stops/70031"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70031"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-sull",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Charles/MGH - Red Line - Alewife",
+                "latitude": 42.361263,
+                "location_type": 0,
+                "longitude": -71.071602,
+                "municipality": "Boston",
+                "name": "Charles/MGH",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70074",
+            "links": {
+                "self": "/stops/70074"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70074"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-chmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "South Station - Red Line - Alewife",
+                "latitude": 42.352271,
+                "location_type": 0,
+                "longitude": -71.055242,
+                "municipality": "Boston",
+                "name": "South Station",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70080",
+            "links": {
+                "self": "/stops/70080"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70080"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-sstat",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Kendall/MIT - Red Line - Alewife",
+                "latitude": 42.362434,
+                "location_type": 0,
+                "longitude": -71.085591,
+                "municipality": "Cambridge",
+                "name": "Kendall/MIT",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70072",
+            "links": {
+                "self": "/stops/70072"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70072"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-knncl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Maverick - Blue Line - Bowdoin",
+                "latitude": 42.369119,
+                "location_type": 0,
+                "longitude": -71.03953,
+                "municipality": "Boston",
+                "name": "Maverick",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70045",
+            "links": {
+                "self": "/stops/70045"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70045"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-mvbcl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Shawmut - Red Line - Ashmont",
+                "latitude": 42.293126,
+                "location_type": 0,
+                "longitude": -71.065738,
+                "municipality": "Boston",
+                "name": "Shawmut",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70091",
+            "links": {
+                "self": "/stops/70091"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70091"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-smmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Wonderland - Blue Line - Bowdoin",
+                "latitude": 42.413514,
+                "location_type": 0,
+                "longitude": -70.991714,
+                "municipality": "Revere",
+                "name": "Wonderland",
+                "on_street": null,
+                "platform_code": "1",
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70059",
+            "links": {
+                "self": "/stops/70059"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70059"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-wondl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "JFK/UMass - Red Line - Alewife (from Ashmont)",
+                "latitude": 42.320637,
+                "location_type": 0,
+                "longitude": -71.052473,
+                "municipality": "Boston",
+                "name": "JFK/UMass",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife (from Ashmont)",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70086",
+            "links": {
+                "self": "/stops/70086"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70086"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-jfk",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Davis - Red Line - Ashmont/Braintree",
+                "latitude": 42.39674,
+                "location_type": 0,
+                "longitude": -71.121815,
+                "municipality": "Somerville",
+                "name": "Davis",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70063",
+            "links": {
+                "self": "/stops/70063"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70063"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-davis",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "State - Blue Line - Bowdoin",
+                "latitude": 42.358978,
+                "location_type": 0,
+                "longitude": -71.057598,
+                "municipality": "Boston",
+                "name": "State",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70041",
+            "links": {
+                "self": "/stops/70041"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70041"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-state",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Central - Red Line - Ashmont/Braintree",
+                "latitude": 42.365304,
+                "location_type": 0,
+                "longitude": -71.103621,
+                "municipality": "Cambridge",
+                "name": "Central",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont/Braintree",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70069",
+            "links": {
+                "self": "/stops/70069"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70069"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-cntsq",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Airport - Blue Line - Wonderland",
+                "latitude": 42.374262,
+                "location_type": 0,
+                "longitude": -71.030395,
+                "municipality": "Boston",
+                "name": "Airport",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70048",
+            "links": {
+                "self": "/stops/70048"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70048"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-aport",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Savin Hill - Red Line - Alewife",
+                "latitude": 42.310591,
+                "location_type": 0,
+                "longitude": -71.053612,
+                "municipality": "Boston",
+                "name": "Savin Hill",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70088",
+            "links": {
+                "self": "/stops/70088"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70088"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-shmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Fields Corner - Red Line - Alewife",
+                "latitude": 42.299935,
+                "location_type": 0,
+                "longitude": -71.061945,
+                "municipality": "Boston",
+                "name": "Fields Corner",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70090",
+            "links": {
+                "self": "/stops/70090"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70090"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-fldcr",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Community College - Orange Line - Forest Hills",
+                "latitude": 42.373622,
+                "location_type": 0,
+                "longitude": -71.069533,
+                "municipality": "Boston",
+                "name": "Community College",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70028",
+            "links": {
+                "self": "/stops/70028"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70028"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-ccmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Harvard - Red Line - Alewife",
+                "latitude": 42.373362,
+                "location_type": 0,
+                "longitude": -71.118956,
+                "municipality": "Cambridge",
+                "name": "Harvard",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70068",
+            "links": {
+                "self": "/stops/70068"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70068"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-harsq",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Chinatown - Orange Line - Oak Grove",
+                "latitude": 42.352547,
+                "location_type": 0,
+                "longitude": -71.062752,
+                "municipality": "Boston",
+                "name": "Chinatown",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70019",
+            "links": {
+                "self": "/stops/70019"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70019"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-chncl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Davis - Red Line - Alewife",
+                "latitude": 42.39674,
+                "location_type": 0,
+                "longitude": -71.121815,
+                "municipality": "Somerville",
+                "name": "Davis",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Alewife",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70064",
+            "links": {
+                "self": "/stops/70064"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70064"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-davis",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Green Street - Orange Line - Oak Grove",
+                "latitude": 42.309796,
+                "location_type": 0,
+                "longitude": -71.107988,
+                "municipality": "Boston",
+                "name": "Green Street",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70003",
+            "links": {
+                "self": "/stops/70003"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70003"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-grnst",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Forest Hills - Orange Line",
+                "latitude": 42.300926,
+                "location_type": 0,
+                "longitude": -71.114129,
+                "municipality": "Boston",
+                "name": "Forest Hills",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Orange Line",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70001",
+            "links": {
+                "self": "/stops/70001"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70001"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-forhl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Ruggles - Orange Line - Oak Grove",
+                "latitude": 42.336451,
+                "location_type": 0,
+                "longitude": -71.089635,
+                "municipality": "Boston",
+                "name": "Ruggles",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70011",
+            "links": {
+                "self": "/stops/70011"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70011"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-rugg",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Malden Center - Orange Line - Forest Hills",
+                "latitude": 42.426677,
+                "location_type": 0,
+                "longitude": -71.074381,
+                "municipality": "Malden",
+                "name": "Malden Center",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70034",
+            "links": {
+                "self": "/stops/70034"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70034"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-mlmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Airport - Blue Line - Bowdoin",
+                "latitude": 42.374262,
+                "location_type": 0,
+                "longitude": -71.030395,
+                "municipality": "Boston",
+                "name": "Airport",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70047",
+            "links": {
+                "self": "/stops/70047"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70047"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-aport",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Back Bay - Orange Line - Forest Hills",
+                "latitude": 42.34735,
+                "location_type": 0,
+                "longitude": -71.075727,
+                "municipality": "Boston",
+                "name": "Back Bay",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70014",
+            "links": {
+                "self": "/stops/70014"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70014"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-bbsta",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Orient Heights - Blue Line - Bowdoin",
+                "latitude": 42.386909,
+                "location_type": 0,
+                "longitude": -71.004809,
+                "municipality": "Boston",
+                "name": "Orient Heights",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Bowdoin",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70051",
+            "links": {
+                "self": "/stops/70051"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70051"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-orhte",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Jackson Square - Orange Line - Oak Grove",
+                "latitude": 42.323132,
+                "location_type": 0,
+                "longitude": -71.099592,
+                "municipality": "Boston",
+                "name": "Jackson Square",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70007",
+            "links": {
+                "self": "/stops/70007"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70007"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-jaksn",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Community College - Orange Line - Oak Grove",
+                "latitude": 42.373622,
+                "location_type": 0,
+                "longitude": -71.069533,
+                "municipality": "Boston",
+                "name": "Community College",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70029",
+            "links": {
+                "self": "/stops/70029"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70029"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-ccmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Tufts Medical Center - Orange Line - Oak Grove",
+                "latitude": 42.349662,
+                "location_type": 0,
+                "longitude": -71.063917,
+                "municipality": "Boston",
+                "name": "Tufts Medical Center",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70017",
+            "links": {
+                "self": "/stops/70017"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70017"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-tumnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "North Station - Orange Line - Forest Hills",
+                "latitude": 42.36528,
+                "location_type": 0,
+                "longitude": -71.060205,
+                "municipality": "Boston",
+                "name": "North Station",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70026",
+            "links": {
+                "self": "/stops/70026"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70026"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-north",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Government Center - Blue Line - Wonderland",
+                "latitude": 42.359705,
+                "location_type": 0,
+                "longitude": -71.059215,
+                "municipality": "Boston",
+                "name": "Government Center",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70040",
+            "links": {
+                "self": "/stops/70040"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70040"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-gover",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "North Station - Orange Line - Oak Grove",
+                "latitude": 42.36528,
+                "location_type": 0,
+                "longitude": -71.060205,
+                "municipality": "Boston",
+                "name": "North Station",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70027",
+            "links": {
+                "self": "/stops/70027"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70027"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-north",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Assembly - Orange Line - Oak Grove",
+                "latitude": 42.392336,
+                "location_type": 0,
+                "longitude": -71.07718,
+                "municipality": "Somerville",
+                "name": "Assembly",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70279",
+            "links": {
+                "self": "/stops/70279"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70279"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-astao",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Revere Beach - Blue Line - Wonderland",
+                "latitude": 42.407874,
+                "location_type": 0,
+                "longitude": -70.992497,
+                "municipality": "Revere",
+                "name": "Revere Beach",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70058",
+            "links": {
+                "self": "/stops/70058"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70058"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-rbmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Massachusetts Avenue - Orange Line - Forest Hills",
+                "latitude": 42.340927,
+                "location_type": 0,
+                "longitude": -71.084188,
+                "municipality": "Boston",
+                "name": "Massachusetts Avenue",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Forest Hills",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70012",
+            "links": {
+                "self": "/stops/70012"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70012"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-masta",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Fields Corner - Red Line - Ashmont",
+                "latitude": 42.299993,
+                "location_type": 0,
+                "longitude": -71.062021,
+                "municipality": "Boston",
+                "name": "Fields Corner",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Ashmont",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70089",
+            "links": {
+                "self": "/stops/70089"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70089"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-fldcr",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Aquarium - Blue Line - Wonderland",
+                "latitude": 42.359784,
+                "location_type": 0,
+                "longitude": -71.051652,
+                "municipality": "Boston",
+                "name": "Aquarium",
+                "on_street": null,
+                "platform_code": "2",
+                "platform_name": "Wonderland",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70044",
+            "links": {
+                "self": "/stops/70044"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70044"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-aqucl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Oak Grove - Orange Line",
+                "latitude": 42.437735,
+                "location_type": 0,
+                "longitude": -71.070875,
+                "municipality": "Malden",
+                "name": "Oak Grove",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Orange Line",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70036",
+            "links": {
+                "self": "/stops/70036"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70036"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-ogmnl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        },
+        {
+            "attributes": {
+                "address": null,
+                "at_street": null,
+                "description": "Haymarket - Orange Line - Oak Grove",
+                "latitude": 42.363021,
+                "location_type": 0,
+                "longitude": -71.05829,
+                "municipality": "Boston",
+                "name": "Haymarket",
+                "on_street": null,
+                "platform_code": null,
+                "platform_name": "Oak Grove",
+                "vehicle_type": 1,
+                "wheelchair_boarding": 1
+            },
+            "id": "70025",
+            "links": {
+                "self": "/stops/70025"
+            },
+            "relationships": {
+                "facilities": {
+                    "links": {
+                        "related": "/facilities/?filter[stop]=70025"
+                    }
+                },
+                "parent_station": {
+                    "data": {
+                        "id": "place-haecl",
+                        "type": "stop"
+                    }
+                },
+                "zone": {
+                    "data": {
+                        "id": "RapidTransit",
+                        "type": "zone"
+                    }
+                }
+            },
+            "type": "stop"
+        }
+    ],
+    "jsonapi": {
+        "version": "1.0"
+    }
+}

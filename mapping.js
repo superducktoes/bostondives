@@ -144,6 +144,10 @@ function generatePopupMessage(barJson) {
         funcPopupMessage += `<p>Recommended order: ${barJson["whatToOrder"]}</p>`
     }
 
+    if(barJson["mbta_stop"]){
+        funcPopupMessage += `<p>One More? Check MBTA status: <a href="one_more.html?name=${barName}&mbta_stop=${barJson["mbta_stop"]}" target="_blank">Status</a></p>`
+    }
+
     // send the current time and then the current day to figure out if the bar is open
     if (barJson["hours"]) {
         let barStatus = checkBarOpen(currentTime, barJson, currentDay)
