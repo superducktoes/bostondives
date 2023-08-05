@@ -18,16 +18,18 @@ function displayData(dataArray) {
     console.log('station information:');
     console.log(resolvedStationInformation["data"]); // JSON object from the first API call
 
-    const southDeparture = dataArray[0];
+    const southDeparture = dataArray[1];
     console.log('south departure:');
     console.log(southDeparture["data"]); // JSON object from the second API call
 
-    const northDeparture = dataArray[0];
+    const northDeparture = dataArray[2];
     console.log('north departure:');
     console.log(northDeparture["data"]); // JSON object from the third API call
 
     document.getElementById('barName').textContent = barName;
-    document.getElementById("mbta_stop").textContent = mbtaStop;
+    document.getElementById("resolved_mbta_stop").textContent = resolvedStationInformation["attributes"]["name"];
+    document.getElementById("mbta_distance").textContent = mbtaDistance;
+    //document.getElementById("departure_one").textContent = `Northbound: ${southDeparture["data"][]}`
 }
 
 // now that we have our parameters let's make our api calls
@@ -35,7 +37,7 @@ const stationDetails = `https://api-v3.mbta.com/stops/${mbtaStop}`;
 
 if (mbtaLine == "red") {
     const southDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}n&include=stop&filter[route_type]=1&page[limit]=1&sort=departure_time`
-    const northeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=1&include=stop&filter[route_type]=1&page[limit]=1&sort=departure_time`
+    const northDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=1&include=stop&filter[route_type]=1&page[limit]=1&sort=departure_time`
 
     // store the promises
     const promises = [];
@@ -49,7 +51,7 @@ if (mbtaLine == "red") {
     // Make the API calls and add the promises to the array
     promises.push(fetchData(stationDetails));
     promises.push(fetchData(southDeparture));
-    promises.push(fetchData(northeparture));
+    promises.push(fetchData(northDeparture));
 
     Promise.all(promises)
         .then(dataArray => {
