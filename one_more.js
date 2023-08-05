@@ -13,6 +13,12 @@ const mbtaDistance = urlParams.get("mbta_distance");
 // need to know which line so we know if it's north/south or east/west
 const mbtaLine = urlParams.get("mbta_line");
 
+function convertTime(departureTime) {
+    const dateObject = new Date(departureTime);
+    const timeString = dateObject.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return timeString;
+}
+
 function displayData(dataArray) {
     const resolvedStationInformation = dataArray[0];
     console.log('station information:');
@@ -29,8 +35,8 @@ function displayData(dataArray) {
     document.getElementById('barName').textContent = barName;
     document.getElementById("resolved_mbta_stop").textContent = resolvedStationInformation["data"]["attributes"]["name"];
     document.getElementById("mbta_distance").textContent = mbtaDistance;
-    document.getElementById("departure_one").textContent = `Northbound: ${northDeparture["data"][0]["attributes"]["departure_time"]}`
-    document.getElementById("departure_two").textContent = `Southbound: ${southDeparture["data"][0]["attributes"]["departure_time"]} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}`
+    document.getElementById("departure_one").textContent = `Northbound: ${convertTime(northDeparture["data"][0]["attributes"]["departure_time"])} towards ${northDeparture["included"][0]["attributes"]["platform_name"]}`
+    document.getElementById("departure_two").textContent = `Southbound: ${convertTime(southDeparture["data"][0]["attributes"]["departure_time"])} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}`
 }
 
 // now that we have our parameters let's make our api calls
