@@ -14,17 +14,17 @@ const mbtaDistance = urlParams.get("mbta_distance");
 const mbtaLine = urlParams.get("mbta_line");
 
 function displayData(dataArray) {
-    const resolvedStationInformation = dataArray[0];
+    const resolvedStationInformation = dataArray[0]["data"];
     console.log('station information:');
-    console.log(resolvedStationInformation["data"]); // JSON object from the first API call
+    console.log(resolvedStationInformation); // JSON object from the first API call
 
     const southDeparture = dataArray[1];
     console.log('south departure:');
-    console.log(southDeparture["data"]); // JSON object from the second API call
+    console.log(southDeparture); // JSON object from the second API call
 
     const northDeparture = dataArray[2];
     console.log('north departure:');
-    console.log(northDeparture["data"]); // JSON object from the third API call
+    console.log(northDeparture); // JSON object from the third API call
 
     document.getElementById('barName').textContent = barName;
     document.getElementById("resolved_mbta_stop").textContent = resolvedStationInformation["attributes"]["name"];
