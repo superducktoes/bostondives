@@ -2,8 +2,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 
 // get the name of the bar
-const barName = urlParams.get("name");
-document.getElementById('name').textContent = barName;
+const barName = urlParams.get("barName");
+document.getElementById('barName').textContent = barName;
 
 // get the station id from the locations json
 const mbtaStop = urlParams.get("mbta_stop");
