@@ -60,5 +60,5 @@ if (mbtaLine == "red") {
             // Handle the fetched data here
             displayData(dataArray);
         })
-        .catch(err => console.log(err)); // TypeError: failed to fetch (the text may vary);
+        //.catch(err => console.log(err)); // TypeError: failed to fetch (the text may vary);
 }
