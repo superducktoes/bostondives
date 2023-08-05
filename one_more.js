@@ -3,11 +3,9 @@ const urlParams = new URLSearchParams(window.location.search);
 
 // get the name of the bar
 const barName = urlParams.get("barName");
-document.getElementById('barName').textContent = barName;
 
 // get the station id from the locations json
 const mbtaStop = urlParams.get("mbta_stop");
-document.getElementById("mbta_stop").textContent = mbtaStop;
 
 // walkaing distance to the stop
 const mbtaDistance = urlParams.get("mbta_distance");
@@ -16,14 +14,20 @@ const mbtaDistance = urlParams.get("mbta_distance");
 const mbtaLine = urlParams.get("mbta_line");
 
 function displayData(dataArray) {
-    console.log('Data from API Call 1:');
-    console.log(dataArray[0]); // JSON object from the first API call
+    const resolvedStationInformation = dataArray[0];
+    console.log('station information:');
+    console.log(resolvedStationInformation["data"]); // JSON object from the first API call
 
-    console.log('Data from API Call 2:');
-    console.log(dataArray[1]); // JSON object from the second API call
+    const southDeparture = dataArray[0];
+    console.log('south departure:');
+    console.log(southDeparture["data"]); // JSON object from the second API call
 
-    console.log('Data from API Call 3:');
-    console.log(dataArray[2]); // JSON object from the third API call
+    const northDeparture = dataArray[0];
+    console.log('north departure:');
+    console.log(northDeparture["data"]); // JSON object from the third API call
+
+    document.getElementById('barName').textContent = barName;
+    document.getElementById("mbta_stop").textContent = mbtaStop;
 }
 
 // now that we have our parameters let's make our api calls

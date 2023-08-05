@@ -145,7 +145,7 @@ function generatePopupMessage(barJson) {
     }
 
     if(barJson["mbta_stop"]){
-        funcPopupMessage += `<br><p>One More? Check MBTA status: <a href="one_more.html?barName=${barName}&mbta_stop=${barJson["mbta_stop"]}&mbta_distance=${barJson["mbta_distance"]}&mbta_line=${barJson["mbta_line"]}" target="_blank">Status</a></p><br>`
+        funcPopupMessage += `<p>Time for one more beer? Check MBTA status: <a href="one_more.html?barName=${barName}&mbta_stop=${barJson["mbta_stop"]}&mbta_distance=${barJson["mbta_distance"]}&mbta_line=${barJson["mbta_line"]}" target="_blank">Status</a></p>`
     }
 
     // send the current time and then the current day to figure out if the bar is open
