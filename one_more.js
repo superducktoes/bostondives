@@ -57,7 +57,7 @@ function displayData(dataArray) {
     document.getElementById("resolved_mbta_stop").textContent = resolvedStationInformation["data"]["attributes"]["name"];
     document.getElementById("mbta_distance").textContent = mbtaDistance;
     document.getElementById("departure_one").textContent = `Northbound: ${convertTime(northDeparture["data"][0]["attributes"]["departure_time"])} towards ${northDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(northDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
-    document.getElementById("departure_two").textContent = `Southbound: ${convertTime(southDeparture["data"][0]["attributes"]["departure_time"])} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(northDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
+    document.getElementById("departure_two").textContent = `Southbound: ${convertTime(southDeparture["data"][0]["attributes"]["departure_time"])} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(southDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
 }
 
 // now that we have our parameters let's make our api calls
