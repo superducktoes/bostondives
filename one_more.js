@@ -37,7 +37,7 @@ function displayData(dataArray) {
 const stationDetails = `https://api-v3.mbta.com/stops/${mbtaStop}`;
 
 if (mbtaLine == "red") {
-    const southDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&include=stop&filter[route_type]=1&page[limit]=1&sort=departure_time`
+    const southDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=0&include=stop&filter[route_type]=1&page[limit]=1&sort=departure_time`
     const northDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=1&include=stop&filter[route_type]=1&page[limit]=1&sort=departure_time`
 
     // store the promises
