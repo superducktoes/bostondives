@@ -98,11 +98,13 @@ function displayData(dataArray) {
 
         console.log(departure_one_string);
         console.log(departure_two_string);
+
+        document.getElementById("departure_one").textContent = departure_one_string;
+        document.getElementById("departure_two").textContent = departure_two_string;
     }
 
     processJsonData();
-    document.getElementById("departure_one").textContent = departure_one_string;
-    document.getElementById("departure_two").textContent = departure_two_string;
+
     //document.getElementById("departure_one").textContent = `Northbound: ${convertTime(northDeparture["data"][0]["attributes"]["departure_time"])} towards ${northDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(northDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
     //document.getElementById("departure_two").textContent = `Southbound: ${convertTime(southDeparture["data"][0]["attributes"]["departure_time"])} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(southDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
 }
