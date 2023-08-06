@@ -65,7 +65,7 @@ function displayData(dataArray) {
     document.getElementById("mbta_distance").textContent = mbtaDistance;
 
     let departure_one_string = "Northbound:";
-    let depaturure_two_string = "Southbound:";
+    let departure_two_string = "Southbound:";
     
     // process the information so that we can get multiple stop information and the heading information for the trains.
     async function processJsonData() {
@@ -86,13 +86,13 @@ function displayData(dataArray) {
         for (var i = 0; i < southDeparture.length; i++) {
             console.log(southDeparture[i])
             // get departure time and add it to string
-            departure_one_string = departure_one_string.concat(" ", `${convertTime(southDeparture[i]["attributes"]["departure_time"])}`)
+            departure_two_string = departure_two_string.concat(" ", `${convertTime(southDeparture[i]["attributes"]["departure_time"])}`)
             // get the id of the trip
             // query api to get the direciton that its heading to
             let getTripDetails = await fetchTripDetails(southDeparture[i]["relationships"]["trip"]["data"]["id"]);
             // add that to the string
             console.log("getTripDetails", getTripDetails)
-            departure_one_string = departure_one_string.concat(" ", `towards ${getTripDetails["data"]["attributes"]["headsign"]}`)
+            departure_two_string = departure_two_string.concat(" ", `towards ${getTripDetails["data"]["attributes"]["headsign"]}`)
             // do the calculation to figure out the time difference
         }        
 
