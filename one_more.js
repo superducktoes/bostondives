@@ -75,7 +75,7 @@ function displayData(dataArray) {
             departure_one_string = departure_one_string.concat(" ", `${convertTime(northDeparture[i]["attributes"]["departure_time"])}`)
             // get the id of the trip
             // query api to get the direciton that its heading to
-            const getTripDetails = await fetchAdditionalData(northDeparture[i]["relationships"]["trip"]["data"]["id"]);
+            const getTripDetails = await getTripDetails(northDeparture[i]["relationships"]["trip"]["data"]["id"]);
             // add that to the string
             departure_one_string = departure_one_string.concat(" ", `towards ${getTripDetails["data"]["attributes"]["headsign"]}`)
             // do the calculation to figure out the time difference
