@@ -14,7 +14,7 @@ const mbtaDistance = urlParams.get("mbta_distance");
 const mbtaLine = urlParams.get("mbta_line");
 
 async function fetchTripDetails(id) {
-    const apiUrl = `https://api-v3.mbta.com/trips/ADDED-1581604879${id}`;
+    const apiUrl = `https://api-v3.mbta.com/trips/${id}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
     return data;
