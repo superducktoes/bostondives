@@ -69,13 +69,15 @@ function displayData(dataArray) {
     
     // process the information so that we can get multiple stop information and the heading information for the trains.
     async function processJsonData() {
+        let getTripDetails;
+        
         for (var i = 0; i < northDeparture.length; i++) {
             console.log(northDeparture[i])
             // get departure time and add it to string
             departure_one_string = departure_one_string.concat(" ", `${convertTime(northDeparture[i]["attributes"]["departure_time"])}`)
             // get the id of the trip
             // query api to get the direciton that its heading to
-            let getTripDetails = await getTripDetails(northDeparture[i]["relationships"]["trip"]["data"]["id"]);
+            getTripDetails = await getTripDetails(northDeparture[i]["relationships"]["trip"]["data"]["id"]);
             // add that to the string
             departure_one_string = departure_one_string.concat(" ", `towards ${getTripDetails["data"]["attributes"]["headsign"]}`)
             // do the calculation to figure out the time difference
