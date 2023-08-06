@@ -83,10 +83,26 @@ function displayData(dataArray) {
             // do the calculation to figure out the time difference
         }
 
-        console.log(departure_one_string)
+        for (var i = 0; i < southDeparture.length; i++) {
+            console.log(southDeparture[i])
+            // get departure time and add it to string
+            departure_one_string = departure_one_string.concat(" ", `${convertTime(southDeparture[i]["attributes"]["departure_time"])}`)
+            // get the id of the trip
+            // query api to get the direciton that its heading to
+            let getTripDetails = await fetchTripDetails(southDeparture[i]["relationships"]["trip"]["data"]["id"]);
+            // add that to the string
+            console.log("getTripDetails", getTripDetails)
+            departure_one_string = departure_one_string.concat(" ", `towards ${getTripDetails["data"]["attributes"]["headsign"]}`)
+            // do the calculation to figure out the time difference
+        }        
+
+        console.log(departure_one_string);
+        console.log(departure_two_string);
     }
 
     processJsonData();
+    document.getElementById("departure_one").textContent = departure_one_string;
+    document.getElementById("departure_two").textContent = departure_two_string;
     //document.getElementById("departure_one").textContent = `Northbound: ${convertTime(northDeparture["data"][0]["attributes"]["departure_time"])} towards ${northDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(northDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
     //document.getElementById("departure_two").textContent = `Southbound: ${convertTime(southDeparture["data"][0]["attributes"]["departure_time"])} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(southDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
 }
