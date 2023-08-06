@@ -82,14 +82,14 @@ function displayData(dataArray) {
             departure_one_string = departure_one_string.concat(" ", `towards ${getTripDetails["data"]["attributes"]["headsign"]}`)
             // do the calculation to figure out the time difference
         }
-
-        for (var i = 0; i < southDeparture.length; i++) {
-            console.log("south departures", southDeparture[i])
+        console.log("out of loop")
+        for (var j = 0; j < southDeparture.length; j++) {
+            console.log("south departures", southDeparture[j])
             // get departure time and add it to string
-            departure_two_string = departure_two_string.concat(" ", `${convertTime(southDeparture[i]["attributes"]["departure_time"])}`)
+            departure_two_string = departure_two_string.concat(" ", `${convertTime(southDeparture[j]["attributes"]["departure_time"])}`)
             // get the id of the trip
             // query api to get the direciton that its heading to
-            let getTripDetails = await fetchTripDetails(southDeparture[i]["relationships"]["trip"]["data"]["id"]);
+            let getTripDetails = await fetchTripDetails(southDeparture[j]["relationships"]["trip"]["data"]["id"]);
             // add that to the string
             console.log("getTripDetails", getTripDetails)
             departure_two_string = departure_two_string.concat(" ", `towards ${getTripDetails["data"]["attributes"]["headsign"]}`)
@@ -112,10 +112,9 @@ function displayData(dataArray) {
 // now that we have our parameters let's make our api calls
 const stationDetails = `https://api-v3.mbta.com/stops/${mbtaStop}`;
 
-let southDeparture, northDeparture;
 if (mbtaLine == "red") {
-    southDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=0&include=stop&filter[route_type]=1&page[limit]=2&sort=departure_time`
-    northDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=1&include=stop&filter[route_type]=1&page[limit]=2&sort=departure_time`
+    const southDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=0&include=stop&filter[route_type]=1&page[limit]=2&sort=departure_time`
+    const northDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=1&include=stop&filter[route_type]=1&page[limit]=2&sort=departure_time`
 
     // store the promises
     const promises = [];
