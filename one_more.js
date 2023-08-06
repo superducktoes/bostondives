@@ -64,8 +64,8 @@ function displayData(dataArray) {
     document.getElementById("resolved_mbta_stop").textContent = resolvedStationInformation["data"]["attributes"]["name"];
     document.getElementById("mbta_distance").textContent = mbtaDistance;
 
-    let departure_one_string = "Northbound: ";
-    let depaturure_two_string = "Southbound: ";
+    let departure_one_string = "Northbound:";
+    let depaturure_two_string = "Southbound:";
     
     // process the information so that we can get multiple stop information and the heading information for the trains.
     async function processJsonData() {
@@ -82,9 +82,9 @@ function displayData(dataArray) {
         }
 
         console.log(departure_one_string)
-        document.getElementById("departure_one").textContent = departure_one_string;
     }
 
+    processJsonData();
     //document.getElementById("departure_one").textContent = `Northbound: ${convertTime(northDeparture["data"][0]["attributes"]["departure_time"])} towards ${northDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(northDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
     //document.getElementById("departure_two").textContent = `Southbound: ${convertTime(southDeparture["data"][0]["attributes"]["departure_time"])} towards ${southDeparture["included"][0]["attributes"]["platform_name"]}. ${calculateTimeDifference(southDeparture["data"][0]["attributes"]["departure_time"], mbtaDistance)}`
 }
