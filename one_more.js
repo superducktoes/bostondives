@@ -112,9 +112,10 @@ function displayData(dataArray) {
 // now that we have our parameters let's make our api calls
 const stationDetails = `https://api-v3.mbta.com/stops/${mbtaStop}`;
 
+let southDeparture, northDeparture;
 if (mbtaLine == "red") {
-    const southDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=0&include=stop&filter[route_type]=1&page[limit]=2&sort=departure_time`
-    const northDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=1&include=stop&filter[route_type]=1&page[limit]=2&sort=departure_time`
+    southDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=0&include=stop&filter[route_type]=1&page[limit]=2&sort=departure_time`
+    northDeparture = `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[direction_id]=1&include=stop&filter[route_type]=1&page[limit]=2&sort=departure_time`
 
     // store the promises
     const promises = [];
