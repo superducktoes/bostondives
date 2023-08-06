@@ -83,9 +83,10 @@ function displayData(dataArray) {
             // do the calculation to figure out the time difference
         }
         console.log("out of loop")
-        for(var j=0; k < 3; k++) {
+        for(var k=0; k < 3; k++) {
             console.log(k)
         }
+        console.log(southDeparture)
         for (var j = 0; j < southDeparture.length; j++) {
             console.log("south departures", southDeparture[j])
             // get departure time and add it to string
