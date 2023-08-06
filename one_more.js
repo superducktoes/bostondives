@@ -52,9 +52,9 @@ function displayData(dataArray) {
     //console.log('station information:');
     //console.log(resolvedStationInformation); // JSON object from the first API call
 
-    const southDeparture = dataArray[1];
+    const southDeparture = dataArray[1]["data"];
     //console.log('south departure:');
-    //console.log(southDeparture); // JSON object from the second API call
+    console.log("southDeparture", southDeparture); // JSON object from the second API call
 
     const northDeparture = dataArray[2]["data"];
     //console.log('north departure:');
@@ -83,6 +83,9 @@ function displayData(dataArray) {
             // do the calculation to figure out the time difference
         }
         console.log("out of loop")
+        for(var j=0; k < 3; k++) {
+            console.log(k)
+        }
         for (var j = 0; j < southDeparture.length; j++) {
             console.log("south departures", southDeparture[j])
             // get departure time and add it to string
