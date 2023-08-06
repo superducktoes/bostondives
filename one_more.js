@@ -49,16 +49,16 @@ function calculateTimeDifference(departureTime, mbtaDistance) {
 
 function displayData(dataArray) {
     const resolvedStationInformation = dataArray[0];
-    console.log('station information:');
-    console.log(resolvedStationInformation); // JSON object from the first API call
+    //console.log('station information:');
+    //console.log(resolvedStationInformation); // JSON object from the first API call
 
     const southDeparture = dataArray[1];
-    console.log('south departure:');
-    console.log(southDeparture); // JSON object from the second API call
+    //console.log('south departure:');
+    //console.log(southDeparture); // JSON object from the second API call
 
     const northDeparture = dataArray[2]["data"];
-    console.log('north departure:');
-    console.log(northDeparture); // JSON object from the third API call
+    //console.log('north departure:');
+    //console.log(northDeparture); // JSON object from the third API call
 
     document.getElementById('barName').textContent = barName;
     document.getElementById("resolved_mbta_stop").textContent = resolvedStationInformation["data"]["attributes"]["name"];
@@ -71,20 +71,20 @@ function displayData(dataArray) {
     async function processJsonData() {
 
         for (var i = 0; i < northDeparture.length; i++) {
-            console.log(northDeparture[i])
+            //console.log(northDeparture[i])
             // get departure time and add it to string
             departure_one_string = departure_one_string.concat(" ", `${convertTime(northDeparture[i]["attributes"]["departure_time"])}`)
             // get the id of the trip
             // query api to get the direciton that its heading to
             let getTripDetails = await fetchTripDetails(northDeparture[i]["relationships"]["trip"]["data"]["id"]);
             // add that to the string
-            console.log("getTripDetails", getTripDetails)
+            //console.log("getTripDetails", getTripDetails)
             departure_one_string = departure_one_string.concat(" ", `towards ${getTripDetails["data"]["attributes"]["headsign"]}`)
             // do the calculation to figure out the time difference
         }
 
         for (var i = 0; i < southDeparture.length; i++) {
-            console.log(southDeparture[i])
+            console.log("south departures", southDeparture[i])
             // get departure time and add it to string
             departure_two_string = departure_two_string.concat(" ", `${convertTime(southDeparture[i]["attributes"]["departure_time"])}`)
             // get the id of the trip
