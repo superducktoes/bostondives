@@ -32,6 +32,12 @@ function returnLineType(line) {
     return lineType;
 }
 
+function convertTime(departureTime) {
+    const dateObject = new Date(departureTime);
+    const timeString = dateObject.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return timeString;
+}
+
 // Define a function to fetch trip details
 async function fetchTripDetails(id) {
     const apiUrl = `https://api-v3.mbta.com/trips/${id}`;
