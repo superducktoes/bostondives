@@ -60,6 +60,8 @@ async function processDepartures(railType, mbtaStop, line) {
     const departuresData = await departuresResponse.json();
     const departures = departuresData.data;
     console.log(departures);
+    
+    let formattedDepartures = [];
 
     // Process each departure
     for (const departure of departures) {
@@ -70,8 +72,11 @@ async function processDepartures(railType, mbtaStop, line) {
         const headsign = tripDetails.data.attributes.headsign;
 
         // Perform your desired actions with the retrieved data
-        console.log(`Line: ${line}, Station: ${stationName}, Departure Time: ${departureTime}, Headsign: ${headsign}`);
+        let formattedDeparture = `Line: ${line}, Station: ${stationName}, Departure Time: ${departureTime}, Headsign: ${headsign}`;
+        formattedDepartures.push(formattedDeparture);
     }
+
+    console.log(formattedDepartures)
 }
 
 for(let i = 0; i < stationLines.length; i++) {
