@@ -54,7 +54,7 @@ async function processDepartures(railType, mbtaStop) {
     const departuresData = await departuresResponse.json();
     const departures = departuresData.data;
     console.log(departures);
-    
+
     // Process each departure
     for (const departure of departures) {
         const departureTime = convertTime(departure.attributes.departure_time);
@@ -69,13 +69,13 @@ async function processDepartures(railType, mbtaStop) {
 }
 
 for(let i = 0; i < stationLines.length; i++) {
-    if(i == "red") {
+    if(stationLines[i] == "red") {
         console.log("red");
         // get the station name
         // call mbta api to get the next 3 departures for each direction
         // for each of those three departures call the mbta api to get additional trip details to display.
         processDepartures(returnLineType(i), mbtaStop);
-    } else if(i == "green") {
+    } else if(stationLines[i] == "green") {
         console.log("green")
         // get the station name
         // call mbta api to get the next 3 departures for each direction
