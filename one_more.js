@@ -18,4 +18,5 @@ const mbtaLine = urlParams.get("mbta_line");
 document.getElementById('barName').textContent = barName;
 document.getElementById("mbta_distance").textContent = mbtaDistance;
 console.log(mbtaStop);
+console.log(mbtaLine)
 
