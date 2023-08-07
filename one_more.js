@@ -1,4 +1,3 @@
-
 // retrieve url parameters
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -17,9 +16,6 @@ let stationLines = mbtaLine.split(',');
 
 document.getElementById('barName').textContent = barName;
 document.getElementById("mbta_distance").textContent = mbtaDistance;
-console.log(mbtaStop);
-console.log(mbtaLine)
-console.log(stationLines);
 
 function calculateTimeDifference(departureTime, mbtaDistance) {
     const dateObject = new Date(departureTime);
@@ -59,7 +55,7 @@ function convertTime(departureTime) {
     return timeString;
 }
 
-// Define a function to fetch trip details
+// get individual trip details
 async function fetchTripDetails(id) {
     const apiUrl = `https://api-v3.mbta.com/trips/${id}`;
     const response = await fetch(apiUrl);
@@ -67,43 +63,39 @@ async function fetchTripDetails(id) {
     return data;
 }
 
-// Define a function to process departures for a given line
+// get information about a station and the next 6 predicted departures
 async function processDepartures(railType, mbtaStop, line) {
-    // Call MBTA API to get the station name
+    // call mbta api to get the station name
     const stationNameResponse = await fetch(`https://api-v3.mbta.com/stops/${mbtaStop}`);
     const stationNameData = await stationNameResponse.json();
     const stationName = stationNameData.data.attributes.name;
-    console.log(stationName);
-    console.log(railType);
 
-    // Call MBTA API to get the next 3 departures for each direction
+    // call MBTA API to get the next 3 departures for each direction
     const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`);
-    console.log("mbta api call for station data: ", `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`)
     const departuresData = await departuresResponse.json();
     const departures = departuresData.data;
-    console.log(departures);
     
     let formattedDepartures = [];
 
-    // Process each departure
+    // process each departure
     for (const departure of departures) {
         const departureTime = convertTime(departure.attributes.departure_time);
 
-        // Call MBTA API to get additional trip details
+        // get the additional detials so we know where the trains are headed
         const tripDetails = await fetchTripDetails(departure.relationships.trip.data.id);
         const headsign = tripDetails.data.attributes.headsign;
 
-        // Perform your desired actions with the retrieved data
+        // format the data to display
         let formattedDeparture = `${departureTime} towards ${headsign}, ${calculateTimeDifference(departure.attributes.departure_time, mbtaDistance)}`;
         formattedDepartures.push(formattedDeparture);
     }
 
-    console.log(formattedDepartures)
     let departureString = formattedDepartures.join('<br>');
-    console.log(departureString);
 
 
     document.getElementById("resolved_mbta_stop").textContent = stationName;
+    
+    // could probably add one last check to this to see if there isn't a train to one of the ends and call that out
     if(line == "red") {
         document.getElementById("red_line_departures").innerHTML = departureString;
         document.getElementById("red_line_departures").style.color = "#DA291C"
@@ -115,25 +107,8 @@ async function processDepartures(railType, mbtaStop, line) {
 
 for(let i = 0; i < stationLines.length; i++) {
     if(stationLines[i] == "red") {
-        console.log("red");
-        // get the station name
-        // call mbta api to get the next 3 departures for each direction
-        // for each of those three departures call the mbta api to get additional trip details to display.
         processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
     } else if(stationLines[i] == "green") {
-        console.log("green")
-        // get the station name
-        // call mbta api to get the next 3 departures for each direction
-        // for each of those three departures call the mbta api to get additional trip details to display.
         processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
     }
 }
-
-
-
-
-// figure out what line or lines the bar is on
-// get the station name
-// get the next 3 departures from that station
-// repeat for any other lines
-
