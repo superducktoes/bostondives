@@ -53,7 +53,8 @@ async function processDepartures(railType, mbtaStop) {
     const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=1&page[limit]=3&sort=departure_time`);
     const departuresData = await departuresResponse.json();
     const departures = departuresData.data;
-
+    console.log(departures);
+    
     // Process each departure
     for (const departure of departures) {
         const departureTime = convertTime(departure.attributes.departure_time);
