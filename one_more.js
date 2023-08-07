@@ -24,7 +24,6 @@ function calculateTimeDifference(departureTime, mbtaDistance) {
 
     // calculate the time difference in minutes
     const timeDifference = Math.round((dateObject - currentTime) / (1000 * 60));
-    console.log(timeDifference);
 
     if (timeDifference == mbtaDistance) {
         message = "Just enough time. Run!"
@@ -73,6 +72,8 @@ async function processDepartures(railType, mbtaStop, line) {
     // call MBTA API to get the next 3 departures for each direction
     const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`);
     const departuresData = await departuresResponse.json();
+    console.log(departuresData);
+    console.log(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`)
     const departures = departuresData.data;
     
     let formattedDepartures = [];
