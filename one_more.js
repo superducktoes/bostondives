@@ -43,11 +43,11 @@ function calculateTimeDifference(departureTime, mbtaDistance) {
 }
 
 function returnLineType(line) {
-    let lineType = 0
+    let lineType = 1
 
     // may need additional checks for commuter and buses
-    if(lineType != "green") {
-        lineType = 1
+    if(lineType == "green") {
+        lineType = 0
     }
 
     return lineType;
