@@ -56,7 +56,7 @@ async function processDepartures(railType, mbtaStop, line) {
     console.log(railType);
 
     // Call MBTA API to get the next 3 departures for each direction
-    const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=1&page[limit]=3&sort=departure_time`);
+    const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`);
     const departuresData = await departuresResponse.json();
     const departures = departuresData.data;
     console.log(departures);
@@ -77,6 +77,11 @@ async function processDepartures(railType, mbtaStop, line) {
     }
 
     console.log(formattedDepartures)
+    let departureString = formattedDepartures.join('\r\n');
+
+    if(line == "red") {
+        document.getElementById("red_line_departures").textContent = departureString;
+    }
 }
 
 for(let i = 0; i < stationLines.length; i++) {
