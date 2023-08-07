@@ -86,7 +86,7 @@ for(let i = 0; i < stationLines.length; i++) {
         // get the station name
         // call mbta api to get the next 3 departures for each direction
         // for each of those three departures call the mbta api to get additional trip details to display.
-        processDepartures(returnLineType(stationlined[i]), mbtaStop, stationLines[i]);
+        processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
     }
 }
 
