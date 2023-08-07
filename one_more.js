@@ -93,7 +93,7 @@ async function processDepartures(railType, mbtaStop, line) {
         const headsign = tripDetails.data.attributes.headsign;
 
         // Perform your desired actions with the retrieved data
-        let formattedDeparture = `Line: ${line}, Station: ${stationName}, Departure Time: ${departureTime}, Headsign: ${headsign}, ${calculateTimeDifference(departure.attributes.departure_time, mbtaDistance)}`;
+        let formattedDeparture = `Departure Time: ${departureTime}, Towards: ${headsign}, ${calculateTimeDifference(departure.attributes.departure_time, mbtaDistance)}`;
         formattedDepartures.push(formattedDeparture);
     }
 
@@ -101,9 +101,11 @@ async function processDepartures(railType, mbtaStop, line) {
     let departureString = formattedDepartures.join('<br>');
     console.log(departureString);
 
+
     document.getElementById("resolved_mbta_stop").textContent = stationName;
     if(line == "red") {
         document.getElementById("red_line_departures").innerHTML = departureString;
+        document.getElementById("myH2").style.color = "#DA291C"
     }
 }
 
