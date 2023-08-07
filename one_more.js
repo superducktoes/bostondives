@@ -21,6 +21,27 @@ console.log(mbtaStop);
 console.log(mbtaLine)
 console.log(stationLines);
 
+function calculateTimeDifference(departureTime, mbtaDistance) {
+    const dateObject = new Date(departureTime);
+    const currentTime = new Date();
+    let message;
+
+    // calculate the time difference in minutes
+    const timeDifference = Math.round((dateObject - currentTime) / (1000 * 60));
+    console.log(timeDifference);
+
+    if (timeDifference == mbtaDistance) {
+        message = "Just enough time. Run!"
+    } else if (timeDifference > mbtaDistance) {
+        let updatedTime = timeDifference - mbtaDistance;
+        message = `You have about ${updatedTime} minutes until you have to leave`
+    } else {
+        message = "Probably best to wait for the next one at this point."
+    }
+
+    return message;
+}
+
 function returnLineType(line) {
     let lineType = 0
 
@@ -72,7 +93,7 @@ async function processDepartures(railType, mbtaStop, line) {
         const headsign = tripDetails.data.attributes.headsign;
 
         // Perform your desired actions with the retrieved data
-        let formattedDeparture = `Line: ${line}, Station: ${stationName}, Departure Time: ${departureTime}, Headsign: ${headsign}`;
+        let formattedDeparture = `Line: ${line}, Station: ${stationName}, Departure Time: ${departureTime}, Headsign: ${headsign}, ${calculateTimeDifference(departureTime, mbta_distance)}`;
         formattedDepartures.push(formattedDeparture);
     }
 
