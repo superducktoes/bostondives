@@ -46,7 +46,7 @@ function returnLineType(line) {
     let lineType = 1
 
     // may need additional checks for commuter and buses
-    if(lineType == "green") {
+    if(line == "green") {
         lineType = 0
     }
 
