@@ -77,8 +77,9 @@ async function processDepartures(railType, mbtaStop, line) {
     }
 
     console.log(formattedDepartures)
-    let departureString = formattedDepartures.join('\r\n');
-
+    let departureString = formattedDepartures.join('\n');
+    console.log(departureString);
+    
     if(line == "red") {
         document.getElementById("red_line_departures").textContent = departureString;
     }
