@@ -106,6 +106,9 @@ async function processDepartures(railType, mbtaStop, line) {
     if(line == "red") {
         document.getElementById("red_line_departures").innerHTML = departureString;
         document.getElementById("red_line_departures").style.color = "#DA291C"
+    } else if(line == "green") {
+        document.getElementById("green_line_departures").innerHTML = departureString;
+        document.getElementById("green_line_departures").style.color = "#00843D"
     }
 }
 

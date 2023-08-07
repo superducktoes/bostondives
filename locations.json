@@ -754,6 +754,9 @@
       "name": "Silvertone Bar and Grill",
       "location": "42.35708, -71.06087",
       "type": "bar",
+      "mbta_stop": "place-pktrm",
+      "mbta_distance": "1",
+      "mbta_line": ["red", "green"],
       "hours": {
          "0": [
             "16:00,02:00"
