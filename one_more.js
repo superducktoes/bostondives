@@ -93,7 +93,7 @@ async function processDepartures(railType, mbtaStop, line) {
         const headsign = tripDetails.data.attributes.headsign;
 
         // Perform your desired actions with the retrieved data
-        let formattedDeparture = `Line: ${line}, Station: ${stationName}, Departure Time: ${departureTime}, Headsign: ${headsign}, ${calculateTimeDifference(departureTime, mbta_distance)}`;
+        let formattedDeparture = `Line: ${line}, Station: ${stationName}, Departure Time: ${departureTime}, Headsign: ${headsign}, ${calculateTimeDifference(departure.attributes.departure_time, mbtaDistance)}`;
         formattedDepartures.push(formattedDeparture);
     }
 
