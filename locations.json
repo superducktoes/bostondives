@@ -467,7 +467,7 @@
       "type": "bar",
       "mbta_stop": "place-brdwy",
       "mbta_distance": "8",
-      "mbta_line": ["red", "green"],
+      "mbta_line": ["red"],
       "hours": {
          "0": [
             "12:00,02:00"
