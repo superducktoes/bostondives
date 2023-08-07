@@ -78,6 +78,7 @@ async function processDepartures(railType, mbtaStop, line) {
 
     // Call MBTA API to get the next 3 departures for each direction
     const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`);
+    console.log("mbta api call for station data: ", `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`)
     const departuresData = await departuresResponse.json();
     const departures = departuresData.data;
     console.log(departures);
