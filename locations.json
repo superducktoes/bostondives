@@ -465,6 +465,9 @@
       "name": "Croke Park",
       "location": "42.3393, -71.05124",
       "type": "bar",
+      "mbta_stop": "place-brdwy",
+      "mbta_distance": "8",
+      "mbta_line": ["red"],
       "hours": {
          "0": [
             "12:00,02:00"

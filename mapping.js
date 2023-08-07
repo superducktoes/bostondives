@@ -155,6 +155,10 @@ function generatePopupMessage(barJson) {
         }
     }
 
+    if(barJson["mbta_stop"]){
+        funcPopupMessage += `<p>Time for one more beer? Check MBTA status: <a href="one_more.html?barName=${barName}&mbta_stop=${barJson["mbta_stop"]}&mbta_distance=${barJson["mbta_distance"]}&mbta_line=${barJson["mbta_line"]}" target="_blank">Status</a></p>`
+    }
+
     if (isMobile && ua.includes("Android")) {
         funcPopupMessage += `<a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`;
     } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {

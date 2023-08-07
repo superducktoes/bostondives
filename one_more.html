@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>One More</title>
+    <style>
+        body{
+        margin:1em auto;
+        max-width:40em;
+        padding:0 .62em;
+        font:1.2em/1.62 sans-serif;
+        }
+        h1,h2,h3 {
+        line-height:1.2;
+        }
+        @media print{
+        body{
+        max-width:none
+        }
+        }
+        /* lines between items */
+        hr.solid {
+        border-top: 1px solid #f0f0f5;
+        margin: 1em auto;
+      }
+        /* arrange images side by side */
+        * {
+        box-sizing: border-box;
+      }
+
+      .column {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+      }
+
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      </style>
+</head>
+<body>
+    <h1>Time for one more beer?</h1>
+    <p>Sometimes the MBTA isn't the most reliable and you're wondering if you have time to have one more before the next train shows up?</p>
+    <p>Note this is still a beta feature. Don't blame me if you don't get home.</p>
+    <p>The closest station from <span id="barName"></span> is <span id="resolved_mbta_stop"></span>.</p>
+    <p>It's about an <span id="mbta_distance"></span> minute walk.</p>
+    <p>Here's the next departure times:</p>
+    <p><span id="red_line_departures"></span></p>
+    <p><span id ="green_line_departures"></span></p>
+
+    <script src="one_more.js"></script>
+</body>
+</html>
