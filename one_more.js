@@ -77,7 +77,7 @@ async function processDepartures(railType, mbtaStop, line) {
     }
 
     console.log(formattedDepartures)
-    let departureString = formattedDepartures.join('\n');
+    let departureString = formattedDepartures.join('<br>');
     console.log(departureString);
 
     document.getElementById("resolved_mbta_stop").textContent = stationName;
