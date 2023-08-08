@@ -111,7 +111,10 @@ async function processDepartures(railType, mbtaStop, line) {
             document.getElementById("orange_line_departures").innerHTML = departureString;
         } else if (line == "Blue") {
             document.getElementById("blue_line_departures").innerHTML = departureString;
+        } else if (line == "Silver") {
+            document.getElementById("silver_line_departures").innerHTML = departureString;
         }
+
     } catch (error) {
         document.getElementById("error_message").textContent = "Error getting data from MBTA. Try refreshing the page"
     }
