@@ -41,7 +41,7 @@ function returnLineType(line) {
     let lineType = 1
 
     // may need additional checks for commuter and buses
-    if(line == "green") {
+    if(line == "Green") {
         lineType = 0
     }
 
@@ -95,13 +95,13 @@ async function processDepartures(railType, mbtaStop, line) {
     document.getElementById("resolved_mbta_stop").textContent = stationName;
     
     // could probably add one last check to this to see if there isn't a train to one of the ends and call that out
-    if(line == "red") {
+    if(line == "Red") {
         document.getElementById("red_line_departures").innerHTML = departureString;
         document.getElementById("red_line_departures").style.color = "#DA291C"
-    } else if(line == "green") {
+    } else if(line == "Green") {
         document.getElementById("green_line_departures").innerHTML = departureString;
         document.getElementById("green_line_departures").style.color = "#00843D"
-    } else if(line == "orange") {
+    } else if(line == "Orange") {
         document.getElementById("orange_line_departures").innerHTML = departureString;
         document.getElementById("orange_line_departures").style.color = "#ED8B00"
     }
