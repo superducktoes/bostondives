@@ -70,12 +70,16 @@ async function processDepartures(railType, mbtaStop, line) {
     const stationName = stationNameData.data.attributes.name;
 
     // call mbta api to get the next 3 departures for each direction
-    const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time&filter[route]=${line}`);
+    // green ling gets handled differently since it's light rail
+    if(line != "Green") {
+        const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time&filter[route]=${line}`);
+    } else {
+        const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`);
+    }
+
     const departuresData = await departuresResponse.json();
     const departures = departuresData.data;
     
-
-    console.log("departures request: ", `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time&filter[route]=${line}`)
     let formattedDepartures = [];
 
     // process each departure
