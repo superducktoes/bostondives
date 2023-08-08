@@ -69,11 +69,9 @@ async function processDepartures(railType, mbtaStop, line) {
     const stationNameData = await stationNameResponse.json();
     const stationName = stationNameData.data.attributes.name;
 
-    // call MBTA API to get the next 3 departures for each direction
-    const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`);
+    // call mbta api to get the next 3 departures for each direction
+    const departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time&filter[route]=${line}`);
     const departuresData = await departuresResponse.json();
-    console.log(departuresData);
-    console.log(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`)
     const departures = departuresData.data;
     
     let formattedDepartures = [];
@@ -110,11 +108,11 @@ async function processDepartures(railType, mbtaStop, line) {
 }
 
 for(let i = 0; i < stationLines.length; i++) {
-    if(stationLines[i] == "red") {
+    if(stationLines[i] == "Red") {
         processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
-    } else if(stationLines[i] == "green") {
+    } else if(stationLines[i] == "Green") {
         processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
-    } else if(stationLines[i] == "orange") {
+    } else if(stationLines[i] == "Orange") {
         processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
     }
 }

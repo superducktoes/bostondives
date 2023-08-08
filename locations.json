@@ -467,7 +467,7 @@
       "type": "bar",
       "mbta_stop": "place-brdwy",
       "mbta_distance": "8",
-      "mbta_line": ["red"],
+      "mbta_line": ["Red"],
       "hours": {
          "0": [
             "12:00,02:00"
@@ -756,7 +756,7 @@
       "type": "bar",
       "mbta_stop": "place-pktrm",
       "mbta_distance": "2",
-      "mbta_line": ["red", "green"],
+      "mbta_line": ["Red", "Green"],
       "hours": {
          "0": [
             "16:00,02:00"
@@ -788,7 +788,7 @@
       "type": "bar",
       "mbta_stop": "place-dwnxg",
       "mbta_distance": "2",
-      "mbta_line": ["red", "orange"],
+      "mbta_line": ["Red", "Orange"],
       "hours": {
          "0": [
             "12:00,01:00"
