@@ -111,15 +111,24 @@ async function processDepartures(railType, mbtaStop, line) {
     } else if(line == "Orange") {
         document.getElementById("orange_line_departures").innerHTML = departureString;
         document.getElementById("orange_line_departures").style.color = "#ED8B00"
+    } else if(line == "Blue") {
+        document.getElementById("blue_line_departures").innerHTML = departureString;
+        document.getElementById("blue_line_departures").style.color = "#ED8B00"
     }
 }
 
-for(let i = 0; i < stationLines.length; i++) {
+/*for(let i = 0; i < stationLines.length; i++) {
     if(stationLines[i] == "Red") {
         processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
     } else if(stationLines[i] == "Green") {
         processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
     } else if(stationLines[i] == "Orange") {
         processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
-    }
+    } else if(stationLines[i] == "Blue") {
+        processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
+    } 
+}*/
+
+for(let i = 0; i < stationLines.length; i++) {
+    processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
 }
