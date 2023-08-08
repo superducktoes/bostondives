@@ -215,11 +215,15 @@ fetch("./locations.json")
         const timeout = 12000; // timeout setting for message boxes
         const savedTheme = localStorage.getItem('selectedTheme');
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap'
-        }).addTo(map);
+        }).addTo(map);*/
 
+        L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap Contributors. Tiles courtesy of Humanitarian OpenStreetMap Team'
+        }).addTo(map);
         
         if (savedTheme == "dark") {
             var elements = document.querySelectorAll('.leaflet-layer, .leaflet-control-zoom-in, .leaflet-control-zoom-out, .leaflet-control-attribution');
