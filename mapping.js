@@ -155,6 +155,10 @@ function generatePopupMessage(barJson) {
         }
     }
 
+    if(barJson["mbta_stop"]){
+        funcPopupMessage += `<p>Time for one more beer? Check MBTA status: <a href="one_more.html?barName=${barName}&mbta_stop=${barJson["mbta_stop"]}&mbta_distance=${barJson["mbta_distance"]}&mbta_line=${barJson["mbta_line"]}" target="_blank">Status</a></p>`
+    }
+
     if (isMobile && ua.includes("Android")) {
         funcPopupMessage += `<a href='geo: ${lat}, ${long}?q=${lat},${long}' target='_blank' rel='noopener noreferrer'>Directions  </a>`;
     } else if (isMobile && (ua.includes("iPhone") || ua.includes("iPad"))) {
@@ -211,11 +215,10 @@ fetch("./locations.json")
         const timeout = 12000; // timeout setting for message boxes
         const savedTheme = localStorage.getItem('selectedTheme');
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
             maxZoom: 19,
-            attribution: '© OpenStreetMap'
+            attribution: '© OpenStreetMap Contributors.'
         }).addTo(map);
-
         
         if (savedTheme == "dark") {
             var elements = document.querySelectorAll('.leaflet-layer, .leaflet-control-zoom-in, .leaflet-control-zoom-out, .leaflet-control-attribution');
