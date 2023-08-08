@@ -68,7 +68,7 @@ async function processDepartures(railType, mbtaStop, line) {
     const stationNameResponse = await fetch(`https://api-v3.mbta.com/stops/${mbtaStop}`);
     const stationNameData = await stationNameResponse.json();
     const stationName = stationNameData.data.attributes.name;
-    const departuresResponse;
+    let departuresResponse;
 
     // call mbta api to get the next 3 departures for each direction
     // green ling gets handled differently since it's light rail
