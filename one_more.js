@@ -41,7 +41,7 @@ function returnLineType(line) {
     let lineType = 1
 
     // may need additional checks for commuter and buses
-    if(line == "Green") {
+    if (line == "Green") {
         lineType = 0
     }
 
@@ -64,59 +64,59 @@ async function fetchTripDetails(id) {
 
 // get information about a station and the next 6 predicted departures
 async function processDepartures(railType, mbtaStop, line) {
-    // call mbta api to get the station name
-    const stationNameResponse = await fetch(`https://api-v3.mbta.com/stops/${mbtaStop}`);
-    const stationNameData = await stationNameResponse.json();
-    const stationName = stationNameData.data.attributes.name;
-    let departuresResponse;
+    try {
+        // call mbta api to get the station name
+        const stationNameResponse = await fetch(`https://api-v3.mbta.com/stops/${mbtaStop}`);
+        const stationNameData = await stationNameResponse.json();
+        const stationName = stationNameData.data.attributes.name;
+        let departuresResponse;
 
-    // call mbta api to get the next 3 departures for each direction
-    // green ling gets handled differently since it's light rail
-    if(line != "Green") {
-        departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time&filter[route]=${line}`);
-    } else {
-        departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`);
-    }
+        // call mbta api to get the next 3 departures for each direction
+        // green ling gets handled differently since it's light rail
+        if (line != "Green") {
+            departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time&filter[route]=${line}`);
+        } else {
+            departuresResponse = await fetch(`https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time`);
+        }
 
-    const departuresData = await departuresResponse.json();
-    const departures = departuresData.data;
-    
-    let formattedDepartures = [];
+        const departuresData = await departuresResponse.json();
+        const departures = departuresData.data;
 
-    // process each departure
-    for (const departure of departures) {
-        const departureTime = convertTime(departure.attributes.departure_time);
+        let formattedDepartures = [];
 
-        // get the additional detials so we know where the trains are headed
-        const tripDetails = await fetchTripDetails(departure.relationships.trip.data.id);
-        const headsign = tripDetails.data.attributes.headsign;
+        // process each departure
+        for (const departure of departures) {
+            const departureTime = convertTime(departure.attributes.departure_time);
 
-        // format the data to display
-        let formattedDeparture = `${departureTime} towards ${headsign}, ${calculateTimeDifference(departure.attributes.departure_time, mbtaDistance)}`;
-        formattedDepartures.push(formattedDeparture);
-    }
+            // get the additional detials so we know where the trains are headed
+            const tripDetails = await fetchTripDetails(departure.relationships.trip.data.id);
+            const headsign = tripDetails.data.attributes.headsign;
 
-    let departureString = formattedDepartures.join('<br>');
+            // format the data to display
+            let formattedDeparture = `${departureTime} towards ${headsign}, ${calculateTimeDifference(departure.attributes.departure_time, mbtaDistance)}`;
+            formattedDepartures.push(formattedDeparture);
+        }
+
+        let departureString = formattedDepartures.join('<br>');
 
 
-    document.getElementById("resolved_mbta_stop").textContent = stationName;
-    
-    // could probably add one last check to this to see if there isn't a train to one of the ends and call that out
-    if(line == "Red") {
-        document.getElementById("red_line_departures").innerHTML = departureString;
-        document.getElementById("red_line_departures").style.color = "#DA291C"
-    } else if(line == "Green") {
-        document.getElementById("green_line_departures").innerHTML = departureString;
-        document.getElementById("green_line_departures").style.color = "#00843D"
-    } else if(line == "Orange") {
-        document.getElementById("orange_line_departures").innerHTML = departureString;
-        document.getElementById("orange_line_departures").style.color = "#ED8B00"
-    } else if(line == "Blue") {
-        document.getElementById("blue_line_departures").innerHTML = departureString;
-        document.getElementById("blue_line_departures").style.color = "#003DA5"
+        document.getElementById("resolved_mbta_stop").textContent = stationName;
+
+        // could probably add one last check to this to see if there isn't a train to one of the ends and call that out
+        if (line == "Red") {
+            document.getElementById("red_line_departures").innerHTML = departureString;
+        } else if (line == "Green") {
+            document.getElementById("green_line_departures").innerHTML = departureString;
+        } else if (line == "Orange") {
+            document.getElementById("orange_line_departures").innerHTML = departureString;
+        } else if (line == "Blue") {
+            document.getElementById("blue_line_departures").innerHTML = departureString;
+        }
+    } catch (error) {
+        document.getElementById("error_message").textContent = "Error getting data from MBTA. Try refreshing the page"
     }
 }
 
-for(let i = 0; i < stationLines.length; i++) {
+for (let i = 0; i < stationLines.length; i++) {
     processDepartures(returnLineType(stationLines[i]), mbtaStop, stationLines[i]);
 }
