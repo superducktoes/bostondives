@@ -215,14 +215,9 @@ fetch("./locations.json")
         const timeout = 12000; // timeout setting for message boxes
         const savedTheme = localStorage.getItem('selectedTheme');
 
-        /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
             maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        }).addTo(map);*/
-
-        L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap Contributors. Tiles courtesy of Humanitarian OpenStreetMap Team'
+            attribution: '© OpenStreetMap Contributors.'
         }).addTo(map);
         
         if (savedTheme == "dark") {
