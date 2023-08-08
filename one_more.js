@@ -74,6 +74,8 @@ async function processDepartures(railType, mbtaStop, line) {
     const departuresData = await departuresResponse.json();
     const departures = departuresData.data;
     
+
+    console.log("departures request: ", `https://api-v3.mbta.com/predictions?filter[stop]=${mbtaStop}&filter[route_type]=${railType}&page[limit]=6&sort=departure_time&filter[route]=${line}`)
     let formattedDepartures = [];
 
     // process each departure
