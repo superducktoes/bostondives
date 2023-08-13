@@ -467,7 +467,9 @@
       "type": "bar",
       "mbta_stop": "place-brdwy",
       "mbta_distance": "8",
-      "mbta_line": ["Red"],
+      "mbta_line": [
+         "Red"
+      ],
       "hours": {
          "0": [
             "12:00,02:00"
@@ -668,6 +670,11 @@
       "name": "Durty Nelly's",
       "location": "42.36173, -71.05658",
       "type": "bar",
+      "mbta_stop": "place-haecl",
+      "mbta_distance": "8",
+      "mbta_line": [
+         "Orange"
+      ],
       "hours": {
          "0": [
             "11:00,02:00"
@@ -697,6 +704,11 @@
       "name": "The Sevens Ale House",
       "location": "42.35833, -71.0704",
       "type": "bar",
+      "mbta_stop": "place-chmnl",
+      "mbta_distance": "6",
+      "mbta_line": [
+         "Red"
+      ],
       "hours": {
          "0": [
             "12:00,01:00"
@@ -725,6 +737,11 @@
       "name": "Mr. Dooley's Boston",
       "location": "42.35766, -71.05364",
       "type": "bar",
+      "mbta_stop": "place-sstat",
+      "mbta_distance": "11",
+      "mbta_line": [
+         "Red"
+      ],
       "hours": {
          "0": [
             "09:00,02:00"
@@ -755,8 +772,11 @@
       "location": "42.35708, -71.06087",
       "type": "bar",
       "mbta_stop": "place-pktrm",
-      "mbta_distance": "2",
-      "mbta_line": ["Red", "Green"],
+      "mbta_distance": "6",
+      "mbta_line": [
+         "Red",
+         "Green"
+      ],
       "hours": {
          "0": [
             "16:00,02:00"
@@ -787,8 +807,11 @@
       "location": "42.35642, -71.06008",
       "type": "bar",
       "mbta_stop": "place-dwnxg",
-      "mbta_distance": "2",
-      "mbta_line": ["Red", "Orange"],
+      "mbta_distance": "7",
+      "mbta_line": [
+         "Red",
+         "Orange"
+      ],
       "hours": {
          "0": [
             "12:00,01:00"
@@ -818,6 +841,11 @@
       "name": "Biddy Early's",
       "location": "42.3547, -71.05364",
       "type": "bar",
+      "mbta_stop": "place-sstat",
+      "mbta_distance": "6",
+      "mbta_line": [
+         "Red"
+      ],
       "hours": {
          "0": [
             "12:00,02:00"
@@ -847,6 +875,12 @@
       "name": "JJ Foley's Bar and Grille",
       "location": "42.35381, -71.05917",
       "type": "bar",
+      "mbta_stop": "place-dwnxg",
+      "mbta_distance": "7",
+      "mbta_line": [
+         "Red",
+         "Orange"
+      ],
       "hours": {
          "0": [
             "11:00,00:00"
@@ -876,6 +910,11 @@
       "name": "Corner Pub",
       "location": "42.35076, -71.05834",
       "type": "bar",
+      "mbta_stop": "place-sstat",
+      "mbta_distance": "5",
+      "mbta_line": [
+         "Red"
+      ],
       "hours": {
          "0": [
             "12:00,22:00"
@@ -906,6 +945,11 @@
       "location": "42.35151, -71.06464",
       "whatToOrder": "PBR, Miller High Life, or Schlitz",
       "type": "bar",
+      "mbta_stop": "place-boyls",
+      "mbta_distance": "3",
+      "mbta_line": [
+         "Green"
+      ],
       "hours": {
          "0": [
             "11:00,02:00"
@@ -1022,6 +1066,11 @@
       "name": "Bukowski Taven",
       "location": "42.34722, -71.08555",
       "type": "bar",
+      "mbta_stop": "place-hymnl",
+      "mbta_distance": "12",
+      "mbta_line": [
+         "Green"
+      ],
       "hours": {
          "0": [
             "12:00,01:00"
@@ -1123,7 +1172,9 @@
       "type": "bar",
       "mbta_stop": "place-mvbcl",
       "mbta_distance": "2",
-      "mbta_line": ["Blue"],
+      "mbta_line": [
+         "Blue"
+      ],
       "hours": {
          "0": [
             "12:00,02:00"
@@ -1267,6 +1318,11 @@
       "name": "The Pub",
       "location": "42.39958, -71.11176",
       "type": "bar",
+      "mbta_stop": "place-balsq",
+      "mbta_distance": "5",
+      "mbta_line": [
+         "Green"
+      ],
       "hours": {
          "0": [
             "12:00,01:00"
@@ -1991,6 +2047,11 @@
       "name": "Teddy's on the Hill",
       "location": "42.36098, -71.06303",
       "type": "bar",
+      "mbta_stop": "place-chmnl",
+      "mbta_distance": "10",
+      "mbta_line": [
+         "Red"
+      ],
       "hours": {
          "0": [
             "11:30, 02:00"
@@ -2026,6 +2087,12 @@
       "location": "42.35833, -71.05334",
       "whatToOrder": "$1 bud/bud lights drafts",
       "type": "bar",
+      "mbta_stop": "place-dwnxg",
+      "mbta_distance": "13",
+      "mbta_line": [
+         "Red",
+         "Orange"
+      ],
       "hours": {
          "0": [
             "closed, closed"
@@ -2257,6 +2324,11 @@
       "name": "Cornwall's",
       "location": "42.34942, -71.09570",
       "type": "bar",
+      "mbta_stop": "place-kencl",
+      "mbta_distance": "7",
+      "mbta_line": [
+         "Green"
+      ],
       "hours": {
          "0": [
             "closed, closed"
@@ -2490,6 +2562,12 @@
       "name": "The Hub Pub",
       "location": "42.35722, -71.05961",
       "type": "bar",
+      "mbta_stop": "place-pktrm",
+      "mbta_distance": "8",
+      "mbta_line": [
+         "Red",
+         "Green"
+      ],
       "hours": {
          "0": [
             "11:00,02:00"
@@ -3391,6 +3469,12 @@
       "name": "J.J. Donovan’s Tavern",
       "location": "42.36043614712318, -71.05498997237795",
       "type": "bar",
+      "mbta_stop": "place-pktrm",
+      "mbta_distance": "14",
+      "mbta_line": [
+         "Red",
+         "Green"
+      ],
       "hours": {
          "0": [
             "11:30,01:00"
@@ -3476,6 +3560,11 @@
       "name": "The Burren",
       "location": "42.39544511152357, -71.1217407218542",
       "type": "bar",
+      "mbta_stop": "place-davis",
+      "mbta_distance": "10",
+      "mbta_line": [
+         "Red"
+      ],
       "hours": {
          "0": [
             "10:00,01:00"
@@ -3533,6 +3622,12 @@
       "name": "The Hong Kong",
       "location": "42.35962502814685, -71.0538103844186",
       "type": "bar",
+      "mbta_stop": "place-dwnxg",
+      "mbta_distance": "15",
+      "mbta_line": [
+         "Red",
+         "Orange"
+      ],
       "hours": {
          "0": [
             "16:00,02:00"
