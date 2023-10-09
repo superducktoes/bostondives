@@ -505,7 +505,7 @@ fetch("./locations.json")
                     show: (isMobile ? false : true) // don't show the directions by default if we're on mobile
                 }).addTo(map);
 
-                L.marker(e.latlng).addTo(map)
+                L.marker([closestLat, closestLong]).addTo(map)
                     .bindPopup(closestBar).openPopup();
 
                 // this is temporary I tell myself
