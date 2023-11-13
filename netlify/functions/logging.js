@@ -95,7 +95,7 @@ exports.handler = async (event, context) => {
           const data = JSON.stringify({
             'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
             'event': {
-              'message': stringData,
+              'message': JSON.stringify(postData),
             },
           });
         console.log(`Bearer ${pangeaToken}`)
