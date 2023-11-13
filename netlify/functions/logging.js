@@ -86,22 +86,11 @@ exports.handler = async (event, context) => {
         console.log(rdata);
         returnData = rdata;
 */
-
-        const data = JSON.stringify({
-            'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
-            'event': {
-                'message': postData
-            }
-        });
-
-        const fetch = require('node-fetch');
-
-        exports.handler = async function(event, context) {
         
           const data = JSON.stringify({
             'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
             'event': {
-              'message': postData,
+              'message': "test1",
             },
           });
         
@@ -130,7 +119,6 @@ exports.handler = async (event, context) => {
               body: JSON.stringify({ error: 'Internal Server Error' }),
             };
           }
-        };
     }
     catch (error) {
         statusCode = 500
