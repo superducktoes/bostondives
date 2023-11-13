@@ -87,7 +87,7 @@ exports.handler = async (event, context) => {
 
         const data = JSON.stringify({
             'event': {
-              'data': postData
+              'message': postData
             }
           });
           
