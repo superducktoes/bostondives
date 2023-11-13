@@ -1,4 +1,5 @@
 const faunadb = require('faunadb');
+const fetch = require('node-fetch');
 
 /* configure faunaDB Client with our secret */
 const q = faunadb.query;
@@ -85,26 +86,40 @@ exports.handler = async (event, context) => {
         console.log(rdata);
         returnData = rdata;
 */
+        const pangeaToken = /* your token */;
 
-          const data = JSON.stringify({
-            'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
-            'event': {
-              'message': postData
-            }
-          });
-          
-          let xhr = new XMLHttpRequest();
-          xhr.withCredentials = true;
-          xhr.open('POST', 'https://audit.aws.us.pangea.cloud/v1/log');
-          xhr.setRequestHeader('Authorization', `Bearer ${pangeaToken}`);
-          xhr.setRequestHeader('Content-Type', 'application/json');
-          
-          xhr.onload = function() {
-            console.log(xhr.response);
-          };
-          
-          xhr.send(data);
+        const data = JSON.stringify({
+        'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
+        'event': {
+            'message': postData
+        }
+});
 
+try {
+    const response = await fetch('https://audit.aws.us.pangea.cloud/v1/log', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${pangeaToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: data,
+    });
+
+    const responseData = await response.json();
+    console.log(responseData);
+    
+    return {
+      statusCode: response.status,
+      body: JSON.stringify(responseData),
+    };
+  } catch (error) {
+    console.error('Error making HTTP request:', error);
+    
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Internal Server Error' }),
+    };
+  }
     }
     catch (error) {
         statusCode = 500
