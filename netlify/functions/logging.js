@@ -85,7 +85,7 @@ exports.handler = async (event, context) => {
         console.log(rdata);
         returnData = rdata;
 */
-        fetch('https://audit.aws.us.pangea.cloud/v1/log', {
+        const response = fetch('https://audit.aws.us.pangea.cloud/v1/log', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${pangeaToken}`,
@@ -99,6 +99,7 @@ exports.handler = async (event, context) => {
             })
           });
 
+          console.log(response);
     }
     catch (error) {
         statusCode = 500
