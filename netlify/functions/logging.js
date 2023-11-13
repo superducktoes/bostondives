@@ -78,13 +78,13 @@ exports.handler = async (event, context) => {
     try {
         //const {title, description } = req.body;
         //let postData = { "saved_bar": [{ "bar": "test" }, { "ip": "ip" }, { "userAgent": "agent" }] }
-        const { rdata } = await client.query(
+        /*const { rdata } = await client.query(
             q.Create(q.Collection(collection), { data: postData })
         );
         statusCode = 200
         console.log(rdata);
         returnData = rdata;
-
+*/
         fetch('https://audit.aws.us.pangea.cloud/v1/log', {
             method: 'POST',
             headers: {
