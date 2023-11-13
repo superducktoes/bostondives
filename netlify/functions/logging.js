@@ -7,8 +7,7 @@ const client = new faunadb.Client({
     secret: process.env.FAUNADB_SERVER_SECRET
 });
 
-//const pangeaToken = process.env.PANGEA_KEY
-const pangeaToken = Netlify.env.get("PANGEA_KEY");
+const pangeaToken = process.env.PANGEA_KEY
 
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
