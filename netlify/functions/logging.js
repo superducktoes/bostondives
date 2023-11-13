@@ -6,7 +6,7 @@ const client = new faunadb.Client({
     secret: process.env.FAUNADB_SERVER_SECRET
 });
 
-const pangeaToken = process.env.PANGEA_ACCESS_TOKEN
+const pangeaToken = process.env.PANGEA_KEY
 
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
@@ -94,11 +94,12 @@ exports.handler = async (event, context) => {
           
           let xhr = new XMLHttpRequest();
           xhr.withCredentials = true;
+          let bearerString = `Bearer ${pangeaToken}`
           xhr.open('POST', 'https://audit.aws.us.pangea.cloud/v1/log');
-          xhr.setRequestHeader('Authorization', `Bearer ${pangeaToken}`);
+          xhr.setRequestHeader('Authorization', bearerString);
           xhr.setRequestHeader('Content-Type', 'application/json');
           
-          console.log("xhr: ", xhr);
+
           xhr.onload = function() {
             console.log(xhr.response);
           };
