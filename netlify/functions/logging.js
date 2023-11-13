@@ -93,7 +93,7 @@ exports.handler = async (event, context) => {
               'message': "test1",
             },
           });
-        
+        console.log(`Bearer ${pangeaToken}`)
           try {
             const response = await fetch('https://audit.aws.us.pangea.cloud/v1/log', {
               method: 'POST',
