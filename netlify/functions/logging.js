@@ -85,26 +85,19 @@ exports.handler = async (event, context) => {
         console.log(rdata);
         returnData = rdata;
 
-        const data = JSON.stringify({
-            'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
-            'event': {
-              'message': postData
-            }
+        fetch('https://audit.aws.us.pangea.cloud/v1/log', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${pangeaToken}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
+              'event': {
+                'message': postData
+              }
+            })
           });
-          
-          let xhr = new XMLHttpRequest();
-          xhr.withCredentials = true;
-          let bearerString = `Bearer ${pangeaToken}`
-          xhr.open('POST', 'https://audit.aws.us.pangea.cloud/v1/log');
-          xhr.setRequestHeader('Authorization', bearerString);
-          xhr.setRequestHeader('Content-Type', 'application/json');
-          
-
-          xhr.onload = function() {
-            console.log(xhr.response);
-          };
-          
-          xhr.send(data);
 
     }
     catch (error) {
