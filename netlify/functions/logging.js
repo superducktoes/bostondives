@@ -95,11 +95,10 @@ exports.handler = async (event, context) => {
           const data = JSON.stringify({
             'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
             'event': {
-              'message': JSON.stringify(postData),
+              'message': postData,
             },
           });
-        console.log(`Bearer ${pangeaToken}`)
-        console.log("string data: ", stringData);
+
           try {
             const response = await fetch('https://audit.aws.us.pangea.cloud/v1/log', {
               method: 'POST',
