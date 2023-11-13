@@ -98,6 +98,7 @@ exports.handler = async (event, context) => {
           xhr.setRequestHeader('Authorization', `Bearer ${pangeaToken}`);
           xhr.setRequestHeader('Content-Type', 'application/json');
           
+          console.log("xhr: ", xhr);
           xhr.onload = function() {
             console.log(xhr.response);
           };
