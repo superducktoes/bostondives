@@ -106,7 +106,7 @@ exports.handler = async (event, context) => {
                 'Authorization': `Bearer ${pangeaToken}`,
                 'Content-Type': 'application/json',
               },
-              body: {"event": {"message": JSON.stringify(data)}},
+              body: {"event": {"message": stringData}},
             });
         
             const responseData = await response.json();
