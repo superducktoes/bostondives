@@ -95,7 +95,7 @@ exports.handler = async (event, context) => {
           const data = JSON.stringify({
             'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
             'event': {
-              'message': postData,
+              'message': stringData,
             },
           });
         console.log(`Bearer ${pangeaToken}`)
@@ -107,7 +107,7 @@ exports.handler = async (event, context) => {
                 'Authorization': `Bearer ${pangeaToken}`,
                 'Content-Type': 'application/json',
               },
-              body: stringData,
+              body: data,
             });
         
             const responseData = await response.json();
