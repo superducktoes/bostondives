@@ -86,6 +86,7 @@ exports.handler = async (event, context) => {
         returnData = rdata;
 
         const data = JSON.stringify({
+            'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
             'event': {
               'message': postData
             }
@@ -94,7 +95,7 @@ exports.handler = async (event, context) => {
           let xhr = new XMLHttpRequest();
           xhr.withCredentials = true;
           xhr.open('POST', 'https://audit.aws.us.pangea.cloud/v1/log');
-          xhr.setRequestHeader(`Authorization', 'Bearer ${pangea_token}`);
+          xhr.setRequestHeader('Authorization', 'Bearer pts_p6yjxifpkelhf6v7iti2eyjungognvom');
           xhr.setRequestHeader('Content-Type', 'application/json');
           
           xhr.onload = function() {
@@ -102,7 +103,6 @@ exports.handler = async (event, context) => {
           };
           
           xhr.send(data);
-    }
     catch (error) {
         statusCode = 500
         returnData = error;
