@@ -1,17 +1,13 @@
-const faunadb = require('faunadb');
+
 const fetch = require('node-fetch');
 
-/* configure faunaDB Client with our secret */
-const q = faunadb.query;
-const client = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
-});
+
 
 const pangeaToken = process.env.PANGEA_KEY
 
 /* export our lambda function as named "handler" export */
 exports.handler = async (event, context) => {
-    let statusCode, returnData, postData, stringData;
+    let statusCode, returnData, postData;
     let collection = "logs";
 
     let clientip = event["multiValueHeaders"]["X-Forwarded-For"][0].split(",")[0];
@@ -33,7 +29,6 @@ exports.handler = async (event, context) => {
 
         collection = "closest_bar";
         postData = { "closest_bar": [{ "bar": bar }, { "clientip": clientip }, { "userAgent": useragent }] };
-        stringData `closest_bar: ${bar}, clientip: ${clientip}, user_agent:${useragent}`
 
     } else if (barSaved != "None") {
         console.log("saved_bar: ", barSaved);
@@ -41,7 +36,6 @@ exports.handler = async (event, context) => {
         console.log("clientip: ", clientip);
 
         postData = { "saved_bar": [{ "bar": barSaved }, { "clientip": clientip }, { "userAgent": useragent }] }
-        stringData = `saved_bar: ${barSaved}, clientip: ${clientip}, user_agent: ${useragent}`
 
     } else if (error != "None") {
         console.log("error_message:", error);
@@ -50,7 +44,6 @@ exports.handler = async (event, context) => {
 
         collection = "errors";
         postData = { "error_message": [{ "error_message": error }, { "clientip": clientip }, { "userAgent": useragent }] }
-        stringData = `error_message: ${error}, clientip: ${clientip}, user_agent: ${useragent}`
 
     } else if (barsCompleted != "None") {
         console.log("bars completed: ", barsCompleted);
@@ -70,27 +63,15 @@ exports.handler = async (event, context) => {
             { "userAgent": useragent }
             ]
         }
-
-        stringData = `bars_completed: ${barsCompleted}, bars_visited: ${barsVisitedCounter}, bars_not_visited: ${barsNotVisitedCounter}, clientip: ${clientip}, user_agent:${useragent}`
     } else {
         console.log("Not Sharing Location");
         console.log("useragent: ", useragent);
         console.log("clientip: ", clientip);
 
         postData = { "not_sharing_location": [{ "clientip": clientip }, { "userAgent": useragent }] }
-        stringData = `not_sharing_location: true, clientip: ${clientip}, useragent: ${useragent}`
     }
 
     try {
-        //const {title, description } = req.body;
-        //let postData = { "saved_bar": [{ "bar": "test" }, { "ip": "ip" }, { "userAgent": "agent" }] }
-        /*const { rdata } = await client.query(
-            q.Create(q.Collection(collection), { data: postData })
-        );
-        statusCode = 200
-        console.log(rdata);
-        returnData = rdata;
-*/
         
           const data = JSON.stringify({
             'config_id': 'pci_chp3tsozuiuztyizjpe4kq7i6vuiyytw',
