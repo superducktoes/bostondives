@@ -95,7 +95,7 @@ exports.handler = async (event, context) => {
         });
 
         try {
-            const response =  fetch('https://audit.aws.us.pangea.cloud/v1/log', {
+            const response =  await fetch('https://audit.aws.us.pangea.cloud/v1/log', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${pangeaToken}`,
