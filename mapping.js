@@ -177,28 +177,7 @@ function generatePopupMessage(barJson) {
 }
 
 function getIPFromAmazon() {
-    console.log("checking ip");
-    fetch("https://checkip.amazonaws.com/")
-    .then(res => res.text())
-    .then(ip => {
-        console.log("Fetched IP: ", ip.trim()); // IP should be trimmed to remove any extra whitespace
-
-        var subnet = "18.0.0.0/8";
-        var mask = parseInt(subnet.split('/')[1], 10);
-        var baseIp = subnet.split('/')[0];
-
-        var ipBinary = ip.trim().split('.').map(x => parseInt(x, 10).toString(2).padStart(8, '0')).join('');
-        var baseIpBinary = baseIp.split('.').map(x => parseInt(x, 10).toString(2).padStart(8, '0')).join('');
-
-        if (ipBinary.substring(0, mask) === baseIpBinary.substring(0, mask)) {
-            console.log('IP is within the range.');
-            return true;
-        } else {
-            console.log('IP is outside the range.');
-            return false;
-        }
-    })
-    .catch(error => console.error("Error fetching IP:", error));
+    fetch('https://jsonip.com', { mode: 'cors'} ) .then((resp)=> resp.json()) .then((ip) => { console.log(ip); });
 }
 
 
@@ -378,9 +357,10 @@ fetch("./locations.json")
         let msg = "BostonDives.com an interactive map of dives and neighborhood bars.<br>If you share your location with the button the left the map will automatically navigate you to the closest bar.<br>You can also track the bars you've drank at by marking them when clicking/tapping on an icon."
         
         // override the msg if the person is from mit
-        if(getIPFromAmazon()) {
+        getIPFromAmazon();
+        /*if(getIPFromAmazon()) {
             msg = "Looks like you're at MIT. I still want to get into the Muddy Charles. Can you email me at contact@bostondives.com if you can get me in? Drinks are on me."
-        }
+        }*/
         
         //var box = L.control.messagebox(options).addTo(map).show(msg);
 
