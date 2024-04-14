@@ -177,7 +177,15 @@ function generatePopupMessage(barJson) {
 }
 
 function getIPFromAmazon() {
-    fetch('https://jsonip.com', { mode: 'cors'} ) .then((resp)=> resp.json()) .then((ip) => { console.log(ip); });
+    fetch('https://api.ipify.org?format=json')
+  .then(response => response.json())
+  .then(data => {
+    console.log('Your IP address is:', data.ip);
+    // You can use the IP address here as needed in your code
+  })
+  .catch(error => {
+    console.error('Error fetching IP:', error);
+  });
 }
 
 
