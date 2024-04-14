@@ -177,6 +177,7 @@ function generatePopupMessage(barJson) {
 }
 
 function getIPFromAmazon() {
+    console.log("checking ip");
     fetch("https://checkip.amazonaws.com/")
     .then(res => res.text())
     .then(ip => {
