@@ -176,12 +176,31 @@ function generatePopupMessage(barJson) {
     return funcPopupMessage;
 }
 
-function getIPFromAmazon() {
+function ipToInt(ip) {
+    return ip.split('.').reduce(function (ipInt, octet) {
+        return (ipInt << 8) + parseInt(octet, 10);
+    }, 0) >>> 0; // Use unsigned right shift to handle potential negative values
+}
+
+function isInCIDRBlock(userIp, cidr) {
+    var [range, bits] = cidr.split('/');
+    var ipRange = ipToInt(range);
+    var mask = ~(2 ** (32 - bits) - 1); // Create the subnet mask using bitwise operations
+
+    return (ipToInt(userIp) & mask) === (ipRange & mask);
+}
+
+function getIPAddress() {
     fetch('https://api.ipify.org?format=json')
   .then(response => response.json())
   .then(data => {
-    console.log('Your IP address is:', data.ip);
-    // You can use the IP address here as needed in your code
+    const userIp = data.ip;
+    const cidrBlock = '18.0.0.0/8';
+    if (isInCIDRBlock(userIp, cidrBlock)) {
+      return true;
+    } else {
+      return false;
+    }
   })
   .catch(error => {
     console.error('Error fetching IP:', error);
@@ -365,10 +384,9 @@ fetch("./locations.json")
         let msg = "BostonDives.com an interactive map of dives and neighborhood bars.<br>If you share your location with the button the left the map will automatically navigate you to the closest bar.<br>You can also track the bars you've drank at by marking them when clicking/tapping on an icon."
         
         // override the msg if the person is from mit
-        getIPFromAmazon();
-        /*if(getIPFromAmazon()) {
+        if(getIPAddress()) {
             msg = "Looks like you're at MIT. I still want to get into the Muddy Charles. Can you email me at contact@bostondives.com if you can get me in? Drinks are on me."
-        }*/
+        }
         
         //var box = L.control.messagebox(options).addTo(map).show(msg);
 
