@@ -272,6 +272,13 @@ fetch("./locations.json")
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
                 padding: 10px; /* Add some padding inside the popup */
                 position: relative;
+                margin-top: 0px;
+                margin-bottom: 10px;
+                font-family: sans-serif;
+                font-size: 6rem;
+                background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
               }
               .custom-popup .leaflet-popup-content-wrapper a {
                 color: rgba(255, 255, 255, 0.5);
