@@ -768,41 +768,6 @@
       "website": "https://www.mrdooleys.com/"
    },
    {
-      "name": "Silvertone Bar and Grill",
-      "location": "42.35708, -71.06087",
-      "type": "bar",
-      "mbta_stop": "place-pktrm",
-      "mbta_distance": "6",
-      "mbta_line": [
-         "Red",
-         "Green"
-      ],
-      "hours": {
-         "0": [
-            "16:00,02:00"
-         ],
-         "1": [
-            "16:00,02:00"
-         ],
-         "2": [
-            "11:00,02:00"
-         ],
-         "3": [
-            "11:00,02:00"
-         ],
-         "4": [
-            "11:00,02:00"
-         ],
-         "5": [
-            "11:00,02:00"
-         ],
-         "6": [
-            "11:00,02:00"
-         ]
-      },
-      "website": "https://silvertonedowntown.com"
-   },
-   {
       "name": "SideBar",
       "location": "42.35642, -71.06008",
       "type": "bar",
@@ -1487,35 +1452,6 @@
             "11:00,01:00"
          ]
       }
-   },
-   {
-      "name": "Sligo Pub - 🪦",
-      "location": "42.3951, -71.12146",
-      "type": "bar",
-      "hours": {
-         "0": [
-            "12:00,01:00"
-         ],
-         "1": [
-            "10:30,01:00"
-         ],
-         "2": [
-            "10:30,01:00"
-         ],
-         "3": [
-            "10:30,01:00"
-         ],
-         "4": [
-            "10:30,01:00"
-         ],
-         "5": [
-            "10:30,01:00"
-         ],
-         "6": [
-            "10:30,01:00"
-         ]
-      },
-      "website": "https://sligopubdavissq.com/"
    },
    {
       "name": "Paddy's Lunch",
@@ -2233,35 +2169,6 @@
          ]
       },
       "website": "https://www.alexskitchensomerville.com/"
-   },
-   {
-      "name": "Porters Bar and Grill",
-      "location": "42.36434, -71.06163",
-      "type": "bar",
-      "hours": {
-         "0": [
-            "closed,closed"
-         ],
-         "1": [
-            "16:00,11:00"
-         ],
-         "2": [
-            "11:30,00:00"
-         ],
-         "3": [
-            "11:30,00:00"
-         ],
-         "4": [
-            "11:30,00:00"
-         ],
-         "5": [
-            "11:30,01:00"
-         ],
-         "6": [
-            "16:00,01:00"
-         ]
-      },
-      "website": "http://www.portersbar.com/menu.html"
    },
    {
       "name": "JJ's Irish Pub and Grille",
@@ -3998,35 +3905,6 @@
             "12:00,01:00"
          ]
       }
-   },
-   {
-      "name": "Toad",
-      "location": "42.38897123183706, -71.11993230397532",
-      "type": "bar",
-      "hours": {
-         "0": [
-            "closed,closed"
-         ],
-         "1": [
-            "closed,closed"
-         ],
-         "2": [
-            "closed,closed"
-         ],
-         "3": [
-            "17:00,00:00"
-         ],
-         "4": [
-            "17:00,00:00"
-         ],
-         "5": [
-            "17:00,00:00"
-         ],
-         "6": [
-            "17:00,00:00"
-         ]
-      },
-      "website": "http://www.toadcambridge.com/"
    },
    {
       "name": "Cherry Tree",
