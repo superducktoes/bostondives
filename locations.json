@@ -3050,7 +3050,7 @@
    {
       "name": "The Old Colony Tap",
       "location": "42.05207330784361, -70.1852850997032",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "11:00,01:00"
