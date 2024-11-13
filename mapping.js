@@ -332,8 +332,7 @@ fetch("./locations.json")
         }
 
         const overlayMaps = {
-            "Bars": barsLayer,
-            "Food": foodLayer
+            "Bars": barsLayer
         };
         L.control.layers(null, overlayMaps).addTo(map);
         barsLayer.addTo(map);
