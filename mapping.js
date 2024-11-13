@@ -337,7 +337,7 @@ fetch("./locations.json")
                 iconType = greenIcon;
             } else if(json[i]["type"] == "divebar") {
                 iconType = blackIcon;
-            } else if(json[i]["type"] == "outsideboston")
+            } else if(json[i]["type"] == "outsideboston") {
                 iconType = blueIcon;
             }
         
