@@ -357,9 +357,8 @@ fetch("./locations.json")
             } else if(json[i]["type"] == "divebar") {
                 diveBarsLayer.addLayer(marker);
             } else if(json[i]["type"] == "outsideboston") {
-                outsideBostonLayer.addKayer(marker);
+                outsideBostonLayer.addLayer(marker);
             }
-        }
         
         // Set up the overlay maps with the layer control
         const overlayMaps = {
@@ -371,6 +370,7 @@ fetch("./locations.json")
         L.control.layers(null, overlayMaps).addTo(map);
         
         // Add only the barsLayer to the map initially
+        barsLayer.addTo(map);
         diveBarsLayer.addTo(map);
         /*var lc = L.control.locate({
             strings: {
