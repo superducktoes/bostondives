@@ -305,36 +305,39 @@ fetch("./locations.json")
         }
 
         for (var i = 0; i < json.length; i++) {
-            var lat = parseFloat(json[i]["location"].split(",")[0])
-            var long = parseFloat(json[i]["location"].split(",")[1])
-            // determine what marker to use on the map
+            var lat = parseFloat(json[i]["location"].split(",")[0]);
+            var long = parseFloat(json[i]["location"].split(",")[1]);
+            
+            // Determine what marker to use on the map
             let iconType = redIcon;
             if (json[i]["type"] == "food") {
                 iconType = greenIcon;
             }
-
-
-            // start creating the popup menu when an icon is clicked on
+        
+            // Create the popup menu when an icon is clicked
             let popupMessage = generatePopupMessage(json[i]);
-
-            // add everything from locations
+        
+            // Add everything from locations to a marker without adding to the map directly
             marker = new L.marker([lat, long], { icon: iconType })
                 .bindPopup(popupMessage)
-                .on('click', onClick)
-                .addTo(map);
-
-                // Add each marker to its respective layer group
-    if (json[i]["type"] === 'bar') {
-        barsLayer.addLayer(marker);
-    } else if (json[i]["type"] === 'food') {
-        foodLayer.addLayer(marker);
-    }
+                .on('click', onClick);
+            
+            // Add each marker to its respective layer group only
+            if (json[i]["type"] === 'bar') {
+                barsLayer.addLayer(marker);
+            } else if (json[i]["type"] === 'food') {
+                foodLayer.addLayer(marker);
+            }
         }
-
+        
+        // Set up the overlay maps with the layer control
         const overlayMaps = {
-            "Bars": barsLayer
+            "Bars": barsLayer,
+            "Food": foodLayer
         };
         L.control.layers(null, overlayMaps).addTo(map);
+        
+        // Add only the barsLayer to the map initially
         barsLayer.addTo(map);
         /*var lc = L.control.locate({
             strings: {
