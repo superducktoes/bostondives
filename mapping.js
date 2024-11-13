@@ -4,6 +4,7 @@
     r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=${errortype}`);
 }*/
 
+
 function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
@@ -237,6 +238,8 @@ var yellowIcon = new L.Icon({
 });
 
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
+const barsLayer = L.layerGroup();
+const foodLayer = L.layerGroup();
 
 fetch("./locations.json")
     .then(response => response.json())
@@ -319,9 +322,21 @@ fetch("./locations.json")
                 .bindPopup(popupMessage)
                 .on('click', onClick)
                 .addTo(map);
+
+                // Add each marker to its respective layer group
+    if (location.type === 'bar') {
+        barsLayer.addLayer(marker);
+    } else if (location.type === 'food') {
+        foodLayer.addLayer(marker);
+    }
         }
 
-
+        const overlayMaps = {
+            "Bars": barsLayer,
+            "Food": foodLayer
+        };
+        L.control.layers(null, overlayMaps).addTo(map);
+        barsLayer.addTo(map);
         /*var lc = L.control.locate({
             strings: {
               title: "Show me the closest dive bar"
