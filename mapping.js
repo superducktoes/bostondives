@@ -261,7 +261,7 @@ var blueIcon = new L.Icon({
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
 const barsLayer = L.layerGroup();
 const diveBarsLayer = L.layerGroup();
-const outsideboston = L.layerGroup();
+const outsideBostonLayer = L.layerGroup();
 const foodLayer = L.layerGroup();
 
 fetch("./locations.json")
