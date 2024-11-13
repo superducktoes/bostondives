@@ -338,7 +338,7 @@ fetch("./locations.json")
             } else if(json[i]["type"] == "divebar") {
                 iconType = blackIcon;
             } else if(json[i]["type"] == "outsideboston")
-                iconType == blueIcon;
+                iconType = blueIcon;
             }
         
             // Create the popup menu when an icon is clicked
