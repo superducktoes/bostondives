@@ -237,8 +237,19 @@ var yellowIcon = new L.Icon({
     shadowSize: [41, 41]
 });
 
+var blackIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+
+
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
 const barsLayer = L.layerGroup();
+const diveBarsLayer = L.layerGroup();
 const foodLayer = L.layerGroup();
 
 fetch("./locations.json")
@@ -312,6 +323,8 @@ fetch("./locations.json")
             let iconType = redIcon;
             if (json[i]["type"] == "food") {
                 iconType = greenIcon;
+            } else if(json[i]["type"] == "divebar") {
+                iconType = blackIcon;
             }
         
             // Create the popup menu when an icon is clicked
@@ -323,16 +336,19 @@ fetch("./locations.json")
                 .on('click', onClick);
             
             // Add each marker to its respective layer group only
-            if (json[i]["type"] === 'bar') {
+            if (json[i]["type"] === 'bar' || json[i]["type"] == null) {
                 barsLayer.addLayer(marker);
             } else if (json[i]["type"] === 'food') {
                 foodLayer.addLayer(marker);
+            } else if(json[i]["type"] == "divebar") {
+                diveBarsLayer.addLayer(marker);
             }
         }
         
         // Set up the overlay maps with the layer control
         const overlayMaps = {
-            "Bars": barsLayer,
+            "Neighborhood Bars": barsLayer,
+            "Dive Bars": diveBarsLayer,
             "Food": foodLayer
         };
         L.control.layers(null, overlayMaps).addTo(map);
