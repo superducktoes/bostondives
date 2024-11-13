@@ -324,9 +324,9 @@ fetch("./locations.json")
                 .addTo(map);
 
                 // Add each marker to its respective layer group
-    if (location.type === 'bar') {
+    if (json[i]["type"] === 'bar') {
         barsLayer.addLayer(marker);
-    } else if (location.type === 'food') {
+    } else if (json[i]["type"] === 'food') {
         foodLayer.addLayer(marker);
     }
         }
