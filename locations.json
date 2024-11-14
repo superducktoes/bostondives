@@ -119,7 +119,7 @@
    {
       "name": "The Irish Pub",
       "location": "42.27371, -71.02471",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "10:00,01:00"
