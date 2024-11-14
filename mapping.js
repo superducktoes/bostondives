@@ -480,7 +480,7 @@ fetch("./locations.json")
             diveBarsLayer.clearLayers();
             foodLayer.clearLayers();
             outsideBostonLayer.clearLayers();
-            
+
             // get the user coordinates
             let userLat = e.latitude;
             let userLong = e.longitude;
@@ -564,7 +564,29 @@ fetch("./locations.json")
                     .addTo(map);
             }
 
-            
+                        // Add each marker to its respective layer group only
+            if (json[i]["type"] === 'bar' || json[i]["type"] == null) {
+                barsLayer.addLayer(marker);
+            } else if (json[i]["type"] === 'food') {
+                foodLayer.addLayer(marker);
+            } else if(json[i]["type"] == "divebar") {
+                diveBarsLayer.addLayer(marker);
+            } else if(json[i]["type"] == "outsideboston"){
+                outsideBostonLayer.addLayer(marker);
+            }
+        
+        // Set up the overlay maps with the layer control
+        const overlayMaps = {
+            "Neighborhood Bars": barsLayer,
+            "Dive Bars": diveBarsLayer,
+            "Outside Boston": outsideBostonLayer,
+            "Cheap Food": foodLayer
+        };
+        L.control.layers(null, overlayMaps).addTo(map);
+        
+        // Add only the barsLayer to the map initially
+        barsLayer.addTo(map);
+        diveBarsLayer.addTo(map);
             // instead of getting the plot of the closest bar get the coords of the bar from the query
             if (plotBarOnMap) {
                 for (let i = 0; i < json.length; i++) {
