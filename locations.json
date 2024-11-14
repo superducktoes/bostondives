@@ -3958,7 +3958,7 @@
    {
       "name": "Matt Kelly's Pub",
       "location": "42.15241715327399, -71.14752304875014",
-      type:"outsideboston",
+      "type":"outsideboston",
       "hours": {
          "0": [
             "11:00,01:00"
