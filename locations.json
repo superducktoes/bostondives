@@ -807,6 +807,7 @@
       "name": "Biddy Early's",
       "location": "42.3547, -71.05364",
       "type": "divebar",
+      "keno": "yes",
       "mbta_stop": "place-sstat",
       "mbta_distance": "6",
       "mbta_line": [
@@ -876,6 +877,7 @@
       "name": "Corner Pub",
       "location": "42.35076, -71.05834",
       "type": "bar",
+      "keno": "yes",
       "mbta_stop": "place-sstat",
       "mbta_distance": "5",
       "mbta_line": [

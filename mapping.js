@@ -267,6 +267,7 @@ const barsLayer = L.layerGroup();
 const diveBarsLayer = L.layerGroup();
 const foodLayer = L.layerGroup();
 const outsideBostonLayer = L.layerGroup();
+const kenoBarsSubLayer = L.layerGroup();
 
 fetch("./locations.json")
     .then(response => response.json())
@@ -362,6 +363,8 @@ fetch("./locations.json")
                 diveBarsLayer.addLayer(marker);
             } else if(json[i]["type"] == "outsideboston"){
                 outsideBostonLayer.addLayer(marker);
+            } else if(json[i]["keno"] == "yes") {
+                kenoBarsSubLayer.addLayer(marker)
             }
 
         }
@@ -371,7 +374,8 @@ fetch("./locations.json")
             "Neighborhood Bars": barsLayer,
             "Dive Bars": diveBarsLayer,
             "Outside Boston": outsideBostonLayer,
-            "Cheap Food": foodLayer
+            "Cheap Food": foodLayer,
+            "Keno": kenoBarsSubLayer
         };
         L.control.layers(null, overlayMaps).addTo(map);
         
@@ -480,6 +484,7 @@ fetch("./locations.json")
             diveBarsLayer.clearLayers();
             foodLayer.clearLayers();
             outsideBostonLayer.clearLayers();
+            kenoBarsSubLayer.clearLayers();
 
             // get the user coordinates
             let userLat = e.latitude;
@@ -572,6 +577,8 @@ fetch("./locations.json")
                     diveBarsLayer.addLayer(marker);
                 } else if(json[i]["type"] == "outsideboston"){
                     outsideBostonLayer.addLayer(marker);
+                } else if(json[i]["keno"] == "yes") {
+                    kenoBarsSubLayer.addLayer(marker)
                 }
             }
 
