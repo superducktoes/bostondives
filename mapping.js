@@ -562,20 +562,20 @@ fetch("./locations.json")
                     .bindPopup(popupMessage)
                     .on('click', onClick)
                     .addTo(map);
+
+            // Add each marker to its respective layer group only
+                if (json[i]["type"] === 'bar' || json[i]["type"] == null) {
+                    barsLayer.addLayer(marker);
+                } else if (json[i]["type"] === 'food') {
+                    foodLayer.addLayer(marker);
+                } else if(json[i]["type"] == "divebar") {
+                    diveBarsLayer.addLayer(marker);
+                } else if(json[i]["type"] == "outsideboston"){
+                    outsideBostonLayer.addLayer(marker);
+                }
             }
 
-                        // Add each marker to its respective layer group only
-            if (json[i]["type"] === 'bar' || json[i]["type"] == null) {
-                barsLayer.addLayer(marker);
-            } else if (json[i]["type"] === 'food') {
-                foodLayer.addLayer(marker);
-            } else if(json[i]["type"] == "divebar") {
-                diveBarsLayer.addLayer(marker);
-            } else if(json[i]["type"] == "outsideboston"){
-                outsideBostonLayer.addLayer(marker);
-            }
-        
-        // Set up the overlay maps with the layer control
+                    // Set up the overlay maps with the layer control
         const overlayMaps = {
             "Neighborhood Bars": barsLayer,
             "Dive Bars": diveBarsLayer,
@@ -587,6 +587,7 @@ fetch("./locations.json")
         // Add only the barsLayer to the map initially
         barsLayer.addTo(map);
         diveBarsLayer.addTo(map);
+            
             // instead of getting the plot of the closest bar get the coords of the bar from the query
             if (plotBarOnMap) {
                 for (let i = 0; i < json.length; i++) {
