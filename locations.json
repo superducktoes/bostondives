@@ -32,7 +32,7 @@
    {
       "name": "Presidential Pub",
       "location": "42.25105, -71.00244",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "12:00,01:00"
@@ -119,7 +119,7 @@
    {
       "name": "The Irish Pub",
       "location": "42.27371, -71.02471",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "10:00,01:00"
@@ -206,7 +206,7 @@
    {
       "name": "Twelve Ben's Inc",
       "location": "42.29859, -71.05767",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "closed,closed"
@@ -234,7 +234,7 @@
    {
       "name": "Midway Cafe",
       "location": "42.30622, -71.10753",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "15:00,02:00"
@@ -292,7 +292,7 @@
    {
       "name": "Shamrock Pub",
       "location": "42.33125, -71.0412",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "11:30,00:00"
@@ -350,7 +350,7 @@
    {
       "name": "Murphys Law",
       "location": "42.33803, -71.03566",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "12:00,02:00"
@@ -407,7 +407,7 @@
    {
       "name": "Tom English's Cottage",
       "location": "42.33586, -71.0404",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "10:00,01:00"
@@ -464,7 +464,7 @@
    {
       "name": "Croke Park",
       "location": "42.3393, -71.05124",
-      "type": "bar",
+      "type": "divebar",
       "mbta_stop": "place-brdwy",
       "mbta_distance": "8",
       "mbta_line": [
@@ -497,7 +497,8 @@
    {
       "name": "Shea's Tavern",
       "location": "42.34004, -71.05248",
-      "type": "bar",
+      "whatToOrder":"Typically only open on certain Fridays and Saturdays.",
+      "type": "divebar",
       "hours": {
          "0": [
             "closed,closed"
@@ -583,7 +584,7 @@
    {
       "name": "Tahiti Restaurant and Cocktail Lounge",
       "location": "42.24504, -71.17218",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "11:30,23:30"
@@ -640,7 +641,7 @@
    {
       "name": "Sullivan's Tap",
       "location": "42.36508, -71.06108",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "16:00,02:00"
@@ -770,7 +771,7 @@
    {
       "name": "SideBar",
       "location": "42.35642, -71.06008",
-      "type": "bar",
+      "type": "divebar",
       "mbta_stop": "place-dwnxg",
       "mbta_distance": "7",
       "mbta_line": [
@@ -805,7 +806,7 @@
    {
       "name": "Biddy Early's",
       "location": "42.3547, -71.05364",
-      "type": "bar",
+      "type": "divebar",
       "mbta_stop": "place-sstat",
       "mbta_distance": "6",
       "mbta_line": [
@@ -839,7 +840,7 @@
    {
       "name": "JJ Foley's Bar and Grille",
       "location": "42.35381, -71.05917",
-      "type": "bar",
+      "type": "divebar",
       "mbta_stop": "place-dwnxg",
       "mbta_distance": "7",
       "mbta_line": [
@@ -909,7 +910,7 @@
       "name": "The Tam",
       "location": "42.35151, -71.06464",
       "whatToOrder": "PBR, Miller High Life, or Schlitz",
-      "type": "bar",
+      "type": "divebar",
       "mbta_stop": "place-boyls",
       "mbta_distance": "3",
       "mbta_line": [
@@ -972,7 +973,7 @@
    {
       "name": "Brendan Behan Pub",
       "location": "42.32201, -71.10934",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "12:00,01:00"
@@ -1030,7 +1031,7 @@
    {
       "name": "Bukowski Taven",
       "location": "42.34722, -71.08555",
-      "type": "bar",
+      "type": "divebar",
       "mbta_stop": "place-hymnl",
       "mbta_distance": "12",
       "mbta_line": [
@@ -1091,12 +1092,6 @@
       "website": "https://www.twosaintstavern.com/"
    },
    {
-      "name": "Tasty Burger",
-      "location": "42.3559, -71.06196",
-      "whatToOrder": "$10 burger and fries with a tallboy",
-      "type": "food"
-   },
-   {
       "name": "Angelos Pizza",
       "location": "42.37302, -71.11077",
       "type": "food"
@@ -1134,7 +1129,7 @@
       "name": "Eddie C's",
       "location": "42.36996, -71.0393",
       "whatToOrder": "Hot dogs. Single beers, never a pitcher. It's cheaper that way.",
-      "type": "bar",
+      "type": "divebar",
       "mbta_stop": "place-mvbcl",
       "mbta_distance": "2",
       "mbta_line": [
@@ -1254,7 +1249,7 @@
    {
       "name": "Michael's Bar",
       "location": "42.38156, -71.08587",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "12:00,01:00"
@@ -1315,7 +1310,7 @@
    {
       "name": "Six Twenty-One Tavern and Grill",
       "location": "42.44153, -71.0304",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "12:00,01:00"
@@ -1343,7 +1338,7 @@
    {
       "name": "Bill Ash's Lounge",
       "location": "42.4066, -70.99156",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "12:00,02:00"
@@ -1456,7 +1451,7 @@
    {
       "name": "Paddy's Lunch",
       "location": "42.38597, -71.13115",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "09:00,01:00"
@@ -1510,35 +1505,6 @@
          ]
       },
       "website": "https://www.charlieskitchen.com/"
-   },
-   {
-      "name": "Cornish Pasty Co",
-      "location": "42.34971, -71.08917",
-      "type": "bar",
-      "hours": {
-         "0": [
-            "12:00,21:00"
-         ],
-         "1": [
-            "closed,closed"
-         ],
-         "2": [
-            "12:00,21:00"
-         ],
-         "3": [
-            "12:00,21:00"
-         ],
-         "4": [
-            "12:00,21:00"
-         ],
-         "5": [
-            "12:00,21:00"
-         ],
-         "6": [
-            "12:00,21:00"
-         ]
-      },
-      "website": "https://www.cornishpastycoboston.com/"
    },
    {
       "name": "Point 15",
@@ -1636,7 +1602,7 @@
    {
       "name": "Model Cafe",
       "location": "42.35379, -71.13759",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "18:00,02:00"
@@ -1751,7 +1717,7 @@
    {
       "name": "China Rainbow",
       "location": "42.36469, -71.18069",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "15:00,22:00"
@@ -1779,7 +1745,7 @@
    {
       "name": "The Cantab Lounge",
       "location": "42.36610, -71.10529",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "12:00,01:00"
@@ -1993,7 +1959,7 @@
       "name": "Coogan's",
       "location": "42.35833, -71.05334",
       "whatToOrder": "$1 bud/bud lights drafts",
-      "type": "bar",
+      "type": "divebar",
       "mbta_stop": "place-dwnxg",
       "mbta_distance": "13",
       "mbta_line": [
@@ -2173,7 +2139,7 @@
    {
       "name": "JJ's Irish Pub and Grille",
       "location": "42.31227, -71.05724",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "11:00,01:00"
@@ -2235,7 +2201,7 @@
    {
       "name": "Silhouette Lounge",
       "location": "42.35310, -71.13440",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "14:00,01:00"
@@ -2351,7 +2317,7 @@
    {
       "name": "Tanjore",
       "location": "42.36768, -71.10788",
-      "type": "bar",
+      "type": "divebar",
       "whatToOrder": "$2 beer on the menu",
       "hours": {
          "0": [
@@ -2877,7 +2843,7 @@
    {
       "name": "Rally Point Inn and Pub",
       "location": "42.06545, -71.24866",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "11:00,01:00"
@@ -2960,35 +2926,6 @@
       }
    },
    {
-      "name": "Polish American Citizens Club",
-      "location": "42.32657207615881, -71.05825855824853",
-      "type": "bar",
-      "hours": {
-         "0": [
-            "12:00,01:00"
-         ],
-         "1": [
-            "12:00,01:00"
-         ],
-         "2": [
-            "13:00,01:00"
-         ],
-         "3": [
-            "13:00,01:00"
-         ],
-         "4": [
-            "13:00,01:00"
-         ],
-         "5": [
-            "13:00,01:00"
-         ],
-         "6": [
-            "13:00,01:00"
-         ]
-      },
-      "website": "https://www.polishclubboston.com"
-   },
-   {
       "name": "Darcy's Village Pub",
       "location": "42.251832135781555, -71.03693420469895",
       "type": "bar",
@@ -3020,7 +2957,7 @@
    {
       "name": "Tony's Pub and Grill",
       "location": "42.46966619222235, -70.959920146718",
-      "type": "bar",
+      "type": "outsideboston",
       "whatToOrder": "$15 pitchers, $5 tall buds",
       "hours": {
          "0": [
@@ -3050,7 +2987,7 @@
    {
       "name": "The Old Colony Tap",
       "location": "42.05207330784361, -70.1852850997032",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "11:00,01:00"
@@ -3139,7 +3076,7 @@
       "name": "Lewis' Restaurant & Grille",
       "location": "42.19334337440419, -71.20048079999013",
       "whatToOrder": "Lewis Burger, screwdriver with fresh squeezed OJ",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "10:30,01:00"
@@ -3169,7 +3106,7 @@
       "name": "Patrick and Franny's",
       "location": "42.43435318252129, -71.0459962868093",
       "whatToOrder": "cheap drinks and heavy pours",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "08:00,21:00"
@@ -3197,7 +3134,7 @@
    {
       "name": "Pete's Grill",
       "location": "42.243594054026666, -70.97595481570421",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "12:00,01:00"
@@ -3226,7 +3163,7 @@
       "name": "Manet Lunch",
       "location": "42.2677379, -70.9565909",
       "whatToOrder": "PBR, Yuengling or Pizza",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "08:00,01:00"
@@ -3255,13 +3192,13 @@
    {
       "name": "The Sand Trap/The Shanty",
       "location": "42.24268135574363, -70.9525171255789",
-      "type": "bar",
+      "type": "outsideboston",
       "whatToOrder": "Beers average $4 and mixed drinks are $6-$8"
    },
    {
       "name": "The Bomb Shelter",
       "location": "41.93064917079587, -70.03210239432607",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "16:00,01:00"
@@ -3499,7 +3436,7 @@
    {
       "name": "The Hong Kong",
       "location": "42.35962502814685, -71.0538103844186",
-      "type": "bar",
+      "type": "divebar",
       "mbta_stop": "place-dwnxg",
       "mbta_distance": "15",
       "mbta_line": [
@@ -3533,7 +3470,7 @@
    {
       "name": "Canal Cafe",
       "location": "41.77082873620642, -70.54116099859708",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "11:30,01:00"
@@ -3675,7 +3612,7 @@
    {
       "name": "Rags Tavern",
       "location": "42.24897833690467, -70.98683922067582",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "11:00,00:00"
@@ -3735,7 +3672,7 @@
       "website": "https://nappertandyspubs.com"
    },
    {
-      "name": " Tommy Doyle's",
+      "name": "Tommy Doyle's",
       "location": "42.360815817272005, -71.20073741615006",
       "type": "bar",
       "hours": {
@@ -3853,7 +3790,7 @@
    {
       "name": "Hofbrau Bar and Grill",
       "location": "42.26240913620762, -70.98382662031057",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "12:00,01:00"
@@ -3909,6 +3846,7 @@
    {
       "name": "Cherry Tree",
       "location": "42.34902667589019, -71.22840134859882",
+      "type": "bar",
       "hours": {
          "0": [
             "12:00,21:30"
@@ -3937,6 +3875,7 @@
    {
       "name": "Echo Bridge Restaurant & Cafe",
       "location": "42.312577488536675, -71.2244821431636",
+      "type": "bar",
       "hours": {
          "0": [
             "closed,closed"
@@ -3965,6 +3904,7 @@
    {
       "name": "Cavan Cafe",
       "location": "42.25059046877452, -71.12575366705613",
+      "type": "bar",
       "hours": {
          "0": [
             "10:00,00:00"
@@ -3993,6 +3933,7 @@
    {
       "name": "Matt Kelly's Pub",
       "location": "42.15241715327399, -71.14752304875014",
+      "type":"outsideboston",
       "hours": {
          "0": [
             "11:00,01:00"
@@ -4020,6 +3961,7 @@
    {
       "name": "Poopsies",
       "location": "42.106801612355376, -70.76107941648164",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "12:00,09:00"
@@ -4047,6 +3989,7 @@
    {
       "name": "Miracle of Science",
       "location": "42.36252828526977, -71.09859774862423",
+      "type":"bar",
       "hours": {
          "0": [
             "11:30,01:00"

@@ -4,6 +4,7 @@
     r = httpGet(`https://bostondives.bar/.netlify/functions/logging?error=${errortype}`);
 }*/
 
+
 function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
@@ -144,6 +145,12 @@ function generatePopupMessage(barJson) {
         funcPopupMessage += `<p>Recommended order: ${barJson["whatToOrder"]}</p>`
     }
 
+    if(barJson["type"] == "divebar") {
+        funcPopupMessage += `<p>Bar Type: Dive Bar 🍻</p>`
+    } else if(barJson["type"] == "bar") {
+        funcPopupMessage += `<p>Bar Type: Neighborhood Bar 🍺</p>`
+    }
+
     // send the current time and then the current day to figure out if the bar is open
     if (barJson["hours"]) {
         let barStatus = checkBarOpen(currentTime, barJson, currentDay)
@@ -236,7 +243,30 @@ var yellowIcon = new L.Icon({
     shadowSize: [41, 41]
 });
 
+var blueIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+
+var blackIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+
+
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
+const barsLayer = L.layerGroup();
+const diveBarsLayer = L.layerGroup();
+const foodLayer = L.layerGroup();
+const outsideBostonLayer = L.layerGroup();
 
 fetch("./locations.json")
     .then(response => response.json())
@@ -302,25 +332,52 @@ fetch("./locations.json")
         }
 
         for (var i = 0; i < json.length; i++) {
-            var lat = parseFloat(json[i]["location"].split(",")[0])
-            var long = parseFloat(json[i]["location"].split(",")[1])
-            // determine what marker to use on the map
+            var lat = parseFloat(json[i]["location"].split(",")[0]);
+            var long = parseFloat(json[i]["location"].split(",")[1]);
+            
+            // Determine what marker to use on the map
             let iconType = redIcon;
             if (json[i]["type"] == "food") {
                 iconType = greenIcon;
+            } else if (json[i]["type"] == "divebar") {
+                iconType = blackIcon;
+            } else if (json[i]["type"] == "outsideboston") {
+                iconType = blueIcon;
             }
-
-
-            // start creating the popup menu when an icon is clicked on
+        
+            // Create the popup menu when an icon is clicked
             let popupMessage = generatePopupMessage(json[i]);
-
-            // add everything from locations
+        
+            // Add everything from locations to a marker without adding to the map directly
             marker = new L.marker([lat, long], { icon: iconType })
                 .bindPopup(popupMessage)
-                .on('click', onClick)
-                .addTo(map);
-        }
+                .on('click', onClick);
+            
+            // Add each marker to its respective layer group only
+            if (json[i]["type"] === 'bar' || json[i]["type"] == null) {
+                barsLayer.addLayer(marker);
+            } else if (json[i]["type"] === 'food') {
+                foodLayer.addLayer(marker);
+            } else if(json[i]["type"] == "divebar") {
+                diveBarsLayer.addLayer(marker);
+            } else if(json[i]["type"] == "outsideboston"){
+                outsideBostonLayer.addLayer(marker);
+            }
 
+        }
+        
+        // Set up the overlay maps with the layer control
+        const overlayMaps = {
+            "Neighborhood Bars": barsLayer,
+            "Dive Bars": diveBarsLayer,
+            "Outside Boston": outsideBostonLayer,
+            "Cheap Food": foodLayer
+        };
+        L.control.layers(null, overlayMaps).addTo(map);
+        
+        // Add only the barsLayer to the map initially
+        barsLayer.addTo(map);
+        diveBarsLayer.addTo(map);
 
         /*var lc = L.control.locate({
             strings: {
@@ -419,6 +476,11 @@ fetch("./locations.json")
                 elements[i].parentNode.removeChild(elements[i]);
             }
 
+            barsLayer.clearLayers();
+            diveBarsLayer.clearLayers();
+            foodLayer.clearLayers();
+            outsideBostonLayer.clearLayers();
+
             // get the user coordinates
             let userLat = e.latitude;
             let userLong = e.longitude;
@@ -486,6 +548,10 @@ fetch("./locations.json")
                 let iconType = redIcon;
                 if (json[i]["type"] == "food") {
                     iconType = greenIcon;
+                } else if (json[i]["type"] == "divebar") {
+                    iconType = blackIcon;
+                } else if (json[i]["type"] == "outsideboston") {
+                    iconType = blueIcon;
                 }
 
                 // start creating the popup menu when an icon is clicked on
@@ -496,8 +562,20 @@ fetch("./locations.json")
                     .bindPopup(popupMessage)
                     .on('click', onClick)
                     .addTo(map);
+
+            // Add each marker to its respective layer group only
+                if (json[i]["type"] === 'bar' || json[i]["type"] == null) {
+                    barsLayer.addLayer(marker);
+                } else if (json[i]["type"] === 'food') {
+                    foodLayer.addLayer(marker);
+                } else if(json[i]["type"] == "divebar") {
+                    diveBarsLayer.addLayer(marker);
+                } else if(json[i]["type"] == "outsideboston"){
+                    outsideBostonLayer.addLayer(marker);
+                }
             }
 
+            
             // instead of getting the plot of the closest bar get the coords of the bar from the query
             if (plotBarOnMap) {
                 for (let i = 0; i < json.length; i++) {
