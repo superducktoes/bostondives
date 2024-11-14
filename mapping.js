@@ -382,6 +382,7 @@ fetch("./locations.json")
         // Add only the barsLayer to the map initially
         barsLayer.addTo(map);
         diveBarsLayer.addTo(map);
+        kenoBarsSubLayer.addTo(map);
 
         /*var lc = L.control.locate({
             strings: {
