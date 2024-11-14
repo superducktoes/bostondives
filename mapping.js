@@ -146,9 +146,9 @@ function generatePopupMessage(barJson) {
     }
 
     if(barJson["type"] == "divebar") {
-        funcPopupMessage += `<p>🍻 Bar Type: Dive Bar </p>`
+        funcPopupMessage += `<p>Bar Type: Dive Bar 🍻</p>`
     } else if(barJson["type"] == "bar") {
-        funcPopupMessage += `<p>🍺 Bar Type: Neighborhood Bar</p>`
+        funcPopupMessage += `<p>Bar Type: Neighborhood Bar 🍺</p>`
     }
 
     // send the current time and then the current day to figure out if the bar is open
@@ -543,6 +543,10 @@ fetch("./locations.json")
                 let iconType = redIcon;
                 if (json[i]["type"] == "food") {
                     iconType = greenIcon;
+                } else if (json[i]["type"] == "divebar") {
+                    iconType = blackIcon;
+                } else if (json[i]["type"] == "outsideboston") {
+                    iconType = blueIcon;
                 }
 
                 // start creating the popup menu when an icon is clicked on

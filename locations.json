@@ -3874,6 +3874,7 @@
    {
       "name": "Cherry Tree",
       "location": "42.34902667589019, -71.22840134859882",
+      "type": "bar",
       "hours": {
          "0": [
             "12:00,21:30"
@@ -3902,6 +3903,7 @@
    {
       "name": "Echo Bridge Restaurant & Cafe",
       "location": "42.312577488536675, -71.2244821431636",
+      "type": "bar",
       "hours": {
          "0": [
             "closed,closed"
@@ -3930,6 +3932,7 @@
    {
       "name": "Cavan Cafe",
       "location": "42.25059046877452, -71.12575366705613",
+      "type": "bar",
       "hours": {
          "0": [
             "10:00,00:00"
@@ -4014,6 +4017,7 @@
    {
       "name": "Miracle of Science",
       "location": "42.36252828526977, -71.09859774862423",
+      "type":"bar",
       "hours": {
          "0": [
             "11:30,01:00"
