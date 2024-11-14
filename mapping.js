@@ -237,17 +237,8 @@ var yellowIcon = new L.Icon({
     shadowSize: [41, 41]
 });
 
-var blackIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
-});
-
 var blueIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
     iconSize: [25, 41],
     iconAnchor: [12, 41],
@@ -255,14 +246,21 @@ var blueIcon = new L.Icon({
     shadowSize: [41, 41]
 });
 
-
+var blackIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
 
 
 var map = L.map('map').setView([42.352842657497064, -71.06222679401405], 14);
 const barsLayer = L.layerGroup();
 const diveBarsLayer = L.layerGroup();
-const outsideBostonLayer = L.layerGroup();
 const foodLayer = L.layerGroup();
+const outsideBostonLayer = L.layerGroup();
 
 fetch("./locations.json")
     .then(response => response.json())
@@ -335,9 +333,9 @@ fetch("./locations.json")
             let iconType = redIcon;
             if (json[i]["type"] == "food") {
                 iconType = greenIcon;
-            } else if(json[i]["type"] == "divebar") {
+            } else if (json[i]["type"] == "divebar") {
                 iconType = blackIcon;
-            } else if(json[i]["type"] == "outsideboston") {
+            } else if (json[i]["type"] == "outsidebar") {
                 iconType = blueIcon;
             }
         
@@ -356,22 +354,25 @@ fetch("./locations.json")
                 foodLayer.addLayer(marker);
             } else if(json[i]["type"] == "divebar") {
                 diveBarsLayer.addLayer(marker);
-            } else if(json[i]["type"] == "outsideboston") {
+            } else if(json[i]["type"] == "outsideboston"){
                 outsideBostonLayer.addLayer(marker);
             }
+
+        }
         
         // Set up the overlay maps with the layer control
         const overlayMaps = {
             "Neighborhood Bars": barsLayer,
             "Dive Bars": diveBarsLayer,
             "Outside Boston": outsideBostonLayer,
-            "Food": foodLayer
+            "Cheap Food": foodLayer
         };
         L.control.layers(null, overlayMaps).addTo(map);
         
         // Add only the barsLayer to the map initially
         barsLayer.addTo(map);
         diveBarsLayer.addTo(map);
+
         /*var lc = L.control.locate({
             strings: {
               title: "Show me the closest dive bar"
