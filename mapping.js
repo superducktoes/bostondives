@@ -290,6 +290,15 @@ fetch("./locations.json")
             var closestBarButton = document.getElementById('findClosestBarButton');
             closestBarButton.style.filter = 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)';
 
+            const originalCoords = [42.352842657497064, -71.06222679401405];
+            const originalZoom = 14;
+            const clearDirectionsButton = document.getElementById('clearDirectionsButton');
+            clearDirectionsButton.addEventListener('click', () => {
+                // Refresh page to reset the map (or reset view manually if preferred)
+                map.setView(originalCoords, originalZoom);  // Reset to original map position
+                clearDirectionsButton.style.display = "none"; // Hide "Clear Directions"
+                findClosestBarButton.style.display = "inline"; // Show "Find Closest Dive Bar" button
+            });
             // page loads with an empty custom class for light mode. this sets the custom class for the popups
             var customPopupStyles = `
             .custom-popup .leaflet-popup-content-wrapper {
