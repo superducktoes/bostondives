@@ -575,18 +575,6 @@ fetch("./locations.json")
                 }
             }
 
-                    // Set up the overlay maps with the layer control
-        const overlayMaps = {
-            "Neighborhood Bars": barsLayer,
-            "Dive Bars": diveBarsLayer,
-            "Outside Boston": outsideBostonLayer,
-            "Cheap Food": foodLayer
-        };
-        L.control.layers(null, overlayMaps).addTo(map);
-        
-        // Add only the barsLayer to the map initially
-        barsLayer.addTo(map);
-        diveBarsLayer.addTo(map);
             
             // instead of getting the plot of the closest bar get the coords of the bar from the query
             if (plotBarOnMap) {
