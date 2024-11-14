@@ -497,7 +497,8 @@
    {
       "name": "Shea's Tavern",
       "location": "42.34004, -71.05248",
-      "type": "bar",
+      "whatToOrder":"Typically only open on certain Fridays and Saturdays.",
+      "type": "divebar",
       "hours": {
          "0": [
             "closed,closed"
@@ -1309,7 +1310,7 @@
    {
       "name": "Six Twenty-One Tavern and Grill",
       "location": "42.44153, -71.0304",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "12:00,01:00"
@@ -1504,35 +1505,6 @@
          ]
       },
       "website": "https://www.charlieskitchen.com/"
-   },
-   {
-      "name": "Cornish Pasty Co",
-      "location": "42.34971, -71.08917",
-      "type": "bar",
-      "hours": {
-         "0": [
-            "12:00,21:00"
-         ],
-         "1": [
-            "closed,closed"
-         ],
-         "2": [
-            "12:00,21:00"
-         ],
-         "3": [
-            "12:00,21:00"
-         ],
-         "4": [
-            "12:00,21:00"
-         ],
-         "5": [
-            "12:00,21:00"
-         ],
-         "6": [
-            "12:00,21:00"
-         ]
-      },
-      "website": "https://www.cornishpastycoboston.com/"
    },
    {
       "name": "Point 15",
@@ -1745,7 +1717,7 @@
    {
       "name": "China Rainbow",
       "location": "42.36469, -71.18069",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "15:00,22:00"
@@ -2167,7 +2139,7 @@
    {
       "name": "JJ's Irish Pub and Grille",
       "location": "42.31227, -71.05724",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "11:00,01:00"
@@ -3134,7 +3106,7 @@
       "name": "Patrick and Franny's",
       "location": "42.43435318252129, -71.0459962868093",
       "whatToOrder": "cheap drinks and heavy pours",
-      "type": "bar",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "08:00,21:00"
@@ -3162,7 +3134,7 @@
    {
       "name": "Pete's Grill",
       "location": "42.243594054026666, -70.97595481570421",
-      "type": "bar",
+      "type": "divebar",
       "hours": {
          "0": [
             "12:00,01:00"
@@ -3220,7 +3192,7 @@
    {
       "name": "The Sand Trap/The Shanty",
       "location": "42.24268135574363, -70.9525171255789",
-      "type": "bar",
+      "type": "outsideboston",
       "whatToOrder": "Beers average $4 and mixed drinks are $6-$8"
    },
    {
