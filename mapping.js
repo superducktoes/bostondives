@@ -331,26 +331,13 @@ fetch("./locations.json")
             
             // Determine what marker to use on the map
             let iconType = redIcon;
-            /*if (json[i]["type"] == "food") {
+            if (json[i]["type"] == "food") {
                 iconType = greenIcon;
             } else if (json[i]["type"] == "divebar") {
                 iconType = blackIcon;
             } else if (json[i]["type"] == "outsideboston") {
                 iconType = blueIcon;
-            }*/
-
-                if (json[i]["type"] === 'bar' || json[i]["type"] == null) {
-                    barsLayer.addLayer(marker);
-                } else if (json[i]["type"] === 'food') {
-                    foodLayer.addLayer(marker);
-                    iconType = greenIcon;
-                } else if(json[i]["type"] == "divebar") {
-                    diveBarsLayer.addLayer(marker);
-                    iconType = blackIcon;
-                } else if(json[i]["type"] == "outsideboston"){
-                    outsideBostonLayer.addLayer(marker);
-                    iconType = blueIcon;
-                }
+            }
         
             // Create the popup menu when an icon is clicked
             let popupMessage = generatePopupMessage(json[i]);
@@ -361,7 +348,7 @@ fetch("./locations.json")
                 .on('click', onClick);
             
             // Add each marker to its respective layer group only
-            /*if (json[i]["type"] === 'bar' || json[i]["type"] == null) {
+            if (json[i]["type"] === 'bar' || json[i]["type"] == null) {
                 barsLayer.addLayer(marker);
             } else if (json[i]["type"] === 'food') {
                 foodLayer.addLayer(marker);
@@ -369,7 +356,7 @@ fetch("./locations.json")
                 diveBarsLayer.addLayer(marker);
             } else if(json[i]["type"] == "outsideboston"){
                 outsideBostonLayer.addLayer(marker);
-            }*/
+            }
 
         }
         
