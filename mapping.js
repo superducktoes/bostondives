@@ -396,6 +396,7 @@ fetch("./locations.json")
           L.DomEvent.on(document.getElementById('findClosestBarButton'), 'click', function(){
             map.locate({setView: true, maxZoom: 16});
             document.getElementById("findClosestBarButton").style.visibility = "hidden";
+            clearDirectionsButton.style.display = "inline";
           })
 
         let isMobile = window.mobileCheck()
