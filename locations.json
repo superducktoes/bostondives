@@ -497,7 +497,7 @@
    {
       "name": "Shea's Tavern",
       "location": "42.34004, -71.05248",
-      "whatToOrder":"Typically only open on certain Fridays and Saturdays.",
+      "whatToOrder": "Typically only open on certain Fridays and Saturdays.",
       "type": "divebar",
       "hours": {
          "0": [
@@ -2374,6 +2374,34 @@
       "website": "http://galwayhousejp.com/"
    },
    {
+      "name": "Costello's Tavern",
+      "location": "42.311165571124974, -71.11464754346193",
+      "type": "bar",
+      "hours": {
+         "0": [
+            "11:00,02:00"
+         ],
+         "1": [
+            "16:00,02:00"
+         ],
+         "2": [
+            "16:00,02:00"
+         ],
+         "3": [
+            "16:00,02:00"
+         ],
+         "4": [
+            "11:00,02:00"
+         ],
+         "5": [
+            "11:00,02:00"
+         ],
+         "6": [
+            "11:00,02:00"
+         ]
+      }
+   },
+   {
       "name": "Sally O'Brien's",
       "location": "42.38077, -71.09799",
       "type": "bar",
@@ -3933,7 +3961,7 @@
    {
       "name": "Matt Kelly's Pub",
       "location": "42.15241715327399, -71.14752304875014",
-      "type":"outsideboston",
+      "type": "outsideboston",
       "hours": {
          "0": [
             "11:00,01:00"
@@ -3989,7 +4017,7 @@
    {
       "name": "Miracle of Science",
       "location": "42.36252828526977, -71.09859774862423",
-      "type":"bar",
+      "type": "bar",
       "hours": {
          "0": [
             "11:30,01:00"
