@@ -6,16 +6,13 @@ on:
       - main
     paths:
       - locations.json
-
+    
 jobs:
-  validate-json:
+  verify-json-validation:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
+      - uses: actions/checkout@v1
       - name: Validate JSON
-        uses: vgaidarji/validate-json-action@v2
-        with:
-          files: locations.json
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_JSONS: locations.json
