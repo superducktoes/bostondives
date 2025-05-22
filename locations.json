@@ -1,35 +1,5 @@
 [
    {
-      "name": "Paddy Barry's",
-      "location": "42.24703, -71.00079",
-      "whatToOrder": "Beer. Food from the pizza glory hole",
-      "type": "bar",
-      "hours": {
-         "0": [
-            "12:00,01:00"
-         ],
-         "1": [
-            "14:00,01:00"
-         ],
-         "2": [
-            "14:00,01:00"
-         ],
-         "3": [
-            "14:00,01:00"
-         ],
-         "4": [
-            "14:00,01:00"
-         ],
-         "5": [
-            "14:00,01:00"
-         ],
-         "6": [
-            "12:00,01:00"
-         ]
-      },
-      "website": "http://www.paddybarrys.com/"
-   },
-   {
       "name": "Presidential Pub",
       "location": "42.25105, -71.00244",
       "type": "divebar",
