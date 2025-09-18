@@ -5,6 +5,12 @@
       "type": "divebar",
        "whatToOrder": "Ziti & Sauce, PBR, Bud Lite",
    },
+     {
+      "name": "Ralph's Diner",
+      "location": "42.2775977, -71.8059327,",
+      "type": "divebar",
+       "whatToOrder": "Roll the dice and order a burger. Wash it down with cheap beer.",
+   },
    {
       "name": "Presidential Pub",
       "location": "42.25105, -71.00244",
