@@ -2,7 +2,8 @@
      {
       "name": "Vincent's",
       "location": "42.2585082, -74.0282822",
-      "type": "divebar"
+      "type": "divebar",
+       "whatToOrder": "Ziti & Sauce, PBR, Bud Lite",
    },
    {
       "name": "Presidential Pub",
