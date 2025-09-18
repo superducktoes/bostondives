@@ -1,4 +1,9 @@
 [
+     {
+      "name": "Vincent's",
+      "location": "42.2585082, -74.0282822",
+      "type": "divebar"
+   },
    {
       "name": "Presidential Pub",
       "location": "42.25105, -71.00244",
