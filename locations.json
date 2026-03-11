@@ -1108,40 +1108,6 @@
       "website": "http://www.kelleyssquarepub.com/"
    },
    {
-      "name": "Eddie C's",
-      "location": "42.36996, -71.0393",
-      "whatToOrder": "Hot dogs. Single beers, never a pitcher. It's cheaper that way.",
-      "type": "divebar",
-      "mbta_stop": "place-mvbcl",
-      "mbta_distance": "2",
-      "mbta_line": [
-         "Blue"
-      ],
-      "hours": {
-         "0": [
-            "12:00,02:00"
-         ],
-         "1": [
-            "10:00,02:00"
-         ],
-         "2": [
-            "10:00,02:00"
-         ],
-         "3": [
-            "10:00,02:00"
-         ],
-         "4": [
-            "10:00,02:00"
-         ],
-         "5": [
-            "10:00,02:00"
-         ],
-         "6": [
-            "10:00,02:00"
-         ]
-      }
-   },
-   {
       "name": "Casey's",
       "location": "42.38909, -71.08618",
       "type": "bar",
