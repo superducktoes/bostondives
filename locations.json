@@ -1,5 +1,12 @@
 [
      {
+          "name": "Mister Tramps Sports Bar",
+          "location": "30.3614382,-97.7188054",
+          "type": "divebar",
+          "whatToOrder": "Get a greasy burger paired with good IPA. Show up on the last Thursday of every month for specials.",
+          "website": "https://mistertramps.org/"
+     },
+     {
       "name": "Vincent's",
       "location": "42.25841, -71.78722",
       "type": "divebar",
